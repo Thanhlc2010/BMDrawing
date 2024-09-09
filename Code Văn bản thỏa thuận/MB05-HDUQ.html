@@ -1,155 +1,599 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>A4 Format Example</title>
     <style>
-        .a4-format {
-            width: 210mm;
-            height: 297mm;
-            margin: auto;
-            padding: 20mm;
-            background-color: white;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            box-sizing: border-box;
-            overflow: auto;
-            line-height: 30px;
-        }
+      .a4-format {
+        width: 210mm;
+        height: 297mm;
+        margin: auto;
+        padding: 20mm;
+        background-color: white;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+        overflow: auto;
+        line-height: 30px;
+      }
 
-        h1 {
-            font-size: 24px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+      h1 {
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
 
-        p {
-            font-size: 16px;
-            line-height: 1.5;
-        }
+      p {
+        font-size: 16px;
+        line-height: 1.5;
+      }
 
-        .tx16 {
-            font-size: 21.33px;
-        }
+      .tx16 {
+        font-size: 21.33px;
+      }
 
-        /* Hàm mặc định */
-        .tx12 {
-            font-size: 16px;
-        }
+      .left {
+        width: 7%;
+      }
 
-        /* Căn giữa */
-        .txcenter {
-            text-align: center;
-        }
+      .right {
+        width: 93%;
+      }
 
-        /* In đậm */
-        .bold {
-            font-weight: bold;
-        }
+      .red-text {
+        color: red;
+      }
 
-        /* In nghiêng */
-        .italic {
-            font-style: italic;
-        }
+      /* Hàm mặc định */
+      .tx12 {
+        font-size: 16px;
+      }
+
+      /* Căn giữa */
+      .txcenter {
+        text-align: center;
+      }
+
+      /* In đậm */
+      .bold {
+        font-weight: bold;
+      }
+
+      /* In nghiêng */
+      .italic {
+        font-style: italic;
+      }
+
+      /* Bảng, đã được căn các cột đều nhau */
+      table {
+        width: 100%;
+        text-indent: 0;
+        table-layout: fixed;
+        border-collapse: collapse;
+      }
+
+      table td,
+      table th {
+        border: solid 1.5px black;
+        padding: 0px;
+        vertical-align: top;
+      }
+
+      /* Bảng không có viền */
+      .table-no-border td,
+      .table-no-border th {
+        border: none !important;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="a4-format">
-        <div  id = "header" style="padding-top: 50px; padding-bottom: 30px; line-height: normal;" class = "tx12 txcenter">
-            <span class="bold">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
-            <br />
-            <span class="bold">Độc lập - Tự do -  Hạnh phúc</span>
-            <br />
-            <span>---------&#9734;&#9734;&#9734;---------</span>
-            <br />
-            <div class="bold tx16" style="margin-top: 50px;">
-                <span>
-                    HỢP ĐỒNG ỦY QUYỀN
-                </span>
-            </div>
-            <div class="bold italic tx12" style="margin-top: 20px; text-align: left;">
-                <span>
-                    Hôm nay, ngày…./…./……., tại……………….., các bên gồm:
-                </span>
-            </div>
+      <div
+        id="header"
+        style="padding-top: 50px; padding-bottom: 30px; line-height: normal"
+        class="tx12 txcenter"
+      >
+        <span class="bold">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
+        <br />
+        <span class="bold">Độc lập - Tự do - Hạnh phúc</span>
+        <br />
+        <span>---------&#9734;&#9734;&#9734;---------</span>
+        <br />
+        <div class="bold tx16" style="margin-top: 50px">
+          <span> HỢP ĐỒNG ỦY QUYỀN </span>
         </div>
-        <div id = "I" class="tx12">
-                <span class="bold">
-                    I.&nbsp;&nbsp;&nbsp;&nbsp;Bên ủy quyền: Ông/bà:
-                </span>
-                <div style="padding-left: 10px;">
-                    <span>
-                        -&nbsp;&nbsp;&nbsp;Sinh ngày:
-                    </span>
-                    <br />
-                    <span>
-                        -&nbsp;&nbsp;&nbsp;CMND/CCCD/Hộ chiếu số: ……………. do ……….. cấp ngày …………………………	
-                    </span>
-                    <br />
-                    <span>
-                        -&nbsp;&nbsp;&nbsp;Địa chỉ đăng ký thường trú/tạm trú:  	
-                    </span>
-                    <br />
-                    <div style="padding-left: 15px;">
-                        <span>
-                            Và vợ/chồng là:
-                        </span>
-                    </div>
-                    <span>
-                        -&nbsp;&nbsp;&nbsp;Bà/ông: 
-                    </span>
-                    <br />
-                    <span>
-                        -&nbsp;&nbsp;&nbsp;Sinh ngày:
-                    </span>
-                    <br />
-                    <span>
-                        -&nbsp;&nbsp;&nbsp;CMND/CCCD/Hộ chiếu số: ……………. do ……….. cấp ngày …………………………	
-                    </span>
-                    <br />
-                    <span>
-                        -&nbsp;&nbsp;&nbsp;Địa chỉ đăng ký thường trú/tạm trú:  	
-                    </span>
-                    <br />
+        <div
+          class="bold italic tx12"
+          style="margin-top: 20px; text-align: left"
+        >
+          <span> Hôm nay, ngày…./…./……., tại……………….., các bên gồm: </span>
+        </div>
+      </div>
+      <div id="I" class="tx12">
+        <span class="bold">
+          I.&nbsp;&nbsp;&nbsp;&nbsp;Bên ủy quyền: Ông/bà:
+        </span>
+        <div style="padding-left: 10px">
+          <span> -&nbsp;&nbsp;&nbsp;Sinh ngày: </span>
+          <br />
+          <span>
+            -&nbsp;&nbsp;&nbsp;CMND/CCCD/Hộ chiếu số: ……………. do ……….. cấp ngày
+            …………………………
+          </span>
+          <br />
+          <span> -&nbsp;&nbsp;&nbsp;Địa chỉ đăng ký thường trú/tạm trú: </span>
+          <br />
+          <div style="padding-left: 15px">
+            <span> Và vợ/chồng là: </span>
+          </div>
+          <span> -&nbsp;&nbsp;&nbsp;Bà/ông: </span>
+          <br />
+          <span> -&nbsp;&nbsp;&nbsp;Sinh ngày: </span>
+          <br />
+          <span>
+            -&nbsp;&nbsp;&nbsp;CMND/CCCD/Hộ chiếu số: ……………. do ……….. cấp ngày
+            …………………………
+          </span>
+          <br />
+          <span> -&nbsp;&nbsp;&nbsp;Địa chỉ đăng ký thường trú/tạm trú: </span>
+          <br />
+        </div>
+        <span class="bold"> (Sau đây gọi là Bên A):&sup2; </span>
+        <br />
+        <br />
+      </div>
+      <div id="II" class="tx12">
+        <span class="bold"> II.&nbsp;&nbsp;&nbsp;&nbsp;Bên được ủy quyền </span>
+        <div style="padding-left: 10px">
+          <span> -&nbsp;&nbsp;&nbsp;Bà/ông: </span>
+          <br />
+          <span> -&nbsp;&nbsp;&nbsp;Sinh ngày: </span>
+          <br />
+          <span>
+            -&nbsp;&nbsp;&nbsp;CMND/CCCD/Hộ chiếu số: ……………. do ……….. cấp ngày
+            …………………………
+          </span>
+          <br />
+          <span> -&nbsp;&nbsp;&nbsp;Địa chỉ đăng ký thường trú/tạm trú: </span>
+          <br />
+        </div>
+        <span class="bold"> (Sau đây gọi là Bên B): </span>
+        <br />
+        <div
+          class="bold italic tx12"
+          style="margin-top: 20px; text-align: left"
+        >
+          <span>
+            Đã nhất trí ký kết Hợp đồng ủy quyền này (“Hợp đồng”) với các nội
+            dung như sau:
+          </span>
+        </div>
+        <table class="table-no-border tx12 bold">
+          <tr>
+            <td style="width: 10%">
+              <span>Điều 1.</span>
+            </td>
+            <td style="width: 90%">
+              <span>Nội Dung Và Phạm Vi Ủy Quyền</span>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12">
+          <tr>
+            <td class="left">
+              <span>1.</span>
+            </td>
+            <td class="right">
+              <div>
+                <span>Bên A đã nhận chuyển nhượng/mua tài sản từ Ông/bà:</span>
+                <span>……………</span>
+                <span
+                  >theo Hợp đồng chuyển nhượng/Hợp đồng mua bán số công
+                  chứng</span
+                >
+                <span>………………</span>
+                <span>ngày</span>
+                <span>………</span>
+                <span>lập tại</span>
+                <span>………………</span>
+                <span>Chi tiết tài sản như sau:</span>
+                <span>………………</span>
+                <br />
+                <div style="margin-top: 10px">
+                  <span>&#40;Sau đây gọi tắt là "</span>
+                  <span class="bold">Tài Sản Bảo Đảm</span>
+                  <span>"&#41;</span>
                 </div>
-                <span class="bold">
-                    (Sau đây gọi là Bên A):&sup2;
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12">
+          <tr>
+            <td class="left">
+              <span>2.</span>
+            </td>
+            <td class="right">
+              <div>
+                <span>Bên A và Ngân hàng TMCP Đại chúng Việt Nam ("</span>
+                <span class="bold">PVcomBank</span>
+                <span>") đã ký kết Hợp đồng tín dụng số</span>
+                <span> ……… </span>
+                <span>ngày </span>
+                <span>………</span>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12">
+          <tr>
+            <td class="left">
+              <span>3.</span>
+            </td>
+            <td class="right">
+              <div>
+                <span
+                  >Bằng Hợp đồng này, Bên A đồng ý ủy quyền cho Bên B được thay
+                  mặt và nhân danh Bên A thực hiện các công việc dưới đây ngay
+                  sau khi Tài Sản Bảo Đảm được sang tên cho Bên A:</span
+                >
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12">
+          <tr>
+            <td class="left">
+              <span>a&#41;</span>
+            </td>
+            <td class="right">
+              <div>
+                <span
+                  >Thế chấp Tài Sản Bảo Đảm để đảm bảo cho việc thực hiện nghĩa
+                  vụ trả nợ của của Bên A tại PVcomBank.</span
+                >
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12">
+          <tr>
+            <td class="left">
+              <span>b&#41;</span>
+            </td>
+            <td class="right">
+              <div>
+                <span
+                  >Khi thực hiện công việc được ủy quyền, Bên B được thay mặt
+                  Bên A để thực hiện:
                 </span>
-                <br />
-                <br />
-        </div>
-        <div id = "II" class="tx12">
-            <span class="bold">
-                II.&nbsp;&nbsp;&nbsp;&nbsp;Bên được ủy quyền 
-            </span>
-            <div style="padding-left: 10px;">
-                <span>
-                    -&nbsp;&nbsp;&nbsp;Bà/ông: 
-                </span>
-                <br />
-                <span>
-                    -&nbsp;&nbsp;&nbsp;Sinh ngày:
-                </span>
-                <br />
-                <span>
-                    -&nbsp;&nbsp;&nbsp;CMND/CCCD/Hộ chiếu số: ……………. do ……….. cấp ngày …………………………	
-                </span>
-                <br />
-                <span>
-                    -&nbsp;&nbsp;&nbsp;Địa chỉ đăng ký thường trú/tạm trú:  	
-                </span>
-                <br />
-            </div>
-            <span class="bold">
-                (Sau đây gọi là Bên B):
-            </span>
-            <br />
-            <div class="bold italic tx12" style="margin-top: 20px; text-align: left;">
-                <span>
-                    Đã nhất trí ký kết Hợp đồng ủy quyền này (“Hợp đồng”) với các nội dung như sau:
-                </span>
-            </div>
-        </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12">
+          <tr>
+            <td class="left">
+              <span>-</span>
+            </td>
+            <td class="right">
+              <div>
+                <span
+                  >Ký Hợp đồng thế chấp và tất cả các giấy tờ, tài liệu liên
+                  quan với PVcomBank và các bên liên quan (nếu có); và</span
+                >
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12">
+          <tr>
+            <td class="left">
+              <span>-</span>
+            </td>
+            <td class="right">
+              <div>
+                <span
+                  >Thực hiện thủ tục công chứng, đăng ký biện pháp bảo đảm tại
+                  các cơ quan có thẩm quyền, ký tất cả các giấy tờ, tài liệu
+                  liên quan để thực hiện thủ tục công chứng, đăng ký biện pháp
+                  bảo đảm và thực hiện tất cả các thủ tục khác liên quan đến
+                  việc thế chấp Tài Sản Bảo Đảm; và</span
+                >
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12">
+          <tr>
+            <td class="left">
+              <span>-</span>
+            </td>
+            <td class="right">
+              <div>
+                <span
+                  >Tất cả các nội dung tại Hợp đồng thế chấp, các giấy tờ, tài
+                  liệu khác mà Bên B ký kết với PVcomBank, các cơ quan có thẩm
+                  quyền và các Bên liên quan (nếu có) do Bên B toàn quyền quyết
+                  định và thỏa thuận với PVcomBank, các cơ quan có thẩm quyền và
+                  các Bên liên quan (nếu có). Bên A đồng ý và chấp thuận tất cả
+                  các nội dung mà Bên B thỏa thuận, ký kết với PVcomBank, các cơ
+                  quan có thẩm quyền và các Bên liên quan (nếu có), cam kết
+                  không có bất kỳ khiếu nại, tranh chấp, khiếu kiện nào.</span
+                >
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12">
+          <tr>
+            <td class="left">
+              <span class="red-text">-</span>
+            </td>
+            <td class="right">
+              <div>
+                <span class="red-text"
+                  >Đóng các khoản phí/lệ phí phát sinh từ nội dung ủy
+                  quyền;</span
+                >
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12">
+          <tr>
+            <td class="left">
+              <span>c&#41;</span>
+            </td>
+            <td class="right">
+              <div>
+                <span
+                  >Trường hợp PVcomBank phải xử lý Tài Sản Bảo Đảm để thu hồi
+                  nợ, Bên B được quyền phối hợp và thực hiện các thủ tục với tư
+                  cách là Bên thế chấp theo quy định pháp luật và thỏa thuận với
+                  PVcomBank trong việc xử lý Tài Sản Bảo Đảm để thanh toán nợ
+                  cho PVcomBank theo các thỏa thuận đã ký kết với PVcomBank mà
+                  không cần có sự đồng ý của Bên A. Bên A cam kết không có bất
+                  kỳ khiếu nại, tranh chấp, khiếu kiện nào.</span
+                >
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12 bold">
+          <tr>
+            <td style="width: 10%">
+              <span>Điều 2.</span>
+            </td>
+            <td style="width: 90%">
+              <span>Thời Hạn Và Thù Lao Ủy Quyền</span>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12">
+          <tr>
+            <td class="left">
+              <span>1.</span>
+            </td>
+            <td class="right">
+              <div>
+                <span
+                  >Thời hạn ủy quyền là: Việc uỷ quyền chỉ kết thúc khi Bên A đã
+                  hoàn thành toàn bộ nghĩa vụ trả nợ tại PVcomBank.</span
+                >
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12">
+          <tr>
+            <td class="left">
+              <span>2.</span>
+            </td>
+            <td class="right">
+              <div>
+                <span>Hợp đồng này không có thù lao.</span>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12 bold">
+          <tr>
+            <td style="width: 10%">
+              <span>Điều 3.</span>
+            </td>
+            <td style="width: 90%">
+              <span>Cam Đoan Của Các Bên</span>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12">
+          <tr>
+            <td class="left">
+              <span>1.</span>
+            </td>
+            <td class="right">
+              <div>
+                <span>Bên A cam đoan: </span>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12">
+          <tr>
+            <td class="left">
+              <span>-</span>
+            </td>
+            <td class="right">
+              <div>
+                <span
+                  >Trước và cho đến thời điểm ký Hợp đồng này, Bên A chưa ủy
+                  quyền cho ai để thực hiện nội dung ủy quyền nói trên. Bên A
+                  cam đoan chịu hoàn toàn trách nhiệm trước pháp luật về mọi
+                  việc do Bên B thực hiện theo nội dung được Bên A ủy quyền
+                  trong Hợp đồng này; đồng thời, Bên A xác nhận rằng mọi thông
+                  tin và tài liệu liên quan được cung cấp cho Bên B đều trung
+                  thực, chính xác, và đầy đủ.</span
+                >
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12">
+          <tr>
+            <td class="left">
+              <span class="red-text">-</span>
+            </td>
+            <td class="right">
+              <div>
+                <span class="red-text"
+                  >Phí công chứng Hợp đồng ủy quyền này và các khoản phí/lệ phí
+                  khác phát sinh từ nội dung ủy quyền do Bên A chịu trách nhiệm
+                  nộp. Bằng Hợp đồng này, Bên A ủy quyền cho bên B nộp các khoản
+                  phí/lệ phí và cam kết ứng trước chi phí để bên B thực hiện các
+                  công việc trong phạm vi được ủy quyền.</span
+                >
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12">
+          <tr>
+            <td class="left">
+              <span>2.</span>
+            </td>
+            <td class="right">
+              <div>
+                <span
+                  >Bên B đồng ý nhận thực hiện các việc ủy quyền nói trên của
+                  Bên A.</span
+                >
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12">
+          <tr>
+            <td class="left">
+              <span>3.</span>
+            </td>
+            <td class="right">
+              <div>
+                <span>Bên A và Bên B cam đoan:</span>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12" style="margin-left: 20px">
+          <tr>
+            <td class="left">
+              <span>a&#41;</span>
+            </td>
+            <td class="right">
+              <div>
+                <span
+                  >Những thông tin đã ghi trong Hợp đồng này là đúng sự
+                  thật;</span
+                >
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12" style="margin-left: 20px">
+          <tr>
+            <td class="left">
+              <span>b&#41;</span>
+            </td>
+            <td class="right">
+              <div>
+                <span
+                  >Hợp đồng này được lập trong trạng thái tinh thần hoàn toàn
+                  minh mẫn, hoàn toàn tự nguyện, không giả tạo, không bị ép
+                  buộc, lừa dối, đe dọa, nhầm lẫn;</span
+                >
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12" style="margin-left: 20px">
+          <tr>
+            <td class="left">
+              <span>c&#41;</span>
+            </td>
+            <td class="right">
+              <div>
+                <span
+                  >Thực hiện đầy đủ các thoả thuận đã ghi trong Hợp đồng
+                  này.</span
+                >
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12 bold">
+          <tr>
+            <td style="width: 10%">
+              <span>Điều 4.</span>
+            </td>
+            <td style="width: 90%">
+              <span>Điều Khoản Cuối Cùng</span>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12">
+          <tr>
+            <td class="left">
+              <span>1.</span>
+            </td>
+            <td class="right">
+              <div>
+                <span>Hợp đồng này có hiệu lực kể từ ngày ký.</span>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12">
+          <tr>
+            <td class="left">
+              <span>2.</span>
+            </td>
+            <td class="right">
+              <div>
+                <span
+                  >Các Bên đã hiểu rõ quyền, nghĩa vụ, lợi ích hợp pháp của mình
+                  và hậu quả pháp lý của việc giao kết Hợp đồng này.</span
+                >
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12">
+          <tr>
+            <td class="left">
+              <span>3.</span>
+            </td>
+            <td class="right">
+              <div>
+                <span
+                  >Bên A và Bên B đã đọc lại nguyên văn bản Hợp đồng này, hiểu
+                  rõ nội dung và cùng thống nhất ký tên dưới đây để làm bằng
+                  chứng.</span
+                >
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <table class="table-no-border tx12 bold" style="text-align: center; margin-top: 20px;">
+        <tr>
+          <td style="width: 50%">
+            <span>BÊN ỦY QUYỀN</span>
+          </td>
+          <td style="width: 50%">
+            <span>BÊN ĐƯỢC ỦY QUYỀN</span>
+          </td>
+        </tr>
+      </table>
     </div>
-</body>
+  </body>
 </html>
