@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A4 Format Example</title>
+    <style>
+      .a4-format {
+        width: 210mm;
+        height: 297mm;
+        margin: auto;
+        padding: 20mm;
+        background-color: white;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+        overflow: auto;
+        line-height: 30px;
+      }
+
+      h1 {
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      .tx16 {
+        font-size: 21.33px;
+      }
+
+      .left {
+        width: 7%;
+      }
+
+      .right {
+        width: 93%;
+      }
+
+      .red-text {
+        color: red;
+      }
+
+      /* Hàm mặc định */
+      .tx12 {
+        font-size: 16px;
+      }
+
+      /* Căn giữa */
+      .txcenter {
+        text-align: center;
+      }
+
+      /* In đậm */
+      .bold {
+        font-weight: bold;
+      }
+
+      /* In nghiêng */
+      .italic {
+        font-style: italic;
+      }
+
+      /* Bảng, đã được căn các cột đều nhau */
+      table {
+        width: 100%;
+        text-indent: 0;
+        table-layout: fixed;
+        border-collapse: collapse;
+      }
+
+      table td,
+      table th {
+        border: solid 1.5px black;
+        padding: 0px;
+        vertical-align: top;
+      }
+
+      /* Bảng không có viền */
+      .table-no-border td,
+      .table-no-border th {
+        border: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="a4-format">
+        <div id="header" style="padding-top: 50px; padding-bottom: 30px; line-height: normal" class="tx12 txcenter">
+            <span class="bold">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
+            <br />
+            <br />
+            <span class="bold">Độc lập - Tự do - Hạnh phúc</span>
+            <br />
+            <hr style="border: none; border-top: 1px solid black; width: 50%;"/>
+            <br />
+            <div class="bold tx16">
+            <span> VĂN BẢN THỎA THUẬN </span>
+            </div>
+        </div>
+        <div class="tx12">
+            <span>Căn cứ Thỏa thuận phong tỏa tiền và thu hồi nợ số </span>
+            <span>……………</span>
+            <span>ký ngày</span>
+            <span>………</span>
+            <span>giữa</span>
+            <span>………</span>
+        </div>
+        <div class="tx12">
+            <span>Văn bản thỏa thuận này được lập và ký ngày</span>
+            <span>……………</span>
+            <span>tháng</span>
+            <span>………</span>
+            <span>năm 2023, giữa</span>
+        </div>
+        <div class="tx12">
+            <span class="bold">1. KHÁCH HÀNG:</span>
+            <div>
+                <span>Họ và tên: </span>
+                <span>[…]</span>
+            </div>
+            <div>
+                <span>Địa chỉ đăng ký thường trú: </span>
+                <span>[…]</span>
+            </div>
+            <div>
+                <span>Số CMND/Thẻ CCCD/Hộ chiếu: </span>
+                <span>……………</span>
+                <span>do</span>
+                <span>………………</span>
+                <span>cấp ngày</span>
+                <span>………</span>
+            </div>
+            <div>
+                <span>Điện thoại</span>
+                <span>……………</span>
+                <span>fax</span>
+                <span>………………</span>
+            </div>
+            <div>
+                <span>Điện thoại di động: </span>
+                <span>………………………………</span>
+                <span>Địa chỉ email: </span>
+                <span>………………………………</span>
+            </div>
+            <div>
+                <span>Cùng vợ/chồng là Ông/bà: </span>
+                <span>[…]</span>
+            </div>
+            <div>
+                <span>Địa chỉ đăng ký thường trú: </span>
+                <span>[…]</span>
+            </div>
+            <div>
+                <span>Số CMND/Thẻ CCCD/Hộ chiếu: </span>
+                <span>………………………………</span>
+                <span>do</span>
+                <span>………..</span>
+                <span>cấp ngày</span>
+                <span>……..</span>
+            </div>
+            <div>
+                <span>Điện thoại: </span>
+                <span>………………………………</span>
+                <span>Fax: </span>
+                <span>………………………………</span>
+            </div>
+            <div>
+                <span>Điện thoại di động: </span>
+                <span>………………………………</span>
+                <span>Địa chỉ email: </span>
+                <span>………………………………</span>
+            </div>   
+            <div class="italic" style="text-align: right;">
+                <span>&#40;Sau đây gọi tắt là "</span>
+                <span class="bold">Khách hàng</span>
+                <span>"&#41;</span>
+            </div>         
+        </div>
+    </div>
+  </body>
