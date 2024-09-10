@@ -17,6 +17,17 @@
         line-height: 30px;
       }
 
+      .container {
+        width: 210mm;
+        height: auto;
+        padding: 25mm 18mm 350mm 22mm;
+        background: #FFF;
+        margin: 0 auto;
+        box-sizing: border-box;
+        position: relative;
+        font-size: 16px;
+      }
+
       h1 {
         font-size: 24px;
         text-align: center;
@@ -93,7 +104,7 @@
     </style>
   </head>
   <body>
-    <div class="a4-format">
+    <div class="container">
       <div id="header" style="padding-top: 50px; padding-bottom: 30px; line-height: normal" class="tx12 txcenter">
           <span class="bold">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
           <br />
@@ -107,78 +118,78 @@
           </div>
       </div>
       <div class="tx12">
-          <span>Căn cứ Thỏa thuận phong tỏa tiền và thu hồi nợ số </span>
-          <span>……………</span>
-          <span>ký ngày</span>
-          <span>………</span>
-          <span>giữa</span>
-          <span>………</span>
+        <span>Căn cứ Thỏa thuận phong tỏa tiền và thu hồi nợ số </span>
+        <span id="agreementNumber">……………</span>
+        <span>ký ngày</span>
+        <span id="signingDate">………</span>
+        <span>giữa</span>
+        <span id="partiesInvolved">………</span>
       </div>
       <div class="tx12">
-          <span>Văn bản thỏa thuận này được lập và ký ngày</span>
-          <span>……………</span>
-          <span>tháng</span>
-          <span>………</span>
-          <span>năm 2023, giữa</span>
+        <span>Văn bản thỏa thuận này được lập và ký ngày</span>
+        <span id="signingDay">……………</span>
+        <span>tháng</span>
+        <span id="signingMonth">………</span>
+        <span>năm 2023, giữa</span>
       </div>
       <div class="tx12">
           <span class="bold">1. KHÁCH HÀNG:</span>
           <div>
-              <span>Họ và tên: </span>
-              <span>[…]</span>
+            <span>Họ và tên: </span>
+            <span id="fullName">[…]</span>
           </div>
           <div>
               <span>Địa chỉ đăng ký thường trú: </span>
-              <span>[…]</span>
+              <span id="permanentAddress">[…]</span>
           </div>
           <div>
               <span>Số CMND/Thẻ CCCD/Hộ chiếu: </span>
-              <span>……………</span>
+              <span id="idNumber">……………</span>
               <span>do</span>
-              <span>………………</span>
+              <span id="issuingAuthority">………………</span>
               <span>cấp ngày</span>
-              <span>………</span>
-          </div>
-          <div>
-              <span>Điện thoại</span>
-              <span>……………</span>
-              <span>fax</span>
-              <span>………………</span>
-          </div>
-          <div>
-              <span>Điện thoại di động: </span>
-              <span>………………………………</span>
-              <span>Địa chỉ email: </span>
-              <span>………………………………</span>
-          </div>
-          <div>
-              <span>Cùng vợ/chồng là Ông/bà: </span>
-              <span>[…]</span>
-          </div>
-          <div>
-              <span>Địa chỉ đăng ký thường trú: </span>
-              <span>[…]</span>
-          </div>
-          <div>
-              <span>Số CMND/Thẻ CCCD/Hộ chiếu: </span>
-              <span>………………………………</span>
-              <span>do</span>
-              <span>………..</span>
-              <span>cấp ngày</span>
-              <span>……..</span>
+              <span id="issueDate">………</span>
           </div>
           <div>
               <span>Điện thoại: </span>
-              <span>………………………………</span>
-              <span>Fax: </span>
-              <span>………………………………</span>
+              <span id="phone">……………</span>
+              <span>fax: </span>
+              <span id="fax">………………</span>
           </div>
           <div>
               <span>Điện thoại di động: </span>
-              <span>………………………………</span>
+              <span id="mobilePhone">………………………………</span>
               <span>Địa chỉ email: </span>
-              <span>………………………………</span>
-          </div>   
+              <span id="email">………………………………</span>
+          </div>
+          <div>
+              <span>Cùng vợ/chồng là Ông/bà: </span>
+              <span id="spouseName">[…]</span>
+          </div>
+          <div>
+              <span>Địa chỉ đăng ký thường trú: </span>
+              <span id="spousePermanentAddress">[…]</span>
+          </div>
+          <div>
+              <span>Số CMND/Thẻ CCCD/Hộ chiếu: </span>
+              <span id="spouseIdNumber">………………………………</span>
+              <span>do</span>
+              <span id="spouseIssuingAuthority">………..</span>
+              <span>cấp ngày</span>
+              <span id="spouseIssueDate">……..</span>
+          </div>
+          <div>
+              <span>Điện thoại: </span>
+              <span id="spousePhone">………………………………</span>
+              <span>Fax: </span>
+              <span id="spouseFax">………………………………</span>
+          </div>
+          <div>
+              <span>Điện thoại di động: </span>
+              <span id="spouseMobilePhone">………………………………</span>
+              <span>Địa chỉ email: </span>
+              <span id="spouseEmail">………………………………</span>
+          </div>        
           <div class="italic" style="text-align: right;">
               <span>&#40;Sau đây gọi tắt là "</span>
               <span class="bold">Khách hàng</span>
@@ -187,45 +198,45 @@
       </div>
       <div class="tx12">
         <span class="bold">2. NGÂN HÀNG TMCP ĐẠI CHÚNG VIỆT NAM – CN</span>
-        <span>……………</span>
+        <span id="branchName">……………</span>
         <table class="table-no-border tx12">
           <tr>
             <td style="width: 20%">
-              <span>Địa chỉ</span>
+                <span>Địa chỉ</span>
             </td>
             <td style="width: 80%">
-              <span>:………………………………………………………………………</span>
+                <span id="address">:………………………………………………………………………</span>
             </td>
           </tr>
           <tr>
-            <td style="width: 20%">
-              <span>Mã số thuế</span>
-            </td>
-            <td style="width: 80%">
-              <span>:………………………………………………………………………</span>
-            </td>
+              <td style="width: 20%">
+                  <span>Mã số thuế</span>
+              </td>
+              <td style="width: 80%">
+                  <span id="taxCode">:………………………………………………………………………</span>
+              </td>
           </tr>
           <tr>
-            <td style="width: 20%">
-              <span>Đại diện</span>
-            </td>
-            <td style="width: 80%">
-              <span>:………………………………………………………………………</span>
-            </td>
+              <td style="width: 20%">
+                  <span>Đại diện</span>
+              </td>
+              <td style="width: 80%">
+                  <span id="representative">:………………………………………………………………………</span>
+              </td>
           </tr>
           <tr>
-            <td style="width: 20%">
-              <span>Chức vụ</span>
-            </td>
-            <td style="width: 80%">
-              <span>:………………………………………………………………………</span>
-            </td>
-          </tr>
+              <td style="width: 20%">
+                  <span>Chức vụ</span>
+              </td>
+              <td style="width: 80%">
+                  <span id="position">:………………………………………………………………………</span>
+              </td>
+          </tr>                                     
         </table>        
         <div class="italic">
-            <span>&#40;Theo văn bản ủy quyền số </span>
-            <span>………………………………</span>
-            <span>&#41;</span>
+          <span>&#40;Theo văn bản ủy quyền số </span>
+          <span id="authorizationNumber2.">………………………………</span>          
+          <span>&#41;</span>
         </div>   
         <div class="italic" style="text-align: right;">
             <span>&#40;Sau đây gọi tắt là"</span>
@@ -238,57 +249,57 @@
         <table class="table-no-border tx12">
           <tr>
             <td style="width: 20%">
-              <span>Giấy CNĐKKD</span>
+                <span>Giấy CNĐKKD</span>
             </td>
             <td style="width: 80%">
-              <span>: […]</span>
+                <span id="businessRegistration">: […]</span>
             </td>
           </tr>
           <tr>
-            <td style="width: 20%">
-              <span>Địa chỉ</span>
-            </td>
-            <td style="width: 80%">
-              <span>: […]</span>
-            </td>
+              <td style="width: 20%">
+                  <span>Địa chỉ</span>
+              </td>
+              <td style="width: 80%">
+                  <span id="companyAddress">: […]</span>
+              </td>
           </tr>
           <tr>
-            <td style="width: 20%">
-              <span>Điện thoại</span>
-            </td>
-            <td style="width: 80%">
-              <span>: […]</span>
-            </td>
+              <td style="width: 20%">
+                  <span>Điện thoại</span>
+              </td>
+              <td style="width: 80%">
+                  <span id="phone">: […]</span>
+              </td>
           </tr>
           <tr>
-            <td style="width: 20%">
-              <span>Fax</span>
-            </td>
-            <td style="width: 80%">
-              <span>: […]</span>
-            </td>
+              <td style="width: 20%">
+                  <span>Fax</span>
+              </td>
+              <td style="width: 80%">
+                  <span id="fax">: […]</span>
+              </td>
           </tr>
           <tr>
-            <td style="width: 20%">
-              <span>Đại diện</span>
-            </td>
-            <td style="width: 80%">
-              <span>: […]</span>
-            </td>
+              <td style="width: 20%">
+                  <span>Đại diện</span>
+              </td>
+              <td style="width: 80%">
+                  <span id="representativeName">: […]</span>
+              </td>
           </tr>
           <tr>
-            <td style="width: 20%">
-              <span>Chức vụ</span>
-            </td>
-            <td style="width: 80%">
-              <span>: […]</span>
-            </td>
-          </tr>
+              <td style="width: 20%">
+                  <span>Chức vụ</span>
+              </td>
+              <td style="width: 80%">
+                  <span id="representativePosition">: […]</span>
+              </td>
+          </tr>        
         </table>        
         <div class="italic">
-            <span>&#40;Theo văn bản ủy quyền số </span>
-            <span>………………………………</span>
-            <span>&#41;</span>
+          <span>&#40;Theo văn bản ủy quyền số </span>
+          <span id="authorizationNumber3.">………………………………</span> 
+          <span>&#41;</span>
         </div>   
         <div class="italic" style="text-align: right;">
             <span>&#40;Sau đây gọi tắt là"</span>
@@ -350,13 +361,13 @@
                 <span>Trong thời hạn từ 02 ngày làm việc đến 07 ngày làm việc tính từ ngày Khách hàng ký yêu cầu cung cấp dịch vụ và đóng phí đầy đủ ("Thời Điểm Cung Cấp Dịch Vụ"), Nguyên Thực sẽ gửi các bản chính kết quả cung cấp Dịch Vụ cho Khách hàng và PVcomBank, bao gồm : (1) Bản kết quả tư vấn xác thực cho Khách hàng trong đó nêu ý kiến của Nguyên Thực về tính thật, giả của </span>
                 <span class="bold">GCN </span>
                 <span>bìa số</span>
-                <span>………</span>
+                <span id="coverNumber">………</span>
                 <span>số vào sổ cấp GCN </span>
-                <span>………</span>
+                <span id="registryNumber">………</span>
                 <span>do </span>
-                <span>………</span>
+                <span id="issuingAuthority">………</span>
                 <span>cấp ngày</span>
-                <span>………</span>
+                <span id="issueDate">………</span>
                 <span>; (2) Văn bản cung cấp thông tin dữ liệu đất đai do Cơ quan Nhà nước có thẩm quyền xác nhận.</span>
               </div>
               <div>
@@ -470,7 +481,8 @@
             </td>
             <td style="width: 93%">
               <div>
-                <span>Các giấy tờ khác:………………………………….</span>             
+                <span>Các giấy tờ khác:</span>
+                <span id="otherDocuments">…………………………………</span>
               </div>
             </td>
           </tr>
