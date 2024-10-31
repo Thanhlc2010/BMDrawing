@@ -18,7 +18,7 @@
       }
 
       .container {
-        width: 210mm;
+        width: 100%;
         height: auto;
         padding: 25mm 18mm 350mm 22mm;
         background: #FFF;
@@ -26,6 +26,8 @@
         box-sizing: border-box;
         position: relative;
         font-size: 16px;
+        white-space: normal; /* Cho phép xuống dòng tự động */
+        word-wrap: break-word;
       }
 
       h1 {
@@ -104,7 +106,7 @@
     </style>
   </head>
   <body>
-    <div class="container">
+    <div class="container" id="allvoice">
       <div id="header" style="padding-top: 50px; padding-bottom: 30px; line-height: normal" class="tx12 txcenter">
           <span class="bold">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
           <br />
@@ -124,14 +126,17 @@
         <span id="signingDate">………</span>
         <span>giữa</span>
         <span id="partiesInvolved">………</span>
-      </div>
-      <div class="tx12">
+    </div>
+    <div class="tx12">
         <span>Văn bản thỏa thuận này được lập và ký ngày</span>
         <span id="signingDay">……………</span>
         <span>tháng</span>
         <span id="signingMonth">………</span>
-        <span>năm 2023, giữa</span>
-      </div>
+        <span>năm</span>
+        <span id="signingYear">……...</span>
+        <span>, giữa</span>
+        <span id="signingEntity">……...</span>
+    </div>    
       <div class="tx12">
           <span class="bold">1. KHÁCH HÀNG:</span>
           <div>
@@ -221,7 +226,7 @@
                   <span>Đại diện</span>
               </td>
               <td style="width: 80%">
-                  <span id="representative">:………………………………………………………………………</span>
+                  <span id="representative">:………………………………………………</span>
               </td>
           </tr>
           <tr>
@@ -268,7 +273,7 @@
                   <span>Điện thoại</span>
               </td>
               <td style="width: 80%">
-                  <span id="phone">: […]</span>
+                  <span id="phone3">: […]</span>
               </td>
           </tr>
           <tr>
@@ -276,7 +281,7 @@
                   <span>Fax</span>
               </td>
               <td style="width: 80%">
-                  <span id="fax">: […]</span>
+                  <span id="fax3">: […]</span>
               </td>
           </tr>
           <tr>
@@ -298,7 +303,7 @@
         </table>        
         <div class="italic">
           <span>&#40;Theo văn bản ủy quyền số </span>
-          <span id="authorizationNumber3.">………………………………</span> 
+          <span id="authorizationNumber3">………………………………</span> 
           <span>&#41;</span>
         </div>   
         <div class="italic" style="text-align: right;">
@@ -365,9 +370,9 @@
                 <span>số vào sổ cấp GCN </span>
                 <span id="registryNumber">………</span>
                 <span>do </span>
-                <span id="issuingAuthority">………</span>
+                <span id="issuingAuthority1">………</span>
                 <span>cấp ngày</span>
-                <span id="issueDate">………</span>
+                <span id="issueDateDieu1">………</span>
                 <span>; (2) Văn bản cung cấp thông tin dữ liệu đất đai do Cơ quan Nhà nước có thẩm quyền xác nhận.</span>
               </div>
               <div>

@@ -18,7 +18,7 @@
       }
 
       .container {
-        width: 210mm;
+        width: 100%;
         height: auto;
         padding: 25mm 18mm 350mm 22mm;
         background: #FFF;
@@ -26,6 +26,8 @@
         box-sizing: border-box;
         position: relative;
         font-size: 16px;
+        white-space: normal; /* Cho phép xuống dòng tự động */
+        word-wrap: break-word;
       }
 
       h1 {
@@ -98,7 +100,7 @@
     </style>
   </head>
   <body>
-    <div class="container">
+    <div class="container" id="allvoice">
       <div id="header" style="padding-top: 50px; padding-bottom: 30px; line-height: normal" class="tx12 txcenter">
         <span class="bold">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
         <br />
@@ -110,7 +112,7 @@
           <span> HỢP ĐỒNG ỦY QUYỀN </span>
         </div>
         <div class="bold italic tx12" style="margin-top: 20px; text-align: left">
-          <span> Hôm nay, ngày…./…./……., tại……………….., các bên gồm: </span>
+          <span> Hôm nay, ngày<span id="header_date">.....</span>, tại<span id="header_place"></span>, các bên gồm: </span>
         </div>
       </div>
       <div id="I" class="tx12">
@@ -120,7 +122,7 @@
                 <span class="bold">I.</span>
             </td>
             <td style="width: 93%">
-                <span class="bold">Bên ủy quyền: Ông/bà: 	</span>
+                <span class="bold">Bên ủy quyền:<span id="honorific"></span><span id="authorizeFullName"></span></span>
             </td>
           </tr>
           <tr>
@@ -167,7 +169,7 @@
                   <span>-</span>
               </td>
               <td style="width: 93%">
-                  <span>Bà/ông:</span>
+                  <span id="spousehonorific"></span>
                   <span id="spouseName">………………</span>
               </td>
           </tr>
@@ -315,7 +317,7 @@
               <div>
                 <span>Bên A và Ngân hàng TMCP Đại chúng Việt Nam ("</span>
                 <span class="bold">PVcomBank</span>
-                <span id="contractSignature">") đã ký kết Hợp đồng tín dụng số</span>
+                <span>") đã ký kết Hợp đồng tín dụng số</span>
                 <span id="loanContractNumber">…….</span>
                 <span>ngày</span>
                 <span id="loanContractDate">………</span>
