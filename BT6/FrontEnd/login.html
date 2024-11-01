@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsonwebtoken@9.0.0/dist/jsonwebtoken.min.js"></script>
+</head>
+<body>
+    <label for="username">Username:</label>
+    <input id="username" type="text"><br><br>
+
+    <label for="password">Password:</label>
+    <input id="password" type="password"><br><br>
+
+    <button onclick="register()">Register</button>
+    <button onclick="login()">Login</button>
+
+    <p id="result"></p>
+
+    <script>
+        async function register() {
+          const username = document.getElementById('username').value;
+          const password = document.getElementById('password').value;
+  
+          try {
+            const response = await fetch('http://localhost:3000/register', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ username, password })
+            });
+  
+            const data = await response.json();
+            document.getElementById('result').innerText = data.message;
+  
+            if (response.ok) {
+              alert("Registration successful!");
+              localStorage.setItem('token', data.token);
+            } else {
+              alert("Registration failed: " + data.token);
+              
+            }
+          } catch (error) {
+            console.error('Error during registration:', error);
+          }
+        }
+  
+        async function login() {
+
+            const token = localStorage.getItem('token');
+            console.log('token', token)
+            const response = await fetch('http://localhost:3000/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ token }),
+            })
+            const data = await response.json();
+            alert(data.message);
+            }
+
+      </script>
+  </body>
+  </html>
