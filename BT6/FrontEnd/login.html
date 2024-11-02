@@ -49,17 +49,30 @@
         }
   
         async function login() {
+    const token = localStorage.getItem('token');
 
-            const token = localStorage.getItem('token');
-            console.log('token', token)
-            const response = await fetch('http://localhost:3000/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ token }),
-            })
-            const data = await response.json();
-            alert(data.message);
-            }
+    try {
+        const response = await fetch('http://localhost:3000/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ token }),
+        });
+
+        const contentType = response.headers.get('content-type');
+
+        let data;
+        if (contentType && contentType.includes('application/json')) {
+            data = await response.json();
+        } else {
+            data = await response.text();
+        }
+
+        alert(data.message || data);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
 
       </script>
   </body>
