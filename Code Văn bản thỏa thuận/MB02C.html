@@ -2,6 +2,21 @@
     <link rel="stylesheet" type="text/css" href="doc_management_style.css" />
 </head>
 
+<style>
+    .container {
+        width: 100%;
+        height: auto;
+        padding: 25mm 18mm 350mm 22mm;
+        background: #FFF;
+        margin: 0 auto;
+        box-sizing: border-box;
+        position: relative;
+        font-size: 16px;
+        white-space: normal; /* Cho phép xuống dòng tự động */
+        word-wrap: break-word;
+      }
+</style>
+
 <body>
     <div class="dropdown" style="z-index: 9999">
         <button class="dropbtn">Chọn hành động</button>
@@ -34,7 +49,36 @@
                 PHONG TỎA TIỀN VÀ THU HỒI NỢ
             </p>
             <p>&nbsp;</p>
-            <p class="tx12 italic">- Căn cứ <span class="html_key" id="docName_key">[...]</span></p>
+            <p class="tx12 italic">- Căn cứ Giấy đề nghị và phương án vay vốn của Ông/Bà<span class="html_key" id="applicant_name">[...]</span></p>
+            <div class="tx12 italic">
+                <span>- Căn cứ Hợp đồng mua bán/chuyển nhượng quyền sử dụng đất ở và quyền sở hữu nhà ở công chứng số</span>
+                <span class="html_key" id="contractNumber">………</span>
+                <span>ký ngày</span>
+                <span class="html_key" id="contractDate">………</span>
+                <span>giữa</span>
+                <span class="html_key" id="partyA">……………</span>
+                <span>và</span>
+                <span class="html_key" id="partyB">……………</span>
+                <span>tại Văn phòng Công chứng</span>
+                <span class="html_key" id="notaryOffice">……………</span>
+                <span>(Sau đây Hợp đồng này cùng các văn bản khác liên quan đến giao dịch chuyển nhượng Tài sản giữa Bên Nhận Chuyển Nhượng và Bên Chuyển Nhượng, kể cả các văn bản phát sinh sau thời điểm ký Thỏa thuận này được gọi chung là “Hợp Đồng Chuyển Nhượng Tài Sản”);</span>
+            </div>
+            <div class="tx12 italic">
+                <span>- Căn cứ Hợp đồng tín dụng số</span>
+                <span class="html_key" id="creditContractNumber">………</span>
+                <span>ngày</span>
+                <span class="html_key" id="creditContractDate">…./…./…..</span>
+                <span>giữa Ngân hàng TMCP Đại Chúng Việt Nam</span>
+            </div>
+            <div class="tx12 italic">
+                <span>- Chi nhánh/PGD</span>
+                <span class="html_key" id="branchOffice">………</span>
+                <span>và Ông/Bà</span>
+                <span class="html_key" id="clientName">………</span>
+                <span>(Sau đây gọi tắt là “Hợp Đồng Tín Dụng”)</span>
+            </div>
+            
+            
             <p class="tx12">Hôm nay,
                 ngày <span class="html_key" id="day_key">[...]</span>
                 tháng <span class="html_key" id="month_key">[...]</span>
@@ -221,15 +265,11 @@
             </table>
             <p class="tx12">(Sau đây gọi tắt là <b><i>“Bên Chuyển Nhượng”</i></b>)</p>
             <p class="tx12 bold">III. BÊN NHẬN CHUYỂN NHƯỢNG</p>
-            <p class="tx12 bold">
-                Ông <span class="html_key" id="recvNameCap_key">[...]</span>
-                [và Bà <span class="html_key" id="recvMsNameCap_key">[...]</span>]
-            </p>
-            <p class="tx12">Ông: <span class="html_key" id="recvName_key">[...]</span></p>
+            <p class="tx12"><span class="html_key" id="recvDanhXung">[...]</span><span class="html_key" id="recvName_key">[...]</span></p>
             <table class="tx12 table-no-border">
                 <tr>
                     <td style="width: 30%;">
-                        <p>Số CCCD/CMND/Hộ chiếu:</p>
+                        <p>Số <span class="html_key" id="recvDocumentType">[...]</span></p>
                     </td>
                     <td>
                         <p><span class="html_key" id="recvId_key">[...]</span></p>
@@ -267,19 +307,22 @@
                 </tr>
             </table>
             <p class="tx12 bold italic">Và:</p>
-            <p class="tx12">Bà: <span class="html_key" id="recvMsName_key">[...]</span></p>
+            <p class="tx12">
+                <span class="html_key" id="spouseRecvDanhXung">[...]</span>
+                <span class="html_key" id="spouseRecvName_key">[...]</span>
+            </p>
             <table class="tx12 table-no-border">
                 <tr>
                     <td style="width: 30%;">
-                        <p>Số CCCD/CMND/Hộ chiếu:</p>
+                        <p>Số <span class="html_key" id="spouseRecvDocumentType">[...]</span></p>
                     </td>
                     <td>
-                        <p><span class="html_key" id="recvMsId_key">[...]</span></p>
+                        <p><span class="html_key" id="spouseRecvId_key">[...]</span></p>
                     </td>
                     <td style="width: 40%;">
                         <p>
-                            do: <span class="html_key" id="recvMsIdIssueBy_key">[...]</span>
-                            cấp ngày: <span class="html_key" id="recvMsIdIssueDate_key">[...]</span>
+                            do: <span class="html_key" id="spouseRecvIdIssueBy_key">[...]</span>
+                            cấp ngày: <span class="html_key" id="spouseRecvIdIssueDate_key">[...]</span>
                         </p>
                     </td>
                 </tr>
@@ -288,7 +331,7 @@
                         <p>Địa chỉ đăng ký thường trú:</p>
                     </td>
                     <td colspan="2">
-                        <p><span class="html_key" id="recvMsRegAddress_key">[...]</span></p>
+                        <p><span class="html_key" id="spouseRecvRegAddress_key">[...]</span></p>
                     </td>
                 </tr>
                 <tr>
@@ -296,7 +339,7 @@
                         <p>Nơi ở hiện nay:</p>
                     </td>
                     <td colspan="2">
-                        <p><span class="html_key" id="recvMsAddress_key">[...]</span></p>
+                        <p><span class="html_key" id="spouseRecvAddress_key">[...]</span></p>
                     </td>
                 </tr>
                 <tr>
@@ -304,10 +347,11 @@
                         <p>Điện thoại:</p>
                     </td>
                     <td colspan="2">
-                        <p><span class="html_key" id="recvMsPhone_key">[...]</span></p>
+                        <p><span class="html_key" id="spouseRecvPhone_key">[...]</span></p>
                     </td>
                 </tr>
             </table>
+            
             <p>(Sau đây gọi tắt là <b><i>“Bên Nhận Chuyển Nhượng”</i></b>)</p>
             <p>
                 Các bên thống nhất ký kết Thỏa thuận quản lý tiền giải ngân trên tài khoản của
