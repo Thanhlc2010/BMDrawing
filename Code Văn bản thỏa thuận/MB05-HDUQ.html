@@ -1,210 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A4 Format Example</title>
-    <style>
-      .a4-format {
-        width: 210mm;
-        height: 297mm;
-        margin: auto;
-        padding: 20mm;
-        background-color: white;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        box-sizing: border-box;
-        overflow: auto;
-        line-height: 30px;
-      }
 
-      .container {
-        width: 100%;
-        height: auto;
-        padding: 25mm 18mm 350mm 22mm;
-        background: #FFF;
-        margin: 0 auto;
-        box-sizing: border-box;
-        position: relative;
-        font-size: 16px;
-        white-space: normal; /* Cho phép xuống dòng tự động */
-        word-wrap: break-word;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A4 Format Example</title>
+  <style>
+    .a4-format {
+      width: 210mm;
+      height: 297mm;
+      margin: auto;
+      padding: 20mm;
+      background-color: white;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+      overflow: auto;
+      line-height: 30px;
+    }
 
-      h1 {
-        font-size: 24px;
-        text-align: center;
-        margin-bottom: 20px;
-      }
+    .container {
+      width: 100%;
+      height: auto;
+      padding: 25mm 18mm 350mm 22mm;
+      background: #fff;
+      margin: 0 auto;
+      box-sizing: border-box;
+      position: relative;
+      font-size: 16px;
+      white-space: normal;
+      /* Cho phép xuống dòng tự động */
+      word-wrap: break-word;
+    }
 
-      p {
-        font-size: 16px;
-        line-height: 1.5;
-      }
+    h1 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-      .tx16 {
-        font-size: 21.33px;
-      }
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
 
-      .left {
-        width: 7%;
-      }
+    .tx16 {
+      font-size: 21.33px;
+    }
 
-      .right {
-        width: 93%;
-      }
+    .left {
+      width: 7%;
+    }
 
-      .red-text {
-        color: red;
-      }
+    .right {
+      width: 93%;
+    }
 
-      /* Hàm mặc định */
-      .tx12 {
-        font-size: 16px;
-      }
+    .red-text {
+      color: red;
+    }
 
-      /* Căn giữa */
-      .txcenter {
-        text-align: center;
-      }
+    /* Hàm mặc định */
+    .tx12 {
+      font-size: 16px;
+    }
 
-      /* In đậm */
-      .bold {
-        font-weight: bold;
-      }
+    /* Căn giữa */
+    .txcenter {
+      text-align: center;
+    }
 
-      /* In nghiêng */
-      .italic {
-        font-style: italic;
-      }
+    /* In đậm */
+    .bold {
+      font-weight: bold;
+    }
 
-      /* Bảng, đã được căn các cột đều nhau */
-      table {
-        width: 100%;
-        text-indent: 0;
-        table-layout: fixed;
-        border-collapse: collapse;
-      }
+    /* In nghiêng */
+    .italic {
+      font-style: italic;
+    }
 
-      table td,
-      table th {
-        border: solid 1.5px black;
-        padding: 0px;
-        vertical-align: top;
-      }
+    /* Bảng, đã được căn các cột đều nhau */
+    table {
+      width: 100%;
+      text-indent: 0;
+      table-layout: fixed;
+      border-collapse: collapse;
+    }
 
-      /* Bảng không có viền */
-      .table-no-border td,
-      .table-no-border th {
-        border: none !important;
-      }
-    </style>
-  </head>
-  <body>
+    table td,
+    table th {
+      border: solid 1.5px black;
+      padding: 0px;
+      vertical-align: top;
+    }
+
+    /* Bảng không có viền */
+    .table-no-border td,
+    .table-no-border th {
+      border: none !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="editor" style="width: 100%; height: 1100px" spellcheck="false">
     <div class="container" id="allvoice">
       <div id="header" style="padding-top: 50px; padding-bottom: 30px; line-height: normal" class="tx12 txcenter">
         <span class="bold">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
         <br />
         <span class="bold">Độc lập - Tự do - Hạnh phúc</span>
         <br />
-        <span>---------&#9734;&#9734;&#9734;---------</span>
+        <span class="">---------&#9734;&#9734;&#9734;---------</span>
         <br />
         <div class="bold tx16" style="margin-top: 50px">
-          <span> HỢP ĐỒNG ỦY QUYỀN </span>
+          <span class=""> HỢP ĐỒNG ỦY QUYỀN </span>
         </div>
         <div class="bold italic tx12" style="margin-top: 20px; text-align: left">
-          <span> Hôm nay, ngày<span id="header_date">.....</span>, tại<span id="header_place"></span>, các bên gồm: </span>
+          <span class="">
+            Hôm nay, ngày<span id="header_date">.....</span>, tại<span id="header_place"></span>, các bên gồm:
+          </span>
         </div>
       </div>
       <div id="I" class="tx12">
         <table class="table-no-border tx12">
           <tr>
             <td style="width: 7%">
-                <span class="bold">I.</span>
+              <span class="bold">I.</span>
             </td>
             <td style="width: 93%">
-                <span class="bold">Bên ủy quyền:<span id="honorific"></span><span id="authorizeFullName"></span></span>
+              <span class="bold">Bên ủy quyền:
+                <span id="honorific"></span>
+                <span id="authorizeFullName"></span>
+              </span>
             </td>
           </tr>
           <tr>
             <td style="width: 7%">
-                <span>-</span>
+              <span class="">-</span>
             </td>
             <td style="width: 93%">
-                <span>Sinh ngày:</span>
-                <span id="birthDate">………………………………………………………………………</span>
+              <span class="">Sinh ngày:</span>
+              <span id="birthDate">………………………………………………………………………</span>
             </td>
           </tr>
           <tr>
-              <td style="width: 7%">
-                  <span>-</span>
-              </td>
-              <td style="width: 93%">
-                  <span>CMND/CCCD/Hộ chiếu số:</span>
-                  <span id="idNumber">………………</span>
-                  <span>do</span>
-                  <span id="issuingAuthority">………..</span>
-                  <span>cấp ngày</span>
-                  <span id="issueDate">………………</span>
-              </td>
+            <td style="width: 7%">
+              <span class="">-</span>
+            </td>
+            <td style="width: 93%">
+              <span id="idType">Chứng minh thư số:</span>
+              <span id="idNumber">………………</span>
+              <span class="">do</span>
+              <span id="issuingAuthority">………..</span>
+              <span class="">cấp ngày</span>
+              <span id="issueDate">………………</span>
+            </td>
           </tr>
           <tr>
-              <td style="width: 7%">
-                  <span>-</span>
-              </td>
-              <td style="width: 93%">
-                  <span>Địa chỉ đăng ký thường trú/tạm trú:</span>
-                  <span id="address">………………</span>
-              </td>
+            <td style="width: 7%">
+              <span class="">-</span>
+            </td>
+            <td style="width: 93%">
+              <span class="">Địa chỉ đăng ký thường trú/tạm trú:</span>
+              <span id="address">………………</span>
+            </td>
+          </tr>
+        </table>
+        
+        <table id="spouseSection" class="table-no-border tx12">
+          <tr>
+            <td style="width: 7%">
+            </td>
+            <td style="width: 93%">
+              <span id="spouseGender">Và vợ/chồng là:</span>
+            </td>
           </tr>
           <tr>
-              <td style="width: 7%">
-                  <span></span>
-              </td>
-              <td style="width: 93%">
-                  <span>Và vợ/chồng là:</span>
-              </td>
+            <td style="width: 7%">
+              <span class="">-</span>
+            </td>
+            <td style="width: 93%">
+              <span id="spousehonorific"></span>
+              <span id="spouseName">………………</span>
+            </td>
           </tr>
           <tr>
-              <td style="width: 7%">
-                  <span>-</span>
-              </td>
-              <td style="width: 93%">
-                  <span id="spousehonorific"></span>
-                  <span id="spouseName">………………</span>
-              </td>
+            <td style="width: 7%">
+              <span class="">-</span>
+            </td>
+            <td style="width: 93%">
+              <span class="">Sinh ngày:</span>
+              <span id="spouseBirthDate">………………</span>
+            </td>
           </tr>
           <tr>
-              <td style="width: 7%">
-                  <span>-</span>
-              </td>
-              <td style="width: 93%">
-                  <span>Sinh ngày:</span>
-                  <span id="spouseBirthDate">………………</span>
-              </td>
+            <td style="width: 7%">
+              <span class="">-</span>
+            </td>
+            <td style="width: 93%">
+              <span id="spouseIdType">CMND/CCCD/Hộ chiếu số:</span>
+              <span id="spouseIdNumber">………………</span>
+              <span class="">do</span>
+              <span id="spouseIssuingAuthority">………..</span>
+              <span class="">cấp ngày</span>
+              <span id="spouseIssueDate">………………</span>
+            </td>
           </tr>
           <tr>
-              <td style="width: 7%">
-                  <span>-</span>
-              </td>
-              <td style="width: 93%">
-                  <span>CMND/CCCD/Hộ chiếu số:</span>
-                  <span id="spouseIdNumber">………………</span>
-                  <span>do</span>
-                  <span id="spouseIssuingAuthority">………..</span>
-                  <span>cấp ngày</span>
-                  <span id="spouseIssueDate">………………</span>
-              </td>
+            <td style="width: 7%">
+              <span class="">-</span>
+            </td>
+            <td style="width: 93%">
+              <span class="">Địa chỉ đăng ký thường trú/tạm trú:</span>
+              <span id="spouseAddress">………………</span>
+            </td>
           </tr>
-          <tr>
-              <td style="width: 7%">
-                  <span>-</span>
-              </td>
-              <td style="width: 93%">
-                  <span>Địa chỉ đăng ký thường trú/tạm trú:</span>
-                  <span id="spouseAddress">………………</span>
-              </td>
-          </tr>                                      
-        </table>  
+        </table>
+        
         <span class="bold"> (Sau đây gọi là Bên A):&sup2; </span>
         <br />
         <br />
@@ -213,60 +225,57 @@
         <table class="table-no-border tx12">
           <tr>
             <td style="width: 7%">
-                <span class="bold">II.</span>
+              <span class="bold">II.</span>
             </td>
             <td style="width: 93%">
-                <span class="bold">Bên được ủy quyền </span>
+              <span class="bold">Bên được ủy quyền </span>
             </td>
-        </tr>
-        <tr>
+          </tr>
+          <tr>
             <td style="width: 7%">
-                <span>-</span>
+              <span class="">-</span>
             </td>
             <td style="width: 93%">
-                <span>Họ và tên:</span>
-                <span id="authorizedFullName">………………………………………………………………………</span>
+              <span class="">Họ và tên:</span>
+              <span id="authorizedFullName">………………………………………………………………………</span>
             </td>
-        </tr>
-        <tr>
+          </tr>
+          <tr>
             <td style="width: 7%">
-                <span>-</span>
+              <span class="">-</span>
             </td>
             <td style="width: 93%">
-                <span>Sinh ngày:</span>
-                <span id="authorizedBirthDate">………………………………………………………………………</span>
+              <span class="">Sinh ngày:</span>
+              <span id="authorizedBirthDate">………………………………………………………………………</span>
             </td>
-        </tr>
-        <tr>
+          </tr>
+          <tr>
             <td style="width: 7%">
-                <span>-</span>
+              <span class="">-</span>
             </td>
             <td style="width: 93%">
-                <span>CMND/CCCD/Hộ chiếu số:</span>
-                <span id="authorizedIdNumber">………………</span>
-                <span>do</span>
-                <span id="authorizedIssuingAuthority">………..</span>
-                <span>cấp ngày</span>
-                <span id="authorizedIssueDate">………………</span>
+              <span class="">CMND/CCCD/Hộ chiếu số:</span>
+              <span id="authorizedIdNumber">………………</span>
+              <span class="">do</span>
+              <span id="authorizedIssuingAuthority">………..</span>
+              <span class="">cấp ngày</span>
+              <span id="authorizedIssueDate">………………</span>
             </td>
-        </tr>
-        <tr>
+          </tr>
+          <tr>
             <td style="width: 7%">
-                <span>-</span>
+              <span class="">-</span>
             </td>
             <td style="width: 93%">
-                <span>Địa chỉ đăng ký thường trú/tạm trú:</span>
-                <span id="authorizedAddress">………………</span>
+              <span class="">Địa chỉ đăng ký thường trú/tạm trú:</span>
+              <span id="authorizedAddress">………………</span>
             </td>
-        </tr>                                         
-        </table>  
+          </tr>
+        </table>
         <span class="bold"> (Sau đây gọi là Bên B): </span>
         <br />
-        <div
-          class="bold italic tx12"
-          style="margin-top: 20px; text-align: left"
-        >
-          <span>
+        <div class="bold italic tx12" style="margin-top: 20px; text-align: left">
+          <span class="">
             Đã nhất trí ký kết Hợp đồng ủy quyền này (“Hợp đồng”) với các nội
             dung như sau:
           </span>
@@ -274,35 +283,36 @@
         <table class="table-no-border tx12 bold">
           <tr>
             <td style="width: 10%">
-              <span>Điều 1.</span>
+              <span class="">Điều 1.</span>
             </td>
             <td style="width: 90%">
-              <span>Nội Dung Và Phạm Vi Ủy Quyền</span>
+              <span class="">Nội Dung Và Phạm Vi Ủy Quyền</span>
             </td>
           </tr>
         </table>
         <table class="table-no-border tx12">
           <tr>
             <td class="left">
-              <span>1.</span>
+              <span class="">1.</span>
             </td>
             <td class="right">
               <div>
-                <span>Bên A đã nhận chuyển nhượng/mua tài sản từ Ông/bà:</span>
+                <span class="">Bên A đã nhận chuyển nhượng/mua tài sản từ Ông/bà:</span>
                 <span id="transferorName">……………</span>
-                <span>theo Hợp đồng chuyển nhượng/Hợp đồng mua bán số công chứng</span>
+                <span class="">theo Hợp đồng chuyển nhượng/Hợp đồng mua bán số công
+                  chứng</span>
                 <span id="contractNumber">………………</span>
-                <span>ngày</span>
+                <span class="">ngày</span>
                 <span id="contractDate">………</span>
-                <span>lập tại</span>
+                <span class="">lập tại</span>
                 <span id="contractLocation">………………</span>
-                <span>Chi tiết tài sản như sau:</span>
+                <span class="">Chi tiết tài sản như sau:</span>
                 <span id="assetDetails">………………</span>
                 <br />
                 <div style="margin-top: 10px">
-                  <span>&#40;Sau đây gọi tắt là "</span>
+                  <span class="">&#40;Sau đây gọi tắt là "</span>
                   <span class="bold">Tài Sản Bảo Đảm</span>
-                  <span>"&#41;</span>
+                  <span class="">"&#41;</span>
                 </div>
               </div>
             </td>
@@ -311,15 +321,15 @@
         <table class="table-no-border tx12">
           <tr>
             <td class="left">
-              <span>2.</span>
+              <span class="">2.</span>
             </td>
             <td class="right">
               <div>
-                <span>Bên A và Ngân hàng TMCP Đại chúng Việt Nam ("</span>
+                <span class="">Bên A và Ngân hàng TMCP Đại chúng Việt Nam ("</span>
                 <span class="bold">PVcomBank</span>
-                <span>") đã ký kết Hợp đồng tín dụng số</span>
+                <span class="">") đã ký kết Hợp đồng tín dụng số</span>
                 <span id="loanContractNumber">…….</span>
-                <span>ngày</span>
+                <span class="">ngày</span>
                 <span id="loanContractDate">………</span>
               </div>
             </td>
@@ -328,15 +338,13 @@
         <table class="table-no-border tx12">
           <tr>
             <td class="left">
-              <span>3.</span>
+              <span class="">3.</span>
             </td>
             <td class="right">
               <div>
-                <span
-                  >Bằng Hợp đồng này, Bên A đồng ý ủy quyền cho Bên B được thay
-                  mặt và nhân danh Bên A thực hiện các công việc dưới đây ngay
-                  sau khi Tài Sản Bảo Đảm được sang tên cho Bên A:</span
-                >
+                <span>Bằng Hợp đồng này, Bên A đồng ý ủy quyền cho Bên B được
+                  thay mặt và nhân danh Bên A thực hiện các công việc dưới đây
+                  ngay sau khi Tài Sản Bảo Đảm được sang tên cho Bên A:</span>
               </div>
             </td>
           </tr>
@@ -344,14 +352,12 @@
         <table class="table-no-border tx12">
           <tr>
             <td class="left">
-              <span>a&#41;</span>
+              <span class="">a&#41;</span>
             </td>
             <td class="right">
               <div>
-                <span
-                  >Thế chấp Tài Sản Bảo Đảm để đảm bảo cho việc thực hiện nghĩa
-                  vụ trả nợ của của Bên A tại PVcomBank.</span
-                >
+                <span>Thế chấp Tài Sản Bảo Đảm để đảm bảo cho việc thực hiện
+                  nghĩa vụ trả nợ của của Bên A tại PVcomBank.</span>
               </div>
             </td>
           </tr>
@@ -359,12 +365,11 @@
         <table class="table-no-border tx12">
           <tr>
             <td class="left">
-              <span>b&#41;</span>
+              <span class="">b&#41;</span>
             </td>
             <td class="right">
               <div>
-                <span
-                  >Khi thực hiện công việc được ủy quyền, Bên B được thay mặt
+                <span>Khi thực hiện công việc được ủy quyền, Bên B được thay mặt
                   Bên A để thực hiện:
                 </span>
               </div>
@@ -374,14 +379,12 @@
         <table class="table-no-border tx12">
           <tr>
             <td class="left">
-              <span>-</span>
+              <span class="">-</span>
             </td>
             <td class="right">
               <div>
-                <span
-                  >Ký Hợp đồng thế chấp và tất cả các giấy tờ, tài liệu liên
-                  quan với PVcomBank và các bên liên quan (nếu có); và</span
-                >
+                <span>Ký Hợp đồng thế chấp và tất cả các giấy tờ, tài liệu liên
+                  quan với PVcomBank và các bên liên quan (nếu có); và</span>
               </div>
             </td>
           </tr>
@@ -389,17 +392,15 @@
         <table class="table-no-border tx12">
           <tr>
             <td class="left">
-              <span>-</span>
+              <span class="">-</span>
             </td>
             <td class="right">
               <div>
-                <span
-                  >Thực hiện thủ tục công chứng, đăng ký biện pháp bảo đảm tại
+                <span>Thực hiện thủ tục công chứng, đăng ký biện pháp bảo đảm tại
                   các cơ quan có thẩm quyền, ký tất cả các giấy tờ, tài liệu
                   liên quan để thực hiện thủ tục công chứng, đăng ký biện pháp
                   bảo đảm và thực hiện tất cả các thủ tục khác liên quan đến
-                  việc thế chấp Tài Sản Bảo Đảm; và</span
-                >
+                  việc thế chấp Tài Sản Bảo Đảm; và</span>
               </div>
             </td>
           </tr>
@@ -407,20 +408,19 @@
         <table class="table-no-border tx12">
           <tr>
             <td class="left">
-              <span>-</span>
+              <span class="">-</span>
             </td>
             <td class="right">
               <div>
-                <span
-                  >Tất cả các nội dung tại Hợp đồng thế chấp, các giấy tờ, tài
+                <span>Tất cả các nội dung tại Hợp đồng thế chấp, các giấy tờ, tài
                   liệu khác mà Bên B ký kết với PVcomBank, các cơ quan có thẩm
-                  quyền và các Bên liên quan (nếu có) do Bên B toàn quyền quyết
-                  định và thỏa thuận với PVcomBank, các cơ quan có thẩm quyền và
-                  các Bên liên quan (nếu có). Bên A đồng ý và chấp thuận tất cả
-                  các nội dung mà Bên B thỏa thuận, ký kết với PVcomBank, các cơ
-                  quan có thẩm quyền và các Bên liên quan (nếu có), cam kết
-                  không có bất kỳ khiếu nại, tranh chấp, khiếu kiện nào.</span
-                >
+                  quyền và các Bên liên quan (nếu có) do Bên B toàn quyền
+                  quyết định và thỏa thuận với PVcomBank, các cơ quan có thẩm
+                  quyền và các Bên liên quan (nếu có). Bên A đồng ý và chấp
+                  thuận tất cả các nội dung mà Bên B thỏa thuận, ký kết với
+                  PVcomBank, các cơ quan có thẩm quyền và các Bên liên quan
+                  (nếu có), cam kết không có bất kỳ khiếu nại, tranh chấp,
+                  khiếu kiện nào.</span>
               </div>
             </td>
           </tr>
@@ -432,10 +432,8 @@
             </td>
             <td class="right">
               <div>
-                <span class="red-text"
-                  >Đóng các khoản phí/lệ phí phát sinh từ nội dung ủy
-                  quyền;</span
-                >
+                <span class="red-text">Đóng các khoản phí/lệ phí phát sinh từ nội dung ủy
+                  quyền;</span>
               </div>
             </td>
           </tr>
@@ -443,56 +441,18 @@
         <table class="table-no-border tx12">
           <tr>
             <td class="left">
-              <span>c&#41;</span>
+              <span class="">c&#41;</span>
             </td>
             <td class="right">
               <div>
-                <span
-                  >Trường hợp PVcomBank phải xử lý Tài Sản Bảo Đảm để thu hồi
-                  nợ, Bên B được quyền phối hợp và thực hiện các thủ tục với tư
-                  cách là Bên thế chấp theo quy định pháp luật và thỏa thuận với
-                  PVcomBank trong việc xử lý Tài Sản Bảo Đảm để thanh toán nợ
-                  cho PVcomBank theo các thỏa thuận đã ký kết với PVcomBank mà
-                  không cần có sự đồng ý của Bên A. Bên A cam kết không có bất
-                  kỳ khiếu nại, tranh chấp, khiếu kiện nào.</span
-                >
-              </div>
-            </td>
-          </tr>
-        </table>
-        <table class="table-no-border tx12 bold">
-          <tr>
-            <td style="width: 10%">
-              <span>Điều 2.</span>
-            </td>
-            <td style="width: 90%">
-              <span>Thời Hạn Và Thù Lao Ủy Quyền</span>
-            </td>
-          </tr>
-        </table>
-        <table class="table-no-border tx12">
-          <tr>
-            <td class="left">
-              <span>1.</span>
-            </td>
-            <td class="right">
-              <div>
-                <span
-                  >Thời hạn ủy quyền là: Việc uỷ quyền chỉ kết thúc khi Bên A đã
-                  hoàn thành toàn bộ nghĩa vụ trả nợ tại PVcomBank.</span
-                >
-              </div>
-            </td>
-          </tr>
-        </table>
-        <table class="table-no-border tx12">
-          <tr>
-            <td class="left">
-              <span>2.</span>
-            </td>
-            <td class="right">
-              <div>
-                <span>Hợp đồng này không có thù lao.</span>
+                <span>Trường hợp PVcomBank phải xử lý Tài Sản Bảo Đảm để thu hồi
+                  nợ, Bên B được quyền phối hợp và thực hiện các thủ tục với
+                  tư cách là Bên thế chấp theo quy định pháp luật và thỏa
+                  thuận với PVcomBank trong việc xử lý Tài Sản Bảo Đảm để
+                  thanh toán nợ cho PVcomBank theo các thỏa thuận đã ký kết
+                  với PVcomBank mà không cần có sự đồng ý của Bên A. Bên A cam
+                  kết không có bất kỳ khiếu nại, tranh chấp, khiếu kiện
+                  nào.</span>
               </div>
             </td>
           </tr>
@@ -500,21 +460,22 @@
         <table class="table-no-border tx12 bold">
           <tr>
             <td style="width: 10%">
-              <span>Điều 3.</span>
+              <span class="">Điều 2.</span>
             </td>
             <td style="width: 90%">
-              <span>Cam Đoan Của Các Bên</span>
+              <span class="">Thời Hạn Và Thù Lao Ủy Quyền</span>
             </td>
           </tr>
         </table>
         <table class="table-no-border tx12">
           <tr>
             <td class="left">
-              <span>1.</span>
+              <span class="">1.</span>
             </td>
             <td class="right">
               <div>
-                <span>Bên A cam đoan: </span>
+                <span>Thời hạn ủy quyền là: Việc uỷ quyền chỉ kết thúc khi Bên A
+                  đã hoàn thành toàn bộ nghĩa vụ trả nợ tại PVcomBank.</span>
               </div>
             </td>
           </tr>
@@ -522,19 +483,51 @@
         <table class="table-no-border tx12">
           <tr>
             <td class="left">
-              <span>-</span>
+              <span class="">2.</span>
             </td>
             <td class="right">
               <div>
-                <span
-                  >Trước và cho đến thời điểm ký Hợp đồng này, Bên A chưa ủy
+                <span class="">Hợp đồng này không có thù lao.</span>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12 bold">
+          <tr>
+            <td style="width: 10%">
+              <span class="">Điều 3.</span>
+            </td>
+            <td style="width: 90%">
+              <span class="">Cam Đoan Của Các Bên</span>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12">
+          <tr>
+            <td class="left">
+              <span class="">1.</span>
+            </td>
+            <td class="right">
+              <div>
+                <span class="">Bên A cam đoan: </span>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table class="table-no-border tx12">
+          <tr>
+            <td class="left">
+              <span class="">-</span>
+            </td>
+            <td class="right">
+              <div>
+                <span>Trước và cho đến thời điểm ký Hợp đồng này, Bên A chưa ủy
                   quyền cho ai để thực hiện nội dung ủy quyền nói trên. Bên A
                   cam đoan chịu hoàn toàn trách nhiệm trước pháp luật về mọi
                   việc do Bên B thực hiện theo nội dung được Bên A ủy quyền
                   trong Hợp đồng này; đồng thời, Bên A xác nhận rằng mọi thông
                   tin và tài liệu liên quan được cung cấp cho Bên B đều trung
-                  thực, chính xác, và đầy đủ.</span
-                >
+                  thực, chính xác, và đầy đủ.</span>
               </div>
             </td>
           </tr>
@@ -546,13 +539,11 @@
             </td>
             <td class="right">
               <div>
-                <span class="red-text"
-                  >Phí công chứng Hợp đồng ủy quyền này và các khoản phí/lệ phí
-                  khác phát sinh từ nội dung ủy quyền do Bên A chịu trách nhiệm
-                  nộp. Bằng Hợp đồng này, Bên A ủy quyền cho bên B nộp các khoản
-                  phí/lệ phí và cam kết ứng trước chi phí để bên B thực hiện các
-                  công việc trong phạm vi được ủy quyền.</span
-                >
+                <span class="red-text">Phí công chứng Hợp đồng ủy quyền này và các khoản phí/lệ
+                  phí khác phát sinh từ nội dung ủy quyền do Bên A chịu trách
+                  nhiệm nộp. Bằng Hợp đồng này, Bên A ủy quyền cho bên B nộp
+                  các khoản phí/lệ phí và cam kết ứng trước chi phí để bên B
+                  thực hiện các công việc trong phạm vi được ủy quyền.</span>
               </div>
             </td>
           </tr>
@@ -560,14 +551,12 @@
         <table class="table-no-border tx12">
           <tr>
             <td class="left">
-              <span>2.</span>
+              <span class="">2.</span>
             </td>
             <td class="right">
               <div>
-                <span
-                  >Bên B đồng ý nhận thực hiện các việc ủy quyền nói trên của
-                  Bên A.</span
-                >
+                <span>Bên B đồng ý nhận thực hiện các việc ủy quyền nói trên của
+                  Bên A.</span>
               </div>
             </td>
           </tr>
@@ -575,11 +564,11 @@
         <table class="table-no-border tx12">
           <tr>
             <td class="left">
-              <span>3.</span>
+              <span class="">3.</span>
             </td>
             <td class="right">
               <div>
-                <span>Bên A và Bên B cam đoan:</span>
+                <span class="">Bên A và Bên B cam đoan:</span>
               </div>
             </td>
           </tr>
@@ -587,14 +576,12 @@
         <table class="table-no-border tx12" style="margin-left: 20px">
           <tr>
             <td class="left">
-              <span>a&#41;</span>
+              <span class="">a&#41;</span>
             </td>
             <td class="right">
               <div>
-                <span
-                  >Những thông tin đã ghi trong Hợp đồng này là đúng sự
-                  thật;</span
-                >
+                <span>Những thông tin đã ghi trong Hợp đồng này là đúng sự
+                  thật;</span>
               </div>
             </td>
           </tr>
@@ -602,15 +589,13 @@
         <table class="table-no-border tx12" style="margin-left: 20px">
           <tr>
             <td class="left">
-              <span>b&#41;</span>
+              <span class="">b&#41;</span>
             </td>
             <td class="right">
               <div>
-                <span
-                  >Hợp đồng này được lập trong trạng thái tinh thần hoàn toàn
+                <span>Hợp đồng này được lập trong trạng thái tinh thần hoàn toàn
                   minh mẫn, hoàn toàn tự nguyện, không giả tạo, không bị ép
-                  buộc, lừa dối, đe dọa, nhầm lẫn;</span
-                >
+                  buộc, lừa dối, đe dọa, nhầm lẫn;</span>
               </div>
             </td>
           </tr>
@@ -618,14 +603,12 @@
         <table class="table-no-border tx12" style="margin-left: 20px">
           <tr>
             <td class="left">
-              <span>c&#41;</span>
+              <span class="">c&#41;</span>
             </td>
             <td class="right">
               <div>
-                <span
-                  >Thực hiện đầy đủ các thoả thuận đã ghi trong Hợp đồng
-                  này.</span
-                >
+                <span>Thực hiện đầy đủ các thoả thuận đã ghi trong Hợp đồng
+                  này.</span>
               </div>
             </td>
           </tr>
@@ -633,21 +616,21 @@
         <table class="table-no-border tx12 bold">
           <tr>
             <td style="width: 10%">
-              <span>Điều 4.</span>
+              <span class="">Điều 4.</span>
             </td>
             <td style="width: 90%">
-              <span>Điều Khoản Cuối Cùng</span>
+              <span class="">Điều Khoản Cuối Cùng</span>
             </td>
           </tr>
         </table>
         <table class="table-no-border tx12">
           <tr>
             <td class="left">
-              <span>1.</span>
+              <span class="">1.</span>
             </td>
             <td class="right">
               <div>
-                <span>Hợp đồng này có hiệu lực kể từ ngày ký.</span>
+                <span class="">Hợp đồng này có hiệu lực kể từ ngày ký.</span>
               </div>
             </td>
           </tr>
@@ -655,14 +638,13 @@
         <table class="table-no-border tx12">
           <tr>
             <td class="left">
-              <span>2.</span>
+              <span class="">2.</span>
             </td>
             <td class="right">
               <div>
-                <span
-                  >Các Bên đã hiểu rõ quyền, nghĩa vụ, lợi ích hợp pháp của mình
-                  và hậu quả pháp lý của việc giao kết Hợp đồng này.</span
-                >
+                <span>Các Bên đã hiểu rõ quyền, nghĩa vụ, lợi ích hợp pháp của
+                  mình và hậu quả pháp lý của việc giao kết Hợp đồng
+                  này.</span>
               </div>
             </td>
           </tr>
@@ -670,30 +652,30 @@
         <table class="table-no-border tx12">
           <tr>
             <td class="left">
-              <span>3.</span>
+              <span class="">3.</span>
             </td>
             <td class="right">
               <div>
-                <span
-                  >Bên A và Bên B đã đọc lại nguyên văn bản Hợp đồng này, hiểu
+                <span>Bên A và Bên B đã đọc lại nguyên văn bản Hợp đồng này, hiểu
                   rõ nội dung và cùng thống nhất ký tên dưới đây để làm bằng
-                  chứng.</span
-                >
+                  chứng.</span>
               </div>
             </td>
           </tr>
         </table>
       </div>
-      <table class="table-no-border tx12 bold" style="text-align: center; margin-top: 20px;">
+      <table class="table-no-border tx12 bold" style="text-align: center; margin-top: 20px">
         <tr>
           <td style="width: 50%">
-            <span>BÊN ỦY QUYỀN</span>
+            <span class="">BÊN ỦY QUYỀN</span>
           </td>
           <td style="width: 50%">
-            <span>BÊN ĐƯỢC ỦY QUYỀN</span>
+            <span class="">BÊN ĐƯỢC ỦY QUYỀN</span>
           </td>
         </tr>
       </table>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

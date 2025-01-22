@@ -143,7 +143,7 @@
         width: 50mm;
     }
 
-     /* Gạch chân chữ */
+    /* Gạch chân chữ */
     .underline-small {
         border-bottom: 0.5px solid #000;
         width: 50mm;
@@ -178,208 +178,276 @@
     .table-no-border th {
         border: none !important;
     }
+
+    .left {
+        width: 7%;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    .right {
+        width: 93%;
+        text-align: left;
+        vertical-align: top;
+    }
 </style>
 
 <body>
     <div id="editor" style="width: 100%; height: 700px;" spellcheck='false'>
-        <div class="container">
-            <div style="padding-top: 50px; padding-bottom: 30px; line-height: normal;" class = "tx12 txcenter">
+        <div class="container" id="allvoice">
+            <div style="padding-top: 50px; padding-bottom: 30px; line-height: normal;" class="tx12 txcenter">
                 <span>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
                 <br />
-                <span class="bold">Độc lập - Tự do -  Hạnh phúc</span>
+                <span class="bold">Độc lập - Tự do - Hạnh phúc</span>
                 <hr style="width: 30%;" />
             </div>
-            <div class = "tx12 txcenter">
-                <span style="margin-top: 12pt;" class = "bold">BIÊN BẢN THOẢ THUẬN ĐỊNH GIÁ TÀI SẢN THẾ CHẤP</span>
+            <div class="tx12 txcenter">
+                <span style="margin-top: 12pt;" class="bold">BIÊN BẢN THOẢ THUẬN ĐỊNH GIÁ TÀI SẢN THẾ CHẤP</span>
                 <br />
-                <span>Số………../BB–PVB</span>
+                <span>Số <span id="headerNumber">3</span>/BB–PVB</span>
             </div>
             <br />
             <div>
                 <span>
-                    Hôm nay, ngày      tháng     năm       , tại Ngân hàng TMCP Đại Chúng Việt Nam – Chi nhánh/PGD ….., chúng tôi gồm có:
+                    Hôm nay, ngày<span id="headerDay"></span>
+                    tháng<span id="headerMonth"></span>
+                    năm<span id="headerYear"></span>
+                    , tại <span id="headerAt">Ngân hàng TMCP Đại Chúng Việt Nam – Chi nhánh/PGD</span>
+                    chúng tôi gồm có:
                 </span>
             </div>
-            <div class="content">
-                <div style="margin-left: 120px;">
-                    <p class="tx12">
-                        <spam>Kính gửi: - </spam>
-                        <spam id="salutation_key">……………………………………………</spam>
-                        <br>
-                        <span style="margin-left: 60px;">- ……………………………………………</span>
-                    </p>
+            <div id="nganHang">
+                <span class="bold">I. </span>
+                <span class="bold" id="branchName"></span>
+                <div>
+                    <span>Địa chỉ:</span>
+                    <span id="addressBranch"></span>
                 </div>
-
-                <p class="tx12 italic" style="">
-                    <spam>- Căn cứ Phiếu yêu cầu đăng ký thế chấp quyền sử dụng đất, tài sản gắn liền với
-                        đất ngày </spam>
-                    <spam id="registrationRequestDate">……………………</spam>;
-                </p>
-
-                <p class="tx12 italic">
-                    <spam>- Căn cứ Hợp đồng thế chấp </spam>
-                    <spam id="mortgageContract">……………………………</spam>
-                    <spam> số công chứng: </spam>
-                    <spam id="notarizationNumber">………….</spam>
-                    <spam>, Quyển số </spam>
-                    <spam id="notarizationBookNumber">…………………..</spam>
-                    <spam> ngày </spam>
-                    <spam id="notarizationDate">……………….</spam>
-                    <spam> giữa Ngân hàng TMCP Đại Chúng Việt Nam – Chi nhánh </spam>
-                    <spam id="bankBranch">…………………………..</spam>
-                    <spam> với </spam>
-                    <spam id="partner">…………………………………….</spam>
-                </p>
-
-                <p class="tx12bold">
-                    <span" class="underline">BÊN THẾ CHẤP</span><span>:</span>
-                </p>
-                <table class="table-no-border">
-                    <tr>
-                        <td class="tx12bold" style="width: 50%;">
-                            <span><span>Họ tên: </span><span id="mortgagorName">……………………………</span></span>
-                        </td>
-                        <td class="tx12" style="width: 50%;">
-                            <span>Sinh năm: </span><span id="mortgagorBirthYear">………………</span>
-                        </td>
-                    </tr>
-                </table>      
-                <p class="tx12">
-                    <span>CCCD/CMND/Hộ chiếu số:</span><span id="mortgagorIdNumber"> ………………………</span><span>
-                        do</span><span id="mortgagorIdIssuedBy"> …………………………….</span><span> cấp ngày</span><span
-                        id="mortgagorIdIssuedDate"> ……………….</span>
-                </p>
-
-                <p class="tx12">
-                    <span>Nơi thường trú: </span><span id="mortgagorAddress">…………………………………………………………………………</span>
-                </p>
-         
-                <p class="tx12 italic">
-                    <span class="underline-small">Cùng vợ/chồng là:</span>
-                </p>
-
-                <table class="table-no-border">
-                    <tr>
-                        <td class="tx12bold" style="width: 50%;">
-                            <span><span>Họ tên: </span><span id="spouseName">……………………………</span></span>
-                        </td>
-                        <td class="tx12" style="width: 50%;">
-                            <span>Sinh năm: </span><span id="spouseBirthYear">………………</span>
-                        </td>
-                    </tr>
-                </table>
-
-                <p class="tx12">
-                    <span>CCCD/CMND/Hộ chiếu số:</span><span id="spouseIdNumber"> ………………………</span><span>
-                        do</span><span id="spouseIdIssuedBy"> …………………………….</span><span> cấp ngày</span><span
-                        id="spouseIdIssuedDate"> ……………….</span>
-                </p>
-
-                <p class="tx12">
-                    <span>Nơi thường trú: </span><span id="spouseAddress">…………………………………………………………………………</span>
-                </p>
-
-                <p class="tx12 italic"><span>(Sau đây gọi tắt là “<span class="bold">Bên Thế Chấp</span>”)</span></p>
-
-                <p class="tx12bold">
-                    <span class="underline">BÊN NHẬN THẾ CHẤP:
-                    </span>
-                    <span > NGÂN HÀNG TMCP ĐẠI CHÚNG VIỆT NAM – CHI NHÁNH
-                        <span id="mortgageeBankBranch">……………………………………………………</span>
-                    </span>
-                </p>
-                <table class="table-no-border">
-                    <tr>
-                        <td class="tx12bold" style="width: 50%;">
-                            <span><span>Họ tên: </span><span id="spouseName">……………………………</span></span>
-                        </td>
-                        <td class="tx12" style="width: 50%;">
-                            <p class="title4Content">:<span id="mortgageeAddress">……………………………………………………………………….</span></p>
-                        </td>
-                    </tr>
-                </table>
-
-                <div class="khoang_cach_dong" style="display: flex;">
-                    <p class="title4Index"><span>Địa chỉ</span></p>
-                    <p class="title4Content">:<span id="mortgageeAddress">……………………………………………………………………….</span></p>
+                <div>
+                    <span>Giấy ĐKKD số:</span> <span id="registrationNumberBranch"></span>
+                    <span>Ngày cấp:</span> <span id="issueDateBranch"></span>
+                    <span>Nơi cấp:</span> <span id="issuePlaceBranch"></span>
                 </div>
-
-
-
-                <div class="khoang_cach_dong" style="display: flex;">
-                    <p class="title4Index"><span>Mã số doanh nghiệp</span></p>
-                    <p class="title4Content"><span id="mortgageeBusinessId">: …………………</span><span> do <span
-                                id="mortgageeBusinessIdIssuedBy">…………………………………….</span> </span><span> cấp, đăng ký lần
-                            đầu ngày</span><span id="mortgageeBusinessRegistrationDay">……</span><span>tháng</span><span
-                            id="mortgageeBusinessRegistrationMonth">……</span><span>năm</span><span
-                            id="mortgageeBusinessRegistrationYear">…………</span><span>, và các lần đăng ký thay đổi,
-                            bổ sung (nếu có).</span></p>
+                <div>
+                    <span>Điện thoại:</span> <span id="phoneNumberBranch"></span>
                 </div>
-                <div class="khoang_cach_dong" style="display: flex;">
-                    <div class="kiten1" style="display: flex;">
-                        <div class="kiten1"><span>Điện thoại </span></div><span class="kiten2"
-                            id="mortgageePhoneNumber">: ………</span>
-                    </div>
-                    <p class="kiten2">
-                        <span>Fax: </span><span id="mortgageeFaxNumber">: ……………….</span>
-                    </p>
+                <div>
+                    <span>Fax:</span> <span id="faxNumberBranch"></span>
                 </div>
-                <div class="khoang_cach_dong" style="display: flex;">
-                    <span class="title4Index">Đại diện </span><span class="title4Content" id="mortgageeRepresentative">:
-                        ………………….</span>
+                <div>
+                    <span>Đại diện:</span> <span id="representativeBranch"></span>
                 </div>
-                <div class="khoang_cach_dong" style="display: flex;">
-                    <span class="title4Index">Chức vụ </span><span class="title4Content" id="mortgageePosition">:
-                        ………………….</span>
+                <div>
+                    <span>Chức vụ:</span> <span id="positionBranch"></span>
                 </div>
-                <div class="khoang_cach_dong" style="display: flex;">
-                    <span class="title4Index">Văn bản ủy quyền số </span><span class="title4Content"
-                        id="mortgageeAuthorizationDocumentNumber">: ……………………………………………………………………..</span>
+                <div id="NganHangTable">
+                    <span>Giấy ủy quyền số:</span> <span id="authorizationNumberBranch"></span>
+                    <span>ngày</span> <span id="authorizationDateBranch"></span>
+                    <span>của</span> <span id="authorizationByBranch"></span>
+                    <span>(nếu có)</span>
                 </div>
-                <div class="khoang_cach_dong"><i><strong>(Sau đây gọi là: “Ngân Hàng”)</strong></i></div>
-                <div class="khoang_cach_dong">
-                    <p>
-                        <span>Tài Sản Thế Chấp là</span><span id="collateralAsset"> ……………………………….</span><span> thuộc
-                            quyền sử dụng, quyền sở hữu hợp pháp của Bên Thế Chấp theo Giấy chứng nhận</span><span
-                            id="certificateOfOwnership"> ……………………………………………</span><span> số</span><span
-                            id="certificateNumber"> ……………….</span><span>, Số vào sổ/Hồ sơ gốc số:</span><span
-                            id="recordBookNumber"> ……………………</span><span> do</span><span id="certificateIssuedBy">
-                            ……………………………………</span> <span>cấp ngày</span><span id="certificateIssuedDate">
-                            ………………..</span><span> cho</span><span id="certificateHolder"> …………………………..</span>, <span> cụ
-                            thể như sau:</span> <span id="currentMortgageStatus"> ........................</span>
-                    </p>
+                <div class="italic">
+                    <span class="">&#40;Sau đây gọi là "</span>
+                    <span class="bold">PVcomBank</span>
+                    <span class="">"&#41;</span>
                 </div>
-                <div class="khoang_cach_dong">
-                    <p>
-                        <span>Hiện nay, Bên thế chấp đã</span><span id="notificationRecipients"> ………………………</span><span>
-                            tại Ngân hàng TMCP Đại Chúng Việt Nam. Bằng văn bản này, Ngân Hàng chúng tôi xin thông báo
-                            với Quý cơ quan và đề nghị Quý cơ quan làm thủ tục giải chấp tài sản đảm bảo và chuyển quyền
-                            thụ hưởng tài sản đảm bảo nêu trên để tạo điều kiện cho Bên thế chấp có thể thực hiện được
-                            các giao dịch sau này.</span>
-                    </p>
-                </div>
-                <div class="khoang_cach_dong" style="margin-left: 30px;"><i><strong><span>Xin trân trọng thông
-                                báo!</span></strong></i></div>
-
-                <div class="cuoi_doan">
-                    <div class="txleft">
-                        <h3 class="tx13 ">
-                            <spam>
-                                <strong>Nơi nhận:</strong>
-                                <br>
-                                - Như trên
-                                <br>
-                                - Lưu: VT, PVB <span id="archiveDepartment">……….</span>
-                            </spam>
-                        </h3>
-                    </div>
-                    <h3 class="tx13 txright" style="margin-right: 80px;"><strong>
-                            <spam>TUQ. TỔNG GIÁM ĐỐC</spam>
-                        </strong></h3>
-                </div>
-
-
             </div>
+            <div id="benTheChap">
+                <span class="bold">II. BÊN THẾ CHẤP</span>
+                <div class="italic">
+                    <span>Nếu Bên thế chấp là cá nhân điền thông tin vào mục này:</span>
+                </div>
+                <div id="TableCaNhan">
+                    <div>
+                        <span class="bold">Họ và tên:</span> <span id="fullName"></span>
+                    </div>
+                    <div>
+                        <span id="idType">Chứng minh thư:</span> <span id="idNumber"></span>
+                        <span>Cấp ngày:</span> <span id="issueDate"></span>
+                        <span>Tại:</span> <span id="issuePlace"></span>
+                    </div>
+                    <div>
+                        <span>Địa chỉ thường trú:</span> <span id="permanentAddress"></span>
+                    </div>
+                    <div>
+                        <span>Chỗ ở hiện tại:</span> <span id="currentAddress"></span>
+                    </div>
+                </div>
+                <div class="italic">
+                    <span>Nếu Bên thế chấp là tổ chức điền thông tin vào mục này:</span>
+                </div>
+                <div id="TableDoanhNghiep">
+                    <div>
+                        <span class="bold">Tên tổ chức:</span> <span id="organizationName"></span>
+                    </div>
+                    <div>
+                        <span>Giấy chứng nhận đăng ký doanh nghiệp/Quyết định thành lập số:</span>
+                        <span id="businessRegistrationNumber"></span>
+                        <span>do:</span> <span id="issuedBy"></span>
+                        <span>cấp ngày:</span> <span id="businessIssueDate"></span>
+                    </div>
+                    <div>
+                        <span id="addressType">Địa chỉ trụ sở:</span> <span id="organizationAddress"></span>
+                    </div>
+                    <div>
+                        <span>Người đại diện:</span> <span id="representative"></span>
+                    </div>
+                    <div>
+                        <span>Chức vụ:</span> <span id="position"></span>
+                    </div>
+                    <div>
+                        <span>Chứng minh thư:</span> <span id="representativeId"></span>
+                        <span>do Công an:</span> <span id="policeDepartment"></span>
+                        <span>cấp ngày:</span> <span id="idIssueDate"></span>
+                    </div>
+                    <div>
+                        <span>(Theo Văn bản ủy quyền số:</span> <span id="authorizationDocument"></span><span>)</span>
+                    </div>
+                </div>
+                <div class="italic">
+                    <span class="">&#40;Sau đây gọi là "</span>
+                    <span class="bold">Bên Thế Chấp</span>
+                    <span class="">"&#41;</span>
+                </div>
+            </div>
+            <div id="noiDungHopDongTong">
+                <table id="noiDungHopDong" class="table-no-border tx12">
+                    <tr>
+                        <td class="left"> 
+                            <span class=""></span> 
+                        </td>
+                        <td class="right"> 
+                            <span class="">Hai bên đồng ý ký kết Biên bản thoả thuận định giá tài sản thế chấp với nội dung sau:</span> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left">
+                            <span class="bold">1.</span>
+                        </td>
+                        <td class="right">
+                            <span class="bold">Thông tin chung về tài sản thế chấp:</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left"></td>
+                        <td class="right">
+                            <span>Tài sản thế chấp bao gồm: </span>
+                            <span>Quyền sử dụng đất và tài sản gắn liền với đất tại </span>
+                            <span id="propertyAddress"></span>
+                            <span>(ghi cụ thể địa chỉ, thửa đất, tờ bản đồ, số GCN, ngày cấp, nơi cấp).</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left"></td>
+                        <td class="right">
+                            <span>Trong đó:</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left"><span>a)</span></td>
+                        <td class="right">
+                            <span>Quyền sử dụng đất: </span>
+                            <span id="landUsageDetails"></span>
+                            <span>(mô tả diện tích, hình thức sử dụng, mục đích sử dụng,…)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left"><span>b)</span></td>
+                        <td class="right">
+                            <span>Tài sản gắn liền với đất: </span>
+                            <span id="attachedAssetDetails"></span>
+                            <span>(mô tả kết cấu công trình xây dựng, diện tích sàn… - theo mô tả tại Báo
+                                cáo định giá).</span>
+                        </td>
+                    </tr>
+                </table>
+                <table class="table-no-border tx12">
+                    <tr>
+                        <td class="left">
+                            <span class="bold">2.</span>
+                        </td>
+                        <td class="right">
+                            <span class="bold">Trị giá thoả thuận:</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left"></td>
+                        <td class="right">
+                            <span>Bằng số: </span>
+                            <span id="agreementValueNumber"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left"></td>
+                        <td class="right">
+                            <span>Bằng chữ: </span>
+                            <span id="agreementValueText"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left"></td>
+                        <td class="right">
+                            <span>(Giá trị định giá bao gồm Tổng giá trị Quyền sử dụng đất và tài sản gắn liền với đất).</span>
+                        </td>
+                    </tr>
+            
+                    <!-- Mục 3 -->
+                    <tr>
+                        <td class="left">
+                            <span class="bold">3.</span>
+                        </td>
+                        <td class="right">
+                            <span class="bold">Cam kết của Bên Thế chấp:</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left"><span>a)</span></td>
+                        <td class="right">
+                            <span>Toàn bộ tài sản mô tả trong Biên bản thỏa thuận định giá thuộc sở hữu của Bên Thế chấp và không có tranh chấp về quyền sở hữu.</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left"><span>b)</span></td>
+                        <td class="right">
+                            <span>Tài sản gắn liền với đất được ghi nhận trên GCN QSDĐ đã được đầu tư thêm thành tài sản như hiện trạng được mô tả tại Biên bản thỏa thuận định giá này.</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left"><span>c)</span></td>
+                        <td class="right">
+                            <span>Dùng toàn bộ tài sản mô tả trong Biên bản thỏa thuận định giá để đảm bảo cho tất cả các nghĩa vụ của Bên Thế chấp hoặc bên thứ ba phát sinh tại PVcomBank.</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left"><span>d)</span></td>
+                        <td class="right">
+                            <span>Khi Ngân hàng xử lý tài sản thế chấp để thu hồi nợ, Bên Thế chấp đồng ý để Ngân hàng được quyền xử lý đồng thời Quyền sử dụng đất và toàn bộ tài sản gắn liền với đất.</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left"><span>e)</span></td>
+                        <td class="right">
+                            <span>Giá trị tài sản được xác định trên đây chỉ là cơ sở làm căn cứ để đăng ký biện pháp bảo đảm theo quy định của pháp luật, không áp dụng khi xử lý tài sản bảo đảm.</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left"></td>
+                        <td class="right">
+                            <span>Biên bản này được lập thành 04 (bốn) bản, có giá trị pháp lý ngang nhau, PVcomBank giữ 03 (ba) bản, Bên Thế chấp giữ 01 (một) bản.</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <table class="table-no-border tx12 bold" style="text-align: center; margin-top: 20px">
+                <tr>
+                    <td style="width: 50%">
+                    <span class="">ĐẠI DIỆN NGÂN HÀNG TMCP ĐẠI CHÚNG VIỆT NAM</span>
+                    </td>
+                    <td style="width: 50%">
+                    <span class="">BÊN THẾ CHẤP</span>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 </body>

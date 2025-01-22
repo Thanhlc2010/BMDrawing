@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIÊN BẢN THỎA THUẬN ĐỊNH GIÁ TÀI SẢN THẾ CHẤP</title>
+    <style>
+        /* Dùng để bỏ margin tự động khi xuất PDF */
+        @page {
+            margin-top: 0;
+            margin-left: 0;
+            margin-right: 0;
+            /* Có thể thêm cả số trang khi xuất PDF */
+        }
+
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        a:hover,
+        a:active,
+        a:focus {
+            color: #888;
+            text-decoration: none;
+        }
+
+        body {
+            font-family: "Times New Roman";
+            color: #000;
+            font-weight: normal;
+            background: #f0f0f0;
+            width: 100%;
+            line-height: 20px;
+            text-align: justify;
+            margin: 0 auto;
+        }
+
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        span {
+            font-family: "Times New Roman";
+            margin: 0;
+        }
+
+        /* Kích cỡ khổ A4 */
+        .container {
+            width: 100%;
+            height: auto;
+            padding: 25mm 18mm 350mm 22mm;
+            background: #FFF;
+            margin: 0 auto;
+            box-sizing: border-box;
+            position: relative;
+            font-size: 16px;
+            white-space: normal; /* Cho phép xuống dòng tự động */
+            word-wrap: break-word;
+        }
+
+        /* In đậm */
+        .bold {
+            font-weight: bold;
+        }
+
+        /* In nghiêng */
+        .italic {
+            font-style: italic;
+        }
+
+        .tx9 {
+            font-size: 9px;
+            font-weight: normal;
+        }
+
+        .tx12 {
+            font-size: 12px;
+        }
+
+        /* font-size 12 in đậm */
+        .tx12bold {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* font-size 12 in đậm */
+        .tx12bolditalic {
+            font-size: 12px;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .tx13 {
+            font-size: 13px;
+        }
+
+        /* font-size 13 in nghiêng */
+        .tx13italic {
+            font-size: 13px;
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        /* font-size 13 in đậm */
+        .tx13bold {
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* font-size 14 */
+        .tx14 {
+            font-size: 14px;
+        }
+
+        /* font-size 14 in đậm */
+        .tx14bold {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* Căn giữa */
+        .txcenter {
+            text-align: center;
+        }
+
+        /* Căn phải */
+        .txright {
+            text-align: right;
+        }
+
+        /* Căn trái */
+        .txleft {
+            text-align: left;
+        }
+
+        /* Thụt đầu dòng đoạn văn */
+        .txindent {
+            text-indent: 10mm;
+        }
+
+        /* Gạch chân chữ */
+        .underline {
+            border-bottom: 2px solid #000;
+            width: 50mm;
+        }
+
+        /* Đường kẻ dưới, áp dụng thêm style="width=xx%" tùy chỗ */
+        hr {
+            border: none;
+            height: 0.5px;
+            color: black;
+            background-color: black;
+        }
+
+        /* Bảng, đã được căn các cột đều nhau */
+        table {
+            width: 100%;
+            text-indent: 0;
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+
+        table td,
+        table th {
+            border: solid 1.5px black;
+            padding: 3px;
+            vertical-align: top;
+        }
+
+        /* Bảng không có viền */
+        .table-no-border td,
+        .table-no-border th {
+            border: none !important;
+        }
+
+        /* Gạch đầu dòng*/
+        .first_line::before {
+            content: "- ";
+            /* Dấu gạch đầu dòng */
+            margin-right: 5px;
+            /* Khoảng cách giữa dấu gạch đầu dòng và nội dung */
+            color: black;
+            /* Màu của dấu gạch đầu dòng */
+        }
+
+        .txIndentCustom {
+            text-indent: 13px;
+        }
+
+        .txindent_content {
+            text-indent: 13mm;
+        }
+
+        .title1 {
+            font-weight: bold;
+            display: inline-block;
+            width: 13mm;
+        }
+
+        .title2 {
+            font-weight: bold;
+            display: inline-block;
+            width: 13mm;
+        }
+
+        .title3 {
+            vertical-align: top;
+            font-weight: bold;
+            display: inline-block;
+            width: 8mm;
+        }
+
+        .title4 {
+            vertical-align: top;
+            display: inline-block;
+            width: 8mm;
+            margin-left: 5mm;
+        }
+
+        .title5{
+            vertical-align: top;
+            display: inline-block;
+            width: 8mm;
+            margin-left: 10mm;
+        }
+
+        .subLiterContent {
+            margin-left: 13mm;
+        }
+
+        .content_title1{
+            display: inline-block;
+            width: 80%;
+        }
+
+        .content_title3 {
+            display: inline-block;
+            width: 80%;
+        }
+
+        .content_title4 {
+            display: inline-block;
+            width: 77%;
+        }
+
+        .content_title5{
+            display: inline-block;
+            width: 74%;
+        }
+
+        .footer_page {
+            margin-top: 20px;
+        }
+
+        .line {
+            margin: 10px 0;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .line::before,
+        .line::after {
+            content: " ";
+            border-top: 1px solid black;
+            /* margin: 0 10px; */
+            width: 60px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .left_20px{
+            padding-left: 20px;
+        }
+
+        .left_25px{
+            padding-left: 25px;
+        }
+    </style>   
+</head>
+<body>
+    <div id="editor" style="width: 100%; height: 1100px" spellcheck="false">
+        <div class="container" id="allvoice">
+            <table class="table-no-border">
+                <tr>
+                    <td class="txcenter">
+                        <p class="tx12 bold">NGÂN HÀNG THƯƠNG MẠI CỔ PHẦN</p>
+                        <p class="tx12 bold">
+                            ĐẠI CHÚNG VIỆT NAM
+                        </p>
+                        <p class="tx12 bold">CHI NHÁNH <span id="branch">[...]</span></p>
+                    </td>
+                    <td class="txcenter">
+                        <p class="tx12 bold">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</p>
+                        <p class="tx12 bold">Độc lập - Tự do - Hạnh phúc
+                            <hr style="width: 40%;" />
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            <p>&nbsp;</p>
+            <p class="tx14 bold txcenter">BIÊN BẢN THOẢ THUẬN ĐỊNH GIÁ TÀI SẢN THẾ CHẤP</p>
+            <p class="tx12 txcenter bold">Số: <span id="contractNumber">[...]</span>/2022/BBTTĐG/PVB-CN.</p>
+            <p class="tx12">Hôm nay, ngày <span id="contractDay">[...]</span> tháng <span id="contractMonth">[...]</span> năm <span id="contractYear">[...]</span>, tại Ngân hàng TMCP Đại Chúng Việt Nam – Chi nhánh <span id="branch">[...]</span>, chúng tôi gồm có:</p>
+            <p class="tx12"><span class="title3">I.</span><span class="content_title3">NGÂN HÀNG THƯƠNG MẠI CỔ PHẦN ĐẠI CHÚNG VIỆT NAM – CHI NHÁNH <span id="branch">[...]</span></span></p>
+            <p class="tx12">Địa chỉ: <span id="branchAddress">[...]</span></p>
+            <p class="tx12">Giấy CNĐKDN số: <span id="CNDKDN_number">[...]</span> do Sở Kế hoạch và Đầu tư Thành Phố Hồ Chí Minh cấp lần đầu ngày <span id="CNDKDN_day">[...]</span>, đăng ký thay đổi lần thứ <span id="CNDKDN_register">[...]</span> ngày <span id="CNDKDN_day">[...]</span> </p>
+            <p class="tx12">Điện thoại: <span id="CNDKDN_phone">[...]</span> Fax <span id="CNDKDN_fax">[...]</span></p>
+            <p class="tx12">Đại diện: <span id="CNDKDN_Representative">[...]</span> Chức vụ <span id="CNDKDN_position">[...]</span></p>
+            <p class="tx12">Văn bản ủy quyền số: <span class="bold">6226/UQ-PVB ngày 14/04/2020</span> của Tổng Giám Đốc ủy quyền cho các cấp thuộc Ngân Hàng Thương mại Cổ phần Đại Chúng Việt Nam.</p>
+            <p class="tx12">(Sau đây gọi là: “<span class="bold">PVcomBank</span>”)</p>
+            <p class="tx12"><span class="title3">II.</span><span class="content_title3">CHỦ SỞ HỮU TÀI SẢN BẢO ĐẢM:</span></p>
+            <p class="tx12">Ông: <span id="ownerPropertyNameMan">[...]</span> Sinh năm: <span id="ownerPropertyDateOfBrithMan"></span></p>
+            <p class="tx12">CMND số: <span id="ownerPropertyCMNDMan">[...]</span> Nơi cấp: <span id="ownerPropertyPlaceIssueMan">[...]</span> Ngày cấp: <span id="ownerPropertyDateIssueMan">[...]</span></p>
+            <p class="tx12">Bà: <span id="ownerPropertyNameWuman">[...]</span> Sinh năm: <span id="ownerPropertyDateOfBrithWuman"></span></p>
+            <p class="tx12">CMND số: <span id="ownerPropertyCMNDWuman">[...]</span> Nơi cấp: <span id="ownerPropertyPlaceIssuWuman">[...]</span> Ngày cấp: <span id="ownerPropertyDateIssueuWuman">[...]</span></p>
+            <p class="tx12">Cùng đăng ký Hộ khẩu tại: <span id="permanentAddress">[...]</span></p>
+            <p class="tx12">(Sau đây gọi là: “ <span class="bold">Bên bảo đảm</span>”)</p>
+            <p class="tx12">Hai bên đồng ý ký kết Biên bản thỏa thuận định giá tài sản thế chấp với nội dung như sau:</p>
+            <p class="tx12"><span class="title3">1.</span><span class="content_title3">Thông tin chung về tài sản thế chấp</span></p>
+            <p class="tx12"><span class="title4">1.1.</span><span class="content_title4">Quyền sử dụng đất của Bên bảo đảm đối với thửa đất theo Giấy chứng nhận quyền sử dụng đất Quyền sở hữu nhà ở và Tài sản khác gắn liền với đất số <span id="otherAssetsAttachedToTheLandNo">[...]</span>, số vào sổ cấp GCN: <span id="certificateOfIssuanceNumber">[...]</span> do <span id="certificateOfIssuancerPlace">[...]</span> cấp ngày <span id="certificateOfIssuancerDate">[...]</span> , cụ thể như sau:</span></p>
+            <p class="tx12"><span class="title5">-</span><span class="content_title5">Thửa đất số: <span id="landParcelNumber">[...]</span> Tờ bản đồ số: <span id="mapSheetNumber">[...]</span> </span></p>
+            <p class="tx12"><span class="title5">-</span><span class="content_title5">Địa chỉ thửa đất: <span id="landParcelAddress">[...]</span> </span></p>
+            <p class="tx12"><span class="title5">-</span><span class="content_title5">Diện tích: <span id="area">[...]</span> m2 (bằng chữ: <span id="areaInWord">[...]</span> mét vuông)</span></p>
+            <p class="tx12"><span class="title5">-</span><span class="content_title5">Hình thức sử dụng: riêng: <span id="formOfUseIndividual">[...]</span> m2, chung: <span id="formOfUseGroup"></span> m2 </span></p>
+            <p class="tx12"><span class="title5">-</span><span class="content_title5">Mục đích sử dụng đất: <span id="LandUsePurpose">[...]</span> </span></p>
+            <p class="tx12"><span class="title5">-</span><span class="content_title5">Thời hạn sử dụng: <span id="LandUsePurposeTime">[...]</span> </span></p>
+            <p class="tx12"><span class="title5">-</span><span class="content_title5">Nguồn gốc sử dụng: <span id="originOfUse">[...]</span> </span></p>
+            <p class="tx12"><span class="title4">1.2.</span><span class="content_title4">Tài sản gắn liền với đất: </span></p>
+            <p class="tx12"><span class="title5">-</span><span class="content_title5">Địa chỉ: <span id="assetsAttachedToTheLandAddress">[...]</span> </span></p>
+            <p class="tx12"><span class="title5">-</span><span class="content_title5">Diện tích xây dựng: <span id="assetsAttachedToTheLandArea">[...]</span> </span></p>
+            <p class="tx12"><span class="title5">-</span><span class="content_title5">Diện tích sàn: <span id="assetsAttachedToTheLandAreaFloor">[...]</span> </span></p>
+            <p class="tx12"><span class="title5">-</span><span class="content_title5">Kết cấu: <span id="assetsAttachedToTheLandConstruction">[...]</span> </span></p>
+            <p class="tx12"><span class="title5">-</span><span class="content_title5">Cấp (Hạng): <span id="assetsAttachedToTheLandLevel">[...]</span> </span></p>
+            <p class="tx12"><span class="title5">-</span><span class="content_title5">Số tầng: <span id="assetsAttachedToTheLandUpFloor">[...]</span> </span></p>
+            <p class="tx12"><span class="title3">2.</span><span class="content_title3">Trị giá thỏa thuận</span></p>
+            <p class="tx12"><span class="title5">-</span><span class="content_title5">Bằng số: <span id="agreedValue">[...]</span> </span></p>
+            <p class="tx12"><span class="title5">-</span><span class="content_title5">Bằng chữ: <span id="agreedValueInWord">[...]</span> </span></p>
+            <p class="tx12">Giá trị tài sản được xác định trên đây chỉ làm căn cứ để cho vay và đăng ký giao dịch bảo đảm theo quy định của pháp luật, không áp dụng khi xử lý tài sản bảo đảm.</p>
+            <p class="tx12">Biên bản này được lập thành 04 (bốn) bản, có giá trị pháp lý ngang nhau, PVcomBank giữ 03 (ba) bản, Bên Bảo đảm giữ 01 (một) bản.</p>
+            <table class="table-no-border footer_page">
+                <tr>
+                    <td class="txcenter">
+                        <p class="tx12 bold">ĐẠI DIỆN NGÂN HÀNG</p>
+                        <p class="tx12 bold">TMCP ĐẠI CHÚNG VIỆT NAM</p>
+                    </td>
+                    <td class="txcenter">
+                        <p class="tx12 bold">BÊN BẢO ĐẢM</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

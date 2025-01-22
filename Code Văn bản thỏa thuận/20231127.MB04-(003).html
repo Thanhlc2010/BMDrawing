@@ -21,7 +21,7 @@
         width: 100%;
         height: auto;
         padding: 25mm 18mm 350mm 22mm;
-        background: #FFF;
+        background: #fff;
         margin: 0 auto;
         box-sizing: border-box;
         position: relative;
@@ -100,733 +100,918 @@
 
       /* Gạch chân chữ */
       .underline {
-          border-bottom: 2px solid #000;
-          width: 50mm;
+        border-bottom: 2px solid #000;
+        width: 50mm;
       }
     </style>
   </head>
   <body>
-    <div class="container" id="allvoice">
-      <div id="header" style="padding-top: 50px; padding-bottom: 30px; line-height: normal" class="tx12 txcenter">
+    <div id="editor" style="width: 100%; height: 1100px" spellcheck="false">
+      <div class="container" id="allvoice">
+        <div
+          id="header"
+          style="padding-top: 50px; padding-bottom: 30px; line-height: normal"
+          class="tx12 txcenter"
+        >
           <span class="bold">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
           <br />
           <br />
           <span class="bold">Độc lập - Tự do - Hạnh phúc</span>
           <br />
-          <hr style="border: none; border-top: 1px solid black; width: 50%;"/>
+          <hr style="border: none; border-top: 1px solid black; width: 50%" />
           <br />
           <div class="bold tx16">
-          <span> VĂN BẢN THỎA THUẬN </span>
+            <span class=""> VĂN BẢN THỎA THUẬN </span>
           </div>
-      </div>
-      <div class="tx12">
-        <span>Căn cứ Thỏa thuận phong tỏa tiền và thu hồi nợ số </span>
-        <span id="agreementNumber">……………</span>
-        <span>ký ngày</span>
-        <span id="signingDate">………</span>
-        <span>giữa</span>
-        <span id="partiesInvolved">………</span>
-    </div>
-    <div class="tx12">
-        <span>Văn bản thỏa thuận này được lập và ký ngày</span>
-        <span id="signingDay">……………</span>
-        <span>tháng</span>
-        <span id="signingMonth">………</span>
-        <span>năm</span>
-        <span id="signingYear">……...</span>
-        <span>, giữa</span>
-        <span id="signingEntity">……...</span>
-    </div>    
-      <div class="tx12">
+        </div>
+        <div class="tx12">
+          <span class="">Căn cứ Thỏa thuận phong tỏa tiền và thu hồi nợ số </span>
+          <span id="agreementNumber">……………</span>
+          <span class="">ký ngày</span>
+          <span id="signingDate">………</span>
+          <span class="">giữa</span>
+          <span id="partiesInvolved">………</span>
+        </div>
+        <div class="tx12">
+          <span class="">Văn bản thỏa thuận này được lập và ký ngày</span>
+          <span id="signingDay">……………</span>
+          <span class="">tháng</span>
+          <span id="signingMonth">………</span>
+          <span class="">năm</span>
+          <span id="signingYear">……...</span>
+          <span class="">, giữa</span>
+          <span id="signingEntity">……...</span>
+        </div>
+        <div class="tx12">
           <span class="bold">1. KHÁCH HÀNG:</span>
           <div>
-            <span>Họ và tên: </span>
+            <span class="">Họ và tên: </span>
             <span id="fullName">[…]</span>
           </div>
           <div>
-              <span>Địa chỉ đăng ký thường trú: </span>
-              <span id="permanentAddress">[…]</span>
+            <span class="">Địa chỉ đăng ký thường trú: </span>
+            <span id="permanentAddress">[…]</span>
           </div>
           <div>
-              <span>Số CMND/Thẻ CCCD/Hộ chiếu: </span>
-              <span id="idNumber">……………</span>
-              <span>do</span>
-              <span id="issuingAuthority">………………</span>
-              <span>cấp ngày</span>
-              <span id="issueDate">………</span>
+            <span class="">Số </span>
+            <span id="idType">CMND: </span>
+            <span id="idNumber">……………</span>
+            <span class="">do</span>
+            <span id="issuingAuthority">………………</span>
+            <span class="">cấp ngày</span>
+            <span id="issueDate">………</span>
           </div>
           <div>
-              <span>Điện thoại: </span>
-              <span id="phone">……………</span>
-              <span>fax: </span>
-              <span id="fax">………………</span>
+            <span class="">Điện thoại: </span>
+            <span id="phone">……………</span>
+            <span class="">fax: </span>
+            <span id="fax">………………</span>
           </div>
           <div>
-              <span>Điện thoại di động: </span>
-              <span id="mobilePhone">………………………………</span>
-              <span>Địa chỉ email: </span>
-              <span id="email">………………………………</span>
+            <span class="">Điện thoại di động: </span>
+            <span id="mobilePhone">………………………………</span>
+            <span class="">Địa chỉ email: </span>
+            <span id="email">………………………………</span>
           </div>
-          <div>
-              <span>Cùng vợ/chồng là Ông/bà: </span>
+          <div id="spouseSection">
+            <div>
+              <span class="">Cùng </span>
+              <span id="spouseGender">vợ/chồng là Ông/bà:</span>
               <span id="spouseName">[…]</span>
-          </div>
-          <div>
-              <span>Địa chỉ đăng ký thường trú: </span>
+            </div>
+            <div>
+              <span class="">Địa chỉ đăng ký thường trú: </span>
               <span id="spousePermanentAddress">[…]</span>
-          </div>
-          <div>
-              <span>Số CMND/Thẻ CCCD/Hộ chiếu: </span>
+            </div>
+            <div>
+              <span class="">Số </span>
+              <span id="spouseIdType">Chứng minh thư:</span>
               <span id="spouseIdNumber">………………………………</span>
-              <span>do</span>
+              <span class="">do</span>
               <span id="spouseIssuingAuthority">………..</span>
-              <span>cấp ngày</span>
+              <span class="">cấp ngày</span>
               <span id="spouseIssueDate">……..</span>
-          </div>
-          <div>
-              <span>Điện thoại: </span>
+            </div>
+            <div>
+              <span class="">Điện thoại: </span>
               <span id="spousePhone">………………………………</span>
-              <span>Fax: </span>
+              <span class="">Fax: </span>
               <span id="spouseFax">………………………………</span>
-          </div>
-          <div>
-              <span>Điện thoại di động: </span>
+            </div>
+            <div>
+              <span class="">Điện thoại di động: </span>
               <span id="spouseMobilePhone">………………………………</span>
-              <span>Địa chỉ email: </span>
+              <span class="">Địa chỉ email: </span>
               <span id="spouseEmail">………………………………</span>
-          </div>        
-          <div class="italic" style="text-align: right;">
-              <span>&#40;Sau đây gọi tắt là "</span>
-              <span class="bold">Khách hàng</span>
-              <span>"&#41;</span>
-          </div>         
-      </div>
-      <div class="tx12">
-        <span class="bold">2. NGÂN HÀNG TMCP ĐẠI CHÚNG VIỆT NAM – CN</span>
-        <span id="branchName">……………</span>
-        <table class="table-no-border tx12">
-          <tr>
-            <td style="width: 20%">
-                <span>Địa chỉ</span>
-            </td>
-            <td style="width: 80%">
+            </div>
+          </div>
+          <div class="italic" style="text-align: right">
+            <span class="">&#40;Sau đây gọi tắt là "</span>
+            <span class="bold">Khách hàng</span>
+            <span class="">"&#41;</span>
+          </div>
+        </div>
+        <div class="tx12">
+          <span class="bold">2. NGÂN HÀNG TMCP ĐẠI CHÚNG VIỆT NAM – CN</span>
+          <span id="branchName">……………</span>
+          <table class="table-no-border tx12">
+            <tr>
+              <td style="width: 20%">
+                <span class="">Địa chỉ</span>
+              </td>
+              <td style="width: 80%">
                 <span id="address">:………………………………………………………………………</span>
-            </td>
-          </tr>
-          <tr>
+              </td>
+            </tr>
+            <tr>
               <td style="width: 20%">
-                  <span>Mã số thuế</span>
+                <span class="">Mã số thuế</span>
               </td>
               <td style="width: 80%">
-                  <span id="taxCode">:………………………………………………………………………</span>
+                <span id="taxCode">:………………………………………………………………………</span>
               </td>
-          </tr>
-          <tr>
+            </tr>
+            <tr>
               <td style="width: 20%">
-                  <span>Đại diện</span>
+                <span class="">Đại diện</span>
               </td>
               <td style="width: 80%">
-                  <span id="representative">:………………………………………………</span>
+                <span id="representative">:………………………………………………</span>
               </td>
-          </tr>
-          <tr>
+            </tr>
+            <tr>
               <td style="width: 20%">
-                  <span>Chức vụ</span>
+                <span class="">Chức vụ</span>
               </td>
               <td style="width: 80%">
-                  <span id="position">:………………………………………………………………………</span>
+                <span id="position">:………………………………………………………………………</span>
               </td>
-          </tr>                                     
-        </table>        
-        <div class="italic">
-          <span>&#40;Theo văn bản ủy quyền số </span>
-          <span id="authorizationNumber2.">………………………………</span>          
-          <span>&#41;</span>
-        </div>   
-        <div class="italic" style="text-align: right;">
-            <span>&#40;Sau đây gọi tắt là"</span>
+            </tr>
+          </table>
+          <div id="tableMB04">
+            <div class="italic">
+              <span class="">&#40;Theo văn bản ủy quyền số </span>
+              <span id="authorizationNumber2.">………………………………</span>
+              <span class="">&#41;</span>
+            </div>
+          </div>
+          <div class="italic" style="text-align: right">
+            <span class="">&#40;Sau đây gọi tắt là"</span>
             <span class="bold">Nguyên Thực</span>
-            <span>"&#41;</span>
-        </div>         
-      </div>
-      <div class="tx12">
-        <span class="bold">3. BÊN CUNG CẤP DỊCH VỤ: CÔNG TY CỔ PHẦN TƯ VẤN NGUYÊN THỰC</span>
-        <table class="table-no-border tx12">
-          <tr>
-            <td style="width: 20%">
-                <span>Giấy CNĐKKD</span>
-            </td>
-            <td style="width: 80%">
+            <span class="">"&#41;</span>
+          </div>
+        </div>
+        <div class="tx12">
+          <span class="bold">3. BÊN CUNG CẤP DỊCH VỤ: CÔNG TY CỔ PHẦN TƯ VẤN NGUYÊN THỰC</span>
+          <table class="table-no-border tx12">
+            <tr>
+              <td style="width: 20%">
+                <span class="">Giấy CNĐKKD</span>
+              </td>
+              <td style="width: 80%">
                 <span id="businessRegistration">: […]</span>
-            </td>
-          </tr>
-          <tr>
+              </td>
+            </tr>
+            <tr>
               <td style="width: 20%">
-                  <span>Địa chỉ</span>
+                <span class="">Địa chỉ</span>
               </td>
               <td style="width: 80%">
-                  <span id="companyAddress">: […]</span>
+                <span id="companyAddress">: […]</span>
               </td>
-          </tr>
-          <tr>
+            </tr>
+            <tr>
               <td style="width: 20%">
-                  <span>Điện thoại</span>
+                <span class="">Điện thoại</span>
               </td>
               <td style="width: 80%">
-                  <span id="phone3">: […]</span>
+                <span id="phone3">: […]</span>
               </td>
-          </tr>
-          <tr>
+            </tr>
+            <tr>
               <td style="width: 20%">
-                  <span>Fax</span>
+                <span class="">Fax</span>
               </td>
               <td style="width: 80%">
-                  <span id="fax3">: […]</span>
+                <span id="fax3">: […]</span>
               </td>
-          </tr>
-          <tr>
+            </tr>
+            <tr>
               <td style="width: 20%">
-                  <span>Đại diện</span>
+                <span class="">Đại diện</span>
               </td>
               <td style="width: 80%">
-                  <span id="representativeName">: […]</span>
+                <span id="representativeName">: […]</span>
               </td>
-          </tr>
-          <tr>
+            </tr>
+            <tr>
               <td style="width: 20%">
-                  <span>Chức vụ</span>
+                <span class="">Chức vụ</span>
               </td>
               <td style="width: 80%">
-                  <span id="representativePosition">: […]</span>
+                <span id="representativePosition">: […]</span>
               </td>
-          </tr>        
-        </table>        
-        <div class="italic">
-          <span>&#40;Theo văn bản ủy quyền số </span>
-          <span id="authorizationNumber3">………………………………</span> 
-          <span>&#41;</span>
-        </div>   
-        <div class="italic" style="text-align: right;">
-            <span>&#40;Sau đây gọi tắt là"</span>
+            </tr>
+          </table>
+            <div class="italic">
+              <span class="">&#40;Theo văn bản ủy quyền số </span>
+              <span id="authorizationNumber3">………………………………</span>
+              <span class="">&#41;</span>
+            </div>
+          <div class="italic" style="text-align: right">
+            <span class="">&#40;Sau đây gọi tắt là"</span>
             <span class="bold">PVcomBank</span>
-            <span>"&#41;</span>
-        </div>         
-      </div>
-      <div class="tx12">
-        <span class="bold underline">XÉT RẰNG:</span>
-        <table class="table-no-border">
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>-</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Khách hàng có nhu cầu vay vốn tại PVcomBank và cần tư vấn kiểm tra tính xác thực của tài liệu, đồng thời mong muốn được hỗ trợ trong việc cung cấp thông tin dữ liệu đất đai và thực hiện sang tên bất động sản. Do đó, Khách hàng mong muốn Nguyên Thực cung cấp Dịch Vụ có liên quan;</span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>-</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Khách hàng đã ký Phiếu yêu cầu cung cấp dịch vụ và thực hiện nộp phí cho Nguyên Thực, theo đó, Nguyên Thực  cung cấp cho Khách hàng một số dịch vụ bao gồm: Dịch vụ tư vấn xác thực GCN, Dịch vụ cung cấp thông tin dữ liệu đất đai theo yêu cầu, Dịch vụ tư vấn, hỗ trợ thủ tục đăng ký biến động đối với Tài sản theo quy định pháp luật, các dịch vụ khác (nếu có) theo đề nghị của PVcomBank và/hoặc KH </span>
-                <span class="italic">
-                  <span>&#40;các dịch vụ này sau đây được gọi chung là "</span>
-                  <span class="bold">Dịch Vụ</span>
-                  <span>"&#41;</span>
-                </span>              
-              </div>
-            </td>
-          </tr>
-        </table>
-        <span>Nay các bên thống nhất ký và cam kết thực hiện Văn bản thỏa thuận với các điều kiện và điều khoản như sau:</span>
-      </div>
-      <div class="tx12">
-        <span class="bold">Điều 1: Thời hạn thực hiện</span>
-        <table class="table-no-border">
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>1.1</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Đối với Dịch vụ tư vấn xác thực Giấy chứng nhận quyền sử dụng đất, quyền sở hữu nhà ở và tài sản khác gắn liền với đất, các loại giấy tờ chứng minh quyền sở hữu khác đối với bất động sản</span>
-                <span class="bold">("GCN"),</span>
-                <span>Dịch vụ cung cấp thông tin dữ liệu đất đai theo yêu cầu</span>
-              </div>
-              <div>
-                <span>Trong thời hạn từ 02 ngày làm việc đến 07 ngày làm việc tính từ ngày Khách hàng ký yêu cầu cung cấp dịch vụ và đóng phí đầy đủ ("Thời Điểm Cung Cấp Dịch Vụ"), Nguyên Thực sẽ gửi các bản chính kết quả cung cấp Dịch Vụ cho Khách hàng và PVcomBank, bao gồm : (1) Bản kết quả tư vấn xác thực cho Khách hàng trong đó nêu ý kiến của Nguyên Thực về tính thật, giả của </span>
-                <span class="bold">GCN </span>
-                <span>bìa số</span>
-                <span id="coverNumber">………</span>
-                <span>số vào sổ cấp GCN </span>
-                <span id="registryNumber">………</span>
-                <span>do </span>
-                <span id="issuingAuthority1">………</span>
-                <span>cấp ngày</span>
-                <span id="issueDateDieu1">………</span>
-                <span>; (2) Văn bản cung cấp thông tin dữ liệu đất đai do Cơ quan Nhà nước có thẩm quyền xác nhận.</span>
-              </div>
-              <div>
-                <span>Trong trường hợp xét thấy phải có thêm thời gian để khảo sát, tra cứu, phân tích, tham khảo ý kiến chuyên gia, Nguyên Thực có thể đề nghị Khách hàng và được sự thống nhất của PVcomBank gia hạn thêm thời gian thực hiện Dịch Vụ, với điều kiện việc đề nghị phải được thông báo cho Khách Hàng và PVcomBank trước tối thiểu [01 ngày.</span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>1.2</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Đối với Dịch vụ hỗ trợ thủ tục sang tên bất động sản</span>             
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>-</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Khách hàng có trách nhiệm chuyển đầy đủ Hồ sơ chuyển nhượng tài sản cho Nguyên Thực, bao gồm: </span>             
-              </div>
-            </td>
-          </tr>
-        </table>
-        <table class="table-no-border" style="margin-left: 30px;">
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>(i)</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>[Giấy chứng nhận quyền sử dụng đất – 01 bản gốc +01 bản sao y]</span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>(ii)</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>[Hợp đồng chuyển nhượng – 02 bản gốc]</span>             
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>(iii)</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>[Giấy ủy quyền cho Nguyên Thực  - 03 bản gốc]</span>             
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>(iv)</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Hồ sơ nhân thân của hai Bên chuyển nhượng  và Bên nhận chuyển nhượng  (theo tùy trường hợp) – 02 bộ bản sao y</span>             
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>(v)</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Biên lai /tờ khai thuế phi nông nghiệp của năm 20….</span>             
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>(vi)</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Cam kết tài sản riêng 02 – bản gốc ( đối với các trường hợp tài sản riêng của vợ chồng)</span>             
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>(vii)</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Các giấy tờ khác:</span>
-                <span id="otherDocuments">…………………………………</span>
-              </div>
-            </td>
-          </tr>
-        </table>
-        <table class="table-no-border">
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span></span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>(Sau đây gọi là “Hồ sơ chuyển nhượng”)</span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>-</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>KH có trách nhiệm thanh toán các thuế, phí, lệ phí sang tên QCN tại thời điểm bàn giao hồ sơ cho Nguyên Thực. Số tiền cụ thể theo thông báo của Nguyên Thực.</span>            
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>-</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Nguyên Thực sẽ gửi  Biên bản bàn giao Hồ sơ chuyển nhượng cho PVcomBank trong thời hạn 02 ngày kể từ ngày các Bên hoàn thành việc bàn giao Hồ sơ chuyển nhượng.</span>            
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>-</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Nguyên Thực sẽ nỗ lực để  Khách hàng được cấp GCN trong thời hạn tối đa 30 ngày đến 45 ngày kể từ ngày Khách hàng bàn giao Hồ sơ chuyển nhượng cho Nguyên Thực. Việc gia hạn thời hạn thực hiện chỉ được thực hiện khi được sự đồng ý bằng văn bản của PVcomBank. </span>            
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>-</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Nguyên Thực sẽ gửi bản sao Phiếu tiếp nhận và trả kết quả đăng ký, cấp giấy chứng nhận của Hồ sơ chuyển nhượng (sau đây gọi chung là “Phiếu tiếp nhận”) trong vòng 03 ngày đến 05 ngày kể từ ngày nhận đủ hồ sơ của KH và gửi  bản chụp qua email cho đại diện PVcomBank ngay trong ngày khi  nhận được tài liệu này từ Cơ quan Nhà nước có thẩm quyền. </span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>-</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Bàn giao GCN sang tên Khách hàng cho PVcomBank theo Văn bản thỏa thuận này.</span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>1.3</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Các Bên đồng ý rằng: Các bên được nhận bàn giao Hồ sơ chuyển nhượng, GCN theo Văn bản thỏa thuận này thì Bên đó hoàn toàn chịu trách nhiệm về bất kỳ vấn đề nào phát sinh liên quan đến việc nắm giữ, bảo quản Hồ sơ chuyển nhượng/GCN trong thời hạn được nhận bàn giao/quản lý. Khách hàng sẽ trực tiếp làm việc với bên đang nắm giữ Hồ sơ chuyển nhượng/GCN để giải quyết các vấn đề liên quan. </span>
-              </div>
-            </td>
-          </tr>
-        </table>
-        <span class="bold">Điều 2: Quyền và Trách nhiệm của Nguyên Thực</span>
-        <table class="table-no-border">
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>2.1</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Nguyên Thực bảo quản, đảm bảo sự an toàn của Hồ sơ chuyển nhượng/Phiếu tiếp nhận/Giấy chứng nhận và các văn bản liên quan; chịu mọi trách nhiệm, áp dụng các biện pháp khôi phục và bồi thường thiệt hại thực tế (nếu có) do mất mát, hư hỏng, không còn nguyên vẹn các tài liệu này;</span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>2.2</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Sau khi nhận GCN đã sang tên Khách hàng, Nguyên Thực có trách nhiệm kiểm tra tính đầy đủ, chính xác của thông tin ghi trên GCN trước khi bàn giao cho PVcomBank. Trường hợp sau khi cấp GCN mà phát hiện sai sót do lỗi đánh máy của CQNN (sai tên, sai địa chỉ, CCCD/ CMND của chủ tài sản…), Nguyên Thực sẽ thực hiện thủ tục để đính chính GCN trước khi bàn giao GCN cho PVcomBank. </span>            
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>2.3</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Bằng văn bản này và được sự đồng ý của Khách hàng, Nguyên Thực trực tiếp giao cho PVcomBank GCN sau khi đã sang tên cho Khách hàng, hoặc Hồ sơ chuyển nhượng (trong trường hợp GCN không sang tên được cho KH), cũng như các tài liệu liên quan khác mà không phụ thuộc vào sự có mặt của Khách hàng và/hoặc chấp thuận của Khách hàng trong thời hạn tối đa 02 ngày từ ngày nhận được hồ sơ/tài liệu này từ Cơ quan Nhà nước có thẩm quyền (trừ trường hợp PVcomBank có yêu cầu/hoặc chấp thuận khác bằng văn bản).</span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>2.4</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Nguyên Thực không trả lại Hồ sơ chuyển nhượng/GCN và các giấy tờ liên quan cho Bên bán hoặc Khách hàng nếu như không có văn bản chấp thuận của PVcomBank.</span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>2.5</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Chịu trách nhiệm về tính trung thực, chính xác, khớp đúng của các thông tin, tài liệu cung cấp cho Khách hàng và/hoặc PVcomBank theo Văn bản Thỏa thuận này.</span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>2.6</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Các quyền và trách nhiệm khác theo thỏa thuận của Văn bản thỏa thuận này và quy định của pháp luật.</span>
-              </div>
-            </td>
-          </tr>          
-        </table>
-        <span class="bold">Điều 3: Quyền và Trách nhiệm của Khách hàng</span>
-        <table class="table-no-border">
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>3.1</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Trường hợp Khách hàng vi phạm Thỏa thuận này, Khách hàng bồi thường toàn bộ thiệt hại cho Nguyên Thực và PVcomBank (nếu có).</span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>3.2</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Bằng văn bản này Khách hàng đồng ý Nguyên Thực trực tiếp giao GCN mang tên Khách hàng sau khi sang tên cũng như các tài liệu liên quan khác cho PVcomBank theo yêu cầu của PVcomBank mà không phụ thuộc vào sự có mặt của Khách hàng và/hoặc chấp thuận của KH.</span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>3.3</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Các quyền và trách nhiệm khác theo thỏa thuận của Thỏa thuận này và quy định của pháp luật.</span>
-              </div>
-            </td>
-          </tr>                  
-        </table>
-        <span class="bold">Điều 4:  Quyền và Trách nhiệm của PVcomBank</span>
-        <table class="table-no-border">
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>4.1</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Nhận toàn bộ các hồ sơ, giấy tờ, tài liệu liên quan đến Tài Sản từ Nguyên Thực, Khách hàng theo Văn bản thỏa thuận này.</span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>4.2</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>PVcomBank được quyền miễn trừ trách nhiệm đối với mọi tranh chấp giữa Nguyên Thực và Khách hàng phát sinh từ/hoặc liên quan đến Hợp đồng dịch vụ.</span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>4.3</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Các quyền và trách nhiệm khác theo thỏa thuận của Văn bản thỏa thuận này và quy định của pháp luật.</span>
-              </div>
-            </td>
-          </tr>                           
-        </table>
-        <span class="bold">Điều 5: Bảo mật</span>
-        <table class="table-no-border">
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>5.1</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Tất cả các giấy tờ, tài liệu, thông tin trao đổi giữa Khách hàng và Nguyên Thực được xem là của riêng các bên. Các bên có trách nhiệm giữ bí mật tất cả những giấy tờ, tài liệu, thông tin đó và chỉ cung cấp duy nhất cho PVcomBank. Toàn bộ các thông tin, tài liệu liên quan đến/phát sinh từ Văn bản thỏa thuận này cũng được coi là thông tin bảo mật và các bên có nghĩa vụ bảo mật toàn bộ các thông tin này, không cung cấp cho bất cứ bên nào khác ngoài các bên trong Văn bản thỏa thuận này và không sử dụng cho bất cứ mục đích nào khác ngoài mục đích để thực hiện Văn bản thỏa thuận này.</span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>5.2</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Quy định bảo mật nêu tại Khoản 5.1 nêu trên tiếp tục có hiệu lực kể cả khi Hợp Đồng này chấm dứt và sẽ tiếp tục có hiệu lực cho đến khi các thông tin đó được công khai theo quy định của pháp luật.</span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>5.3</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Các nghĩa vụ quy định tại Điều 5.1 trên đây không áp dụng đối với các thông tin:</span>
-                <div style="margin-left: 10px;">
-                  <div><span>-	Đã được công bố công khai cho công chúng; hoặc đã được công bố cho bên thứ ba trên cơ sở công khai;</span></div>
-                  <div><span>-	Được yêu cầu cung cấp/công bố bởi luật pháp hoặc bởi bất kỳ một cơ quan có thẩm quyền nào.</span></div>
-                  <div><span>-	Các trường hợp khác theo quy định của pháp luật.</span></div>                  
+            <span class="">"&#41;</span>
+          </div>
+        </div>
+        <div class="tx12">
+          <span class="bold underline">XÉT RẰNG:</span>
+          <table class="table-no-border">
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">-</span>
                 </div>
-              </div>
-            </td>
-          </tr>                                    
-        </table>
-        <span class="bold">Điều 6: Điều khoản thi hành </span>
-        <table class="table-no-border">
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Khách hàng có nhu cầu vay vốn tại PVcomBank và cần tư vấn
+                    kiểm tra tính xác thực của tài liệu, đồng thời mong muốn
+                    được hỗ trợ trong việc cung cấp thông tin dữ liệu đất đai và
+                    thực hiện sang tên bất động sản. Do đó, Khách hàng mong muốn
+                    Nguyên Thực cung cấp Dịch Vụ có liên quan;</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">-</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Khách hàng đã ký Phiếu yêu cầu cung cấp dịch vụ và thực
+                    hiện nộp phí cho Nguyên Thực, theo đó, Nguyên Thực cung cấp
+                    cho Khách hàng một số dịch vụ bao gồm: Dịch vụ tư vấn xác
+                    thực GCN, Dịch vụ cung cấp thông tin dữ liệu đất đai theo
+                    yêu cầu, Dịch vụ tư vấn, hỗ trợ thủ tục đăng ký biến động
+                    đối với Tài sản theo quy định pháp luật, các dịch vụ khác
+                    (nếu có) theo đề nghị của PVcomBank và/hoặc KH
+                  </span>
+                  <span class="italic">
+                    <span
+                      >&#40;các dịch vụ này sau đây được gọi chung là "</span>
+                    <span class="bold">Dịch Vụ</span>
+                    <span class="">"&#41;</span>
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </table>
+          <span
+            >Nay các bên thống nhất ký và cam kết thực hiện Văn bản thỏa thuận
+            với các điều kiện và điều khoản như sau:</span>
+        </div>
+        <div class="tx12">
+          <span class="bold">Điều 1: Thời hạn thực hiện</span>
+          <table class="table-no-border">
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">1.1</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Đối với Dịch vụ tư vấn xác thực Giấy chứng nhận quyền sử
+                    dụng đất, quyền sở hữu nhà ở và tài sản khác gắn liền với
+                    đất, các loại giấy tờ chứng minh quyền sở hữu khác đối với
+                    bất động sản</span>
+                  <span class="bold">("GCN"),</span>
+                  <span
+                    >Dịch vụ cung cấp thông tin dữ liệu đất đai theo yêu
+                    cầu</span>
+                </div>
+                <div>
+                  <span
+                    >Trong thời hạn từ 02 ngày làm việc đến 07 ngày làm việc
+                    tính từ ngày Khách hàng ký yêu cầu cung cấp dịch vụ và đóng
+                    phí đầy đủ ("Thời Điểm Cung Cấp Dịch Vụ"), Nguyên Thực sẽ
+                    gửi các bản chính kết quả cung cấp Dịch Vụ cho Khách hàng và
+                    PVcomBank, bao gồm : (1) Bản kết quả tư vấn xác thực cho
+                    Khách hàng trong đó nêu ý kiến của Nguyên Thực về tính thật,
+                    giả của
+                  </span>
+                  <span class="bold">GCN </span>
+                  <span class="">bìa số</span>
+                  <span id="coverNumber">………</span>
+                  <span class="">số vào sổ cấp GCN </span>
+                  <span id="registryNumber">………</span>
+                  <span class="">do </span>
+                  <span id="issuingAuthority1">………</span>
+                  <span class="">cấp ngày</span>
+                  <span id="issueDateDieu1">………</span>
+                  <span
+                    >; (2) Văn bản cung cấp thông tin dữ liệu đất đai do Cơ quan
+                    Nhà nước có thẩm quyền xác nhận.</span>
+                </div>
+                <div>
+                  <span
+                    >Trong trường hợp xét thấy phải có thêm thời gian để khảo
+                    sát, tra cứu, phân tích, tham khảo ý kiến chuyên gia, Nguyên
+                    Thực có thể đề nghị Khách hàng và được sự thống nhất của
+                    PVcomBank gia hạn thêm thời gian thực hiện Dịch Vụ, với điều
+                    kiện việc đề nghị phải được thông báo cho Khách Hàng và
+                    PVcomBank trước tối thiểu [01 ngày.</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">1.2</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Đối với Dịch vụ hỗ trợ thủ tục sang tên bất động sản</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">-</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Khách hàng có trách nhiệm chuyển đầy đủ Hồ sơ chuyển nhượng
+                    tài sản cho Nguyên Thực, bao gồm:
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </table>
+          <table class="table-no-border" style="margin-left: 30px">
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">(i)</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >[Giấy chứng nhận quyền sử dụng đất – 01 bản gốc +01 bản sao
+                    y]</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">(ii)</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span class="">[Hợp đồng chuyển nhượng – 02 bản gốc]</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">(iii)</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span class="">[Giấy ủy quyền cho Nguyên Thực - 03 bản gốc]</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">(iv)</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Hồ sơ nhân thân của hai Bên chuyển nhượng và Bên nhận
+                    chuyển nhượng (theo tùy trường hợp) – 02 bộ bản sao y</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">(v)</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Biên lai /tờ khai thuế phi nông nghiệp của năm 20….</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">(vi)</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Cam kết tài sản riêng 02 – bản gốc ( đối với các trường hợp
+                    tài sản riêng của vợ chồng)</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">(vii)</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span class="">Các giấy tờ khác:</span>
+                  <span id="otherDocuments">…………………………………</span>
+                </div>
+              </td>
+            </tr>
+          </table>
+          <table class="table-no-border">
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class=""></span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span class="">(Sau đây gọi là “Hồ sơ chuyển nhượng”)</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">-</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >KH có trách nhiệm thanh toán các thuế, phí, lệ phí sang tên
+                    QCN tại thời điểm bàn giao hồ sơ cho Nguyên Thực. Số tiền cụ
+                    thể theo thông báo của Nguyên Thực.</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">-</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Nguyên Thực sẽ gửi Biên bản bàn giao Hồ sơ chuyển nhượng
+                    cho PVcomBank trong thời hạn 02 ngày kể từ ngày các Bên hoàn
+                    thành việc bàn giao Hồ sơ chuyển nhượng.</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">-</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Nguyên Thực sẽ nỗ lực để Khách hàng được cấp GCN trong thời
+                    hạn tối đa 30 ngày đến 45 ngày kể từ ngày Khách hàng bàn
+                    giao Hồ sơ chuyển nhượng cho Nguyên Thực. Việc gia hạn thời
+                    hạn thực hiện chỉ được thực hiện khi được sự đồng ý bằng văn
+                    bản của PVcomBank.
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">-</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Nguyên Thực sẽ gửi bản sao Phiếu tiếp nhận và trả kết quả
+                    đăng ký, cấp giấy chứng nhận của Hồ sơ chuyển nhượng (sau
+                    đây gọi chung là “Phiếu tiếp nhận”) trong vòng 03 ngày đến
+                    05 ngày kể từ ngày nhận đủ hồ sơ của KH và gửi bản chụp qua
+                    email cho đại diện PVcomBank ngay trong ngày khi nhận được
+                    tài liệu này từ Cơ quan Nhà nước có thẩm quyền.
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">-</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Bàn giao GCN sang tên Khách hàng cho PVcomBank theo Văn bản
+                    thỏa thuận này.</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">1.3</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Các Bên đồng ý rằng: Các bên được nhận bàn giao Hồ sơ
+                    chuyển nhượng, GCN theo Văn bản thỏa thuận này thì Bên đó
+                    hoàn toàn chịu trách nhiệm về bất kỳ vấn đề nào phát sinh
+                    liên quan đến việc nắm giữ, bảo quản Hồ sơ chuyển nhượng/GCN
+                    trong thời hạn được nhận bàn giao/quản lý. Khách hàng sẽ
+                    trực tiếp làm việc với bên đang nắm giữ Hồ sơ chuyển
+                    nhượng/GCN để giải quyết các vấn đề liên quan.
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </table>
+          <span class="bold">Điều 2: Quyền và Trách nhiệm của Nguyên Thực</span>
+          <table class="table-no-border">
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">2.1</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Nguyên Thực bảo quản, đảm bảo sự an toàn của Hồ sơ chuyển
+                    nhượng/Phiếu tiếp nhận/Giấy chứng nhận và các văn bản liên
+                    quan; chịu mọi trách nhiệm, áp dụng các biện pháp khôi phục
+                    và bồi thường thiệt hại thực tế (nếu có) do mất mát, hư
+                    hỏng, không còn nguyên vẹn các tài liệu này;</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">2.2</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Sau khi nhận GCN đã sang tên Khách hàng, Nguyên Thực có
+                    trách nhiệm kiểm tra tính đầy đủ, chính xác của thông tin
+                    ghi trên GCN trước khi bàn giao cho PVcomBank. Trường hợp
+                    sau khi cấp GCN mà phát hiện sai sót do lỗi đánh máy của
+                    CQNN (sai tên, sai địa chỉ, CCCD/ CMND của chủ tài sản…),
+                    Nguyên Thực sẽ thực hiện thủ tục để đính chính GCN trước khi
+                    bàn giao GCN cho PVcomBank.
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">2.3</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Bằng văn bản này và được sự đồng ý của Khách hàng, Nguyên
+                    Thực trực tiếp giao cho PVcomBank GCN sau khi đã sang tên
+                    cho Khách hàng, hoặc Hồ sơ chuyển nhượng (trong trường hợp
+                    GCN không sang tên được cho KH), cũng như các tài liệu liên
+                    quan khác mà không phụ thuộc vào sự có mặt của Khách hàng
+                    và/hoặc chấp thuận của Khách hàng trong thời hạn tối đa 02
+                    ngày từ ngày nhận được hồ sơ/tài liệu này từ Cơ quan Nhà
+                    nước có thẩm quyền (trừ trường hợp PVcomBank có yêu cầu/hoặc
+                    chấp thuận khác bằng văn bản).</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">2.4</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Nguyên Thực không trả lại Hồ sơ chuyển nhượng/GCN và các
+                    giấy tờ liên quan cho Bên bán hoặc Khách hàng nếu như không
+                    có văn bản chấp thuận của PVcomBank.</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">2.5</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span class="">Chịu trách nhiệm về tính trung thực, chính xác, khớp đúng
+                    của các thông tin, tài liệu cung cấp cho Khách hàng và/hoặc
+                    PVcomBank theo Văn bản Thỏa thuận này.</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">2.6</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Các quyền và trách nhiệm khác theo thỏa thuận của Văn bản
+                    thỏa thuận này và quy định của pháp luật.</span>
+                </div>
+              </td>
+            </tr>
+          </table>
+          <span class="bold">Điều 3: Quyền và Trách nhiệm của Khách hàng</span>
+          <table class="table-no-border">
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">3.1</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Trường hợp Khách hàng vi phạm Thỏa thuận này, Khách hàng
+                    bồi thường toàn bộ thiệt hại cho Nguyên Thực và PVcomBank
+                    (nếu có).</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">3.2</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Bằng văn bản này Khách hàng đồng ý Nguyên Thực trực tiếp
+                    giao GCN mang tên Khách hàng sau khi sang tên cũng như các
+                    tài liệu liên quan khác cho PVcomBank theo yêu cầu của
+                    PVcomBank mà không phụ thuộc vào sự có mặt của Khách hàng
+                    và/hoặc chấp thuận của KH.</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">3.3</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Các quyền và trách nhiệm khác theo thỏa thuận của Thỏa
+                    thuận này và quy định của pháp luật.</span>
+                </div>
+              </td>
+            </tr>
+          </table>
+          <span class="bold">Điều 4: Quyền và Trách nhiệm của PVcomBank</span>
+          <table class="table-no-border">
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">4.1</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Nhận toàn bộ các hồ sơ, giấy tờ, tài liệu liên quan đến Tài
+                    Sản từ Nguyên Thực, Khách hàng theo Văn bản thỏa thuận
+                    này.</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">4.2</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >PVcomBank được quyền miễn trừ trách nhiệm đối với mọi tranh
+                    chấp giữa Nguyên Thực và Khách hàng phát sinh từ/hoặc liên
+                    quan đến Hợp đồng dịch vụ.</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">4.3</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Các quyền và trách nhiệm khác theo thỏa thuận của Văn bản
+                    thỏa thuận này và quy định của pháp luật.</span>
+                </div>
+              </td>
+            </tr>
+          </table>
+          <span class="bold">Điều 5: Bảo mật</span>
+          <table class="table-no-border">
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">5.1</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Tất cả các giấy tờ, tài liệu, thông tin trao đổi giữa Khách
+                    hàng và Nguyên Thực được xem là của riêng các bên. Các bên
+                    có trách nhiệm giữ bí mật tất cả những giấy tờ, tài liệu,
+                    thông tin đó và chỉ cung cấp duy nhất cho PVcomBank. Toàn bộ
+                    các thông tin, tài liệu liên quan đến/phát sinh từ Văn bản
+                    thỏa thuận này cũng được coi là thông tin bảo mật và các bên
+                    có nghĩa vụ bảo mật toàn bộ các thông tin này, không cung
+                    cấp cho bất cứ bên nào khác ngoài các bên trong Văn bản thỏa
+                    thuận này và không sử dụng cho bất cứ mục đích nào khác
+                    ngoài mục đích để thực hiện Văn bản thỏa thuận này.</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">5.2</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Quy định bảo mật nêu tại Khoản 5.1 nêu trên tiếp tục có
+                    hiệu lực kể cả khi Hợp Đồng này chấm dứt và sẽ tiếp tục có
+                    hiệu lực cho đến khi các thông tin đó được công khai theo
+                    quy định của pháp luật.</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">5.3</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Các nghĩa vụ quy định tại Điều 5.1 trên đây không áp dụng
+                    đối với các thông tin:</span>
+                  <div style="margin-left: 10px">
+                    <div>
+                      <span
+                        >- Đã được công bố công khai cho công chúng; hoặc đã
+                        được công bố cho bên thứ ba trên cơ sở công khai;</span>
+                    </div>
+                    <div>
+                      <span
+                        >- Được yêu cầu cung cấp/công bố bởi luật pháp hoặc bởi
+                        bất kỳ một cơ quan có thẩm quyền nào.</span>
+                    </div>
+                    <div>
+                      <span
+                        >- Các trường hợp khác theo quy định của pháp
+                        luật.</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+          <span class="bold">Điều 6: Điều khoản thi hành </span>
+          <table class="table-no-border">
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">6.1</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Văn bản thỏa thuận này có hiệu lực kể từ ngày ký và chỉ
+                    chấm dứt trong trường hợp các Bên đã hoàn thành tất cả các
+                    nghĩa vụ có liên quan.</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">6.2</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Văn bản thỏa thuận này được giải thích và điều chỉnh theo
+                    pháp luật của Việt Nam. Bất cứ nội dung nào chưa được quy
+                    định tại Văn bản thỏa thuận này sẽ thực hiện theo quy định
+                    của pháp luật. Trong trường hợp có tranh chấp phát sinh liên
+                    quan đến Văn bản thỏa thuận này, các bên sẽ giải quyết thông
+                    qua thương lượng và hòa giải thiện chí. Trường hợp thương
+                    lượng không thành, tranh chấp sẽ được giải quyết bởi tòa án
+                    có thẩm quyền của Việt Nam.</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 7%; text-align: center">
+                <div>
+                  <span class="">6.3</span>
+                </div>
+              </td>
+              <td style="width: 93%">
+                <div>
+                  <span
+                    >Văn bản thỏa thuận này được lập thành ba (03) bản tiếng
+                    Việt có hiệu lực pháp lý như nhau. Khách hàng giữ một (01)
+                    bản, Nguyên Thực giữ một (01) bản, PVcomBank giữ một (01)
+                    bản.</span>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <table
+          class="table-no-border tx12 bold"
+          style="text-align: center; margin-top: 20px"
+        >
           <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>6.1</span>
-              </div>
+            <td style="width: 33%">
+              <span class="">KHÁCH HÀNG</span>
             </td>
-            <td style="width: 93%">
-              <div>
-                <span>Văn bản thỏa thuận này có hiệu lực kể từ ngày ký và chỉ chấm dứt trong trường hợp các Bên đã hoàn thành tất cả các nghĩa vụ có liên quan.</span>
-              </div>
+            <td style="width: 33%">
+              <span class="">ĐẠI DIỆN NGUYÊN THỰC</span>
+            </td>
+            <td style="width: 33%">
+              <span class="">ĐẠI DIỆN PVCOMBANK</span>
             </td>
           </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>6.2</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Văn bản thỏa thuận này được giải thích và điều chỉnh theo pháp luật của Việt Nam. Bất cứ nội dung nào chưa được quy định tại Văn bản thỏa thuận này sẽ thực hiện theo quy định của pháp luật. Trong trường hợp có tranh chấp phát sinh liên quan đến Văn bản thỏa thuận này, các bên sẽ giải quyết thông qua thương lượng và hòa giải thiện chí. Trường hợp thương lượng không thành, tranh chấp sẽ được giải quyết bởi tòa án có thẩm quyền của Việt Nam.</span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 7%; text-align: center;">
-              <div>
-                <span>6.3</span>
-              </div>
-            </td>
-            <td style="width: 93%">
-              <div>
-                <span>Văn bản thỏa thuận này được lập thành ba (03) bản tiếng Việt có hiệu lực pháp lý như nhau. Khách hàng giữ một (01) bản, Nguyên Thực giữ một (01) bản, PVcomBank giữ một (01) bản.</span>
-              </div>
-            </td>
-          </tr>                                    
         </table>
       </div>
-      <table class="table-no-border tx12 bold" style="text-align: center; margin-top: 20px;">
-        <tr>
-          <td style="width: 33%">
-            <span>KHÁCH HÀNG</span>
-          </td>
-          <td style="width: 33%">
-            <span>ĐẠI DIỆN NGUYÊN THỰC</span>
-          </td>
-          <td style="width: 33%">
-            <span>ĐẠI DIỆN PVCOMBANK</span>
-          </td>
-        </tr>
-      </table>
     </div>
   </body>
+</html>

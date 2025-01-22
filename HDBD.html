@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    /* Dùng để bỏ margin tự động khi xuất PDF */
+    @page {
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+        /* Có thể thêm cả số trang khi xuất PDF */
+    }
+
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+
+    a:hover,
+    a:active,
+    a:focus {
+        color: #888;
+        text-decoration: none;
+    }
+
+    body {
+        font-family: "Times New Roman";
+        color: #000;
+        font-weight: normal;
+        background: #f0f0f0;
+        width: 100%;
+        line-height: 30px;
+        text-align: justify;
+        margin: 0 auto;
+    }
+
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    span {
+        font-family: "Times New Roman";
+        margin: 0;
+    }
+
+    /* Kích cỡ khổ A4 */
+    .container {
+        width: 210mm;
+        height: auto;
+        padding: 25mm 18mm 350mm 22mm;
+        background: #FFF;
+        margin: 0 auto;
+        box-sizing: border-box;
+        position: relative;
+        font-size: 16px;
+    }
+
+    /* In đậm */
+    .bold {
+        font-weight: bold;
+    }
+
+    /* In nghiêng */
+    .italic {
+        font-style: italic;
+    }
+
+    .tx9 {
+        font-size: 9px;
+        font-weight: normal;
+    }
+
+    .tx12 {
+        font-size: 16px;
+    }
+
+    /* font-size 12 in đậm */
+    .tx12bold {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    /* font-size 12 in đậm */
+    .tx12bolditalic {
+        font-size: 16px;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    .tx13 {
+        font-size: 17px;
+    }
+
+    /* font-size 13 in nghiêng */
+    .tx13italic {
+        font-size: 17px;
+        font-weight: normal;
+        font-style: italic;
+    }
+
+    /* font-size 13 in đậm */
+    .tx13bold {
+        font-size: 17px;
+        font-weight: bold;
+    }
+
+    /* font-size 14 */
+    .tx14 {
+        font-size: 18.6px;
+    }
+
+    /* font-size 14 in đậm */
+    .tx14bold {
+        font-size: 18.6px;
+        font-weight: bold;
+    }
+
+    /* Căn giữa */
+    .txcenter {
+        text-align: center;
+    }
+
+    /* Căn phải */
+    .txright {
+        text-align: right;
+    }
+
+    /* Căn trái */
+    .txleft {
+        text-align: left;
+    }
+
+    /* Thụt đầu dòng đoạn văn */
+    .txindent {
+        text-indent: 10mm;
+    }
+
+    /* Gạch chân chữ */
+    .underline {
+        border-bottom: 2px solid #000;
+        width: 50mm;
+    }
+
+    /* Gạch chân chữ */
+    .underline-small {
+        border-bottom: 0.5px solid #000;
+        width: 50mm;
+    }
+
+    /* Đường kẻ dưới, áp dụng thêm style="width=xx%" tùy chỗ */
+    hr {
+        border: none;
+        height: 0.5px;
+        color: black;
+        background-color: black;
+    }
+
+    /* Bảng, đã được căn các cột đều nhau */
+    table {
+        width: 100%;
+        text-indent: 0;
+        table-layout: fixed;
+        border-collapse: collapse;
+    }
+
+    table td,
+    table th {
+        border: solid 1.5px black;
+        padding: 0px;
+        vertical-align: top;
+    }
+
+
+    /* Bảng không có viền */
+    .table-no-border td,
+    .table-no-border th {
+        border: none !important;
+    }
+
+    .left {
+        width: 3%;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    .right {
+        width: 97%;
+        text-align: left;
+        vertical-align: top;
+    }
+</style>
+
+<body>
+    <div id="editor" style="width: 100%; height: 1100px;" spellcheck='false'>
+        <div class="container" id="allvoice">
+            <p class="tx12bold txcenter" style="line-height:20px">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</p>
+            <p class="tx12 bold txcenter" style="line-height:20px">
+                Độc lập - Tự do - Hạnh phúc
+            <p class="bold txcenter" style="font-size: 13px; line-height:20px">
+                <span>&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;</span><span>&#10032;&#10032;&#10032;</span><span>&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;</span>
+            </p>
+            </p>
+            <br>
+
+            <p class="tx15 txcenter bold"><span>HỢP ĐỒNG THẾ CHẤP</span> <span id="mortgageContractType_key">. . . .
+                    .</span></p>
+            <p class="tx12 txcenter italic"><span>Số:</span><span id="mortgageContractNumber_key">. . . .
+                    .</span>/20<span id="contractYear_key">. . .</span>/HĐBĐ/PVB - <span id="bankCode_key">. . .
+                    .</span></p>
+            <div style="text-align: center;"><span><br></span></div>
+
+
+            <p class="tx12">
+                Hôm nay, ngày<span id="contractSignedDay_key">. . . . .</span>/<span id="contractSignedMonth_key">. . .
+                    .
+                    .</span>/<span id="contractSignedYear_key">. . . . .</span>,
+                tại
+                <span id="contractLocation_key">. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+                    .</span>, các bên gồm:</span>
+            </p>
+            <p class="tx12bold bullet bullet-level-2">
+                <span> Bên Thế Chấp:</span>
+            </p>
+
+            <p class="tx12 bold "><span class="underline">Trường hợp Bên Thế Chấp là cá nhân:</span></p>
+
+            <table id="TableCaNhan" class="table-no-border">
+                <tr>
+                    <td class="left">
+                        <span class=""></span>
+                    </td>
+                    <td class="right">
+                        <span id="gender" class="bold">Ông/Bà:</span>
+                        <span id="fullName"></span>
+                        <span class="">Sinh ngày</span>
+                        <span id="birthDate"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="">
+                        <span class="">-</span>
+                    </td>
+                    <td class="">
+                        <span class="">CMND/CCCD/Hộ chiếu số:</span>
+                        <span id="idNumber"></span>
+                        <span class="">do</span>
+                        <span id="issuedBy"></span>
+                        <span class="">cấp ngày</span>
+                        <span id="issuedDate"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="left">
+                        <span class="">-</span>
+                    </td>
+                    <td class="right">
+                        <span class="">Hộ khẩu thường trú tại:</span>
+                        <span id="permanentAddress"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="left">
+                        <span class="">-</span>
+                    </td>
+                    <td class="right">
+                        <span class="">Nơi ở hiện tại:</span>
+                        <span id="currentAddress"></span>
+                    </td>
+                </tr>
+            </table>
+            <p class="tx12 bold ">
+                <span class="underline">Trường hợp Bên Thế Chấp là tổ chức</span><span
+                    id="mortgagorOrganization_key"></span>
+            </p>
+            <table id="TableDoanhNghiep" class="table-no-border">
+                <!-- Dòng 1 -->
+                <tr>
+                    <td class="left">
+                        <span class=""></span>
+                    </td>
+                    <td class="right">
+                        <span class="bold">Công ty:</span>
+                        <span id="companyName"></span>
+                    </td>
+                </tr>
+                <!-- Dòng 2 -->
+                <tr>
+                    <td class="left">
+                        <span class="">-</span>
+                    </td>
+                    <td class="right">
+                        <span class="">Mã số doanh nghiệp:</span>
+                        <span id="companyID"></span>
+                    </td>
+                </tr>
+                <!-- Dòng 3 -->
+                <tr>
+                    <td class="left">
+                        <span class="">-</span>
+                    </td>
+                    <td class="right">
+                        <span class="">Địa chỉ:</span>
+                        <span id="companyAddress"></span>
+                    </td>
+                </tr>
+                <!-- Dòng 4 -->
+                <tr>
+                    <td class="left">
+                        <span class="">-</span>
+                    </td>
+                    <td class="right">
+                        <span class="">Điện thoại:</span>
+                        <span id="companyPhoneNumber"></span>
+                        <span class="">Fax:</span>
+                        <span id="companyFaxNumber"></span>
+                    </td>
+                </tr>
+                <!-- Dòng 5 -->
+                <tr>
+                    <td class="left">
+                        <span class="">-</span>
+                    </td>
+                    <td class="right">
+                        <span class="">Đại diện:</span>
+                        <span id="companyRepresentativeName"></span>
+                        <span class="">Chức vụ:</span>
+                        <span id="companyPosition"></span>
+                    </td>
+                </tr>
+                <!-- Dòng 6 -->
+                <tr>
+                    <td class="left">
+                        <span class="">-</span>
+                    </td>
+                    <td class="right">
+                        <span class="">CMND/CCCD/Hộ chiếu số:</span>
+                        <span id="companyIDNumber"></span>
+                        <span class="">do</span>
+                        <span id="companyIssuedBy"></span>
+                        <span class="">cấp ngày</span>
+                        <span id="companyIssuedDate"></span>
+                    </td>
+                </tr>
+                <!-- Dòng 7 -->
+                <tr>
+                    <td class="left">
+                        <span class=""></span>
+                    </td>
+                    <td class="right italic">
+                        <span class="">Theo Văn bản ủy quyền số:</span>
+                        <span id="companyAuthorizationNumber"></span>
+                        <span class="">ngày</span>
+                        <span id="companyAuthorizationDate"></span>
+                        <span class="">của</span>
+                        <span id="companyAuthorizationBy"></span>
+                    </td>
+                </tr>
+            </table>
+            <p class="tx12 italic">
+                <span>(Sau đây gọi tắt là </span><span class="bold">“Bên Thế
+                    Chấp”</span><span>)</span>
+            </p>
+            <p class="tx12bold bullet bullet-level-2">
+                    <span> Bên Nhận Thế Chấp: Ngân hàng TMCP Đại Chúng Việt Nam -</span> <span
+                        id="bankName_key"></span></span>
+            </p>
+            <table id="TableNganHang" class="table-no-border">
+                <!-- Dòng 1 -->
+                <tr>
+                    <td class="left">
+                        <span class=""></span>
+                    </td>
+                    <td class="right">
+                        <span class="bold">Công ty:</span>
+                        <span id="branchName"></span>
+                    </td>
+                </tr>
+                <!-- Dòng 2 -->
+                <tr>
+                    <td class="left">
+                        <span class="">-</span>
+                    </td>
+                    <td class="right">
+                        <span class="">Mã số doanh nghiệp/Mã số chi nhánh:</span>
+                        <span id="branchID"></span>
+                    </td>
+                </tr>
+                <!-- Dòng 3 -->
+                <tr>
+                    <td class="left">
+                        <span class="">-</span>
+                    </td>
+                    <td class="right">
+                        <span class="">Địa chỉ:</span>
+                        <span id="branchAddress"></span>
+                    </td>
+                </tr>
+                <!-- Dòng 4 -->
+                <tr>
+                    <td class="left">
+                        <span class="">-</span>
+                    </td>
+                    <td class="right">
+                        <span class="">Điện thoại:</span>
+                        <span id="branchPhoneNumber"></span>
+                        <span class="">Fax:</span>
+                        <span id="branchFaxNumber"></span>
+                    </td>
+                </tr>
+                <!-- Dòng 5 -->
+                <tr>
+                    <td class="left">
+                        <span class="">-</span>
+                    </td>
+                    <td class="right">
+                        <span class="">Đại diện:</span>
+                        <span id="branchRepresentativeName"></span>
+                        <span class="">Chức vụ:</span>
+                        <span id="branchPosition"></span>
+                    </td>
+                </tr>
+                <!-- Dòng 6 -->
+                <tr>
+                    <td class="left">
+                        <span class="">-</span>
+                    </td>
+                    <td class="right">
+                        <span class="">CMND/CCCD/Hộ chiếu số:</span>
+                        <span id="branchIDNumber"></span>
+                        <span class="">do</span>
+                        <span id="branchIssuedBy"></span>
+                        <span class="">cấp ngày</span>
+                        <span id="branchIssuedDate"></span>
+                    </td>
+                </tr>
+                <!-- Dòng 7 -->
+                <tr>
+                    <td class="left">
+                        <span class=""></span>
+                    </td>
+                    <td class="right italic">
+                        <span class="">Theo Văn bản ủy quyền số:</span>
+                        <span id="branchAuthorizationNumber"></span>
+                        <span class="">ngày</span>
+                        <span id="branchAuthorizationDate"></span>
+                        <span class="">của</span>
+                        <span id="branchAuthorizationBy"></span>
+                    </td>
+                </tr>
+            </table>
+            <p class="tx12 italic" style="margin-left: 20px;"><span>(Sau đây gọi tắt là </span><span class="bold">“Ngân
+                    Hàng”</span><span>)</span></p>
+            <p class="tx12">
+                Ngân Hàng và Bên Thế Chấp thoả thuận và thống nhất ký kết Hợp đồng thế chấp Quyền sử dụng đất và tài sản
+                gắn liền với đất/Hợp đồng thế chấp Quyền sử dụng đất/Hợp đồng thế chấp Tài sản gắn liền với đất này (Sau
+                đây gọi tắt là “<span class="bold">Hợp Đồng</span>”) với các điều khoản như sau:
+            </p>
+            <table class="table-no-border">
+                <tr>
+                    <td style="width: 10%;">
+                        <span class="bold">Điều 1.</span>
+                    </td>
+                    <td style="width: 90%;">
+                        <span class="bold">Tài Sản Thế Chấp</span>
+                    </td>
+                </tr>
+            </table>
+            <table class="table-no-border">
+                <tr>
+                    <td class="left">
+                        <span class="">1.</span>
+                    </td>
+                    <td class="right">
+                        <span>Bên Thế Chấp đồng ý thế chấp các tài sản dưới đây cho Ngân Hàng để bảo đảm cho
+                            việc thực hiện Nghĩa Vụ Được Bảo Đảm nêu tại Điều 2 của Hợp Đồng này:</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class=""></span>
+                    </td>
+                    <td>
+                        <span class="underline bold">Trường hợp thế chấp Quyền sử dụng đất và tài sản gắn liền với đất:</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <table class="table-no-border">
+                            <tr>
+                                <td class="left">
+                                    <span class="">a)</span>
+                                </td>
+                                <td class="right">
+                                    <span>Quyền sử dụng đất của Bên Thế Chấp đối với thửa đất theo Giấy chứng nhận:</span> 
+                                    <span id="certificateDetails"></span>
+                                    <span>Số:</span> 
+                                    <span id="certificateNumber"></span>
+                                    <span class="">,do</span> 
+                                    <span id="issuedBy"></span> 
+                                    <span class="">cấp ngày</span> 
+                                    <span id="issuedDate"></span>
+                                    <span class="">,số vào sổ:</span> 
+                                    <span id="registerNumber"></span>
+                                    <span class="">,cụ thể như sau: </span> 
+                                </td>
+                            </tr>
+                        </table> 
+                        <table class="table-no-border" style="margin-left: 20px;">
+                            <tr>
+                                <td class="left">
+                                    <span class="">-</span>
+                                </td>
+                                <td class="right">
+                                    <span>Thửa đất số:</span> 
+                                    <span id="landPlotNumber"></span>, 
+                                    <span class="">Tờ bản đồ số:</span> 
+                                    <span id="mapSheetNumber"></span>.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="">-</span>
+                                </td>
+                                <td>
+                                    <span>Địa chỉ thửa đất:</span> 
+                                    <span id="landAddress"></span>.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="">-</span>
+                                </td>
+                                <td>
+                                    <span>Diện tích:</span> 
+                                    <span id="landArea"></span> 
+                                    <span class="">m² (bằng chữ:</span> 
+                                    <span id="landAreaText"></span> 
+                                    <span class="">mét vuông).</span>
+                                </td>
+                            </tr>
+                        </table> 
+                        <table class="table-no-border" style="margin-left: 20px;">
+                            <tr>
+                                <td class="left">
+                                    <span class="">-</span>
+                                </td>
+                                <td class="right">
+                                    <table class="table-no-border">
+                                        <tr>
+                                            <td style="width: 25%;">
+                                                <span>Hình thức sử dụng:</span>                                            </td>
+                                            <td>
+                                                <table class="table-no-border">
+                                                    <tr>
+                                                        <td class="left">
+                                                            <span class="">+</span>
+                                                        </td>
+                                                        <td class="right">
+                                                            <span>Sử dụng riêng:</span> 
+                                                            <span id="privateUseArea"></span> 
+                                                            <span class="">m².</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="">+</span>
+                                                        </td>
+                                                        <td>
+                                                            <span>Sử dụng chung:</span> 
+                                                            <span id="sharedUseArea"></span> 
+                                                            <span class="">m².</span>
+                                                        </td>
+                                                    </tr>
+                                                </table> 
+                                            </td>
+                                        </tr>
+                                    </table> 
+                                </td>
+                            </tr>
+                        </table> 
+                        <table class="table-no-border" style="margin-left: 20px;">
+                            <tr>
+                                <td class="left">
+                                    <span class="">-</span>
+                                </td>
+                                <td class="right">
+                                    <span>Nguồn gốc sử dụng đất:</span> 
+                                    <span id="landOrigin"></span>.
+                                </td>
+                            </tr>
+                        </table>
+                        <table class="table-no-border">
+                            <tr>
+                                <td class="left">
+                                    <span class="">b)</span>
+                                </td>
+                                <td class="right">
+                                    <span>Tài sản gắn liền với đất là:</span> 
+                                </td>
+                            </tr>
+                        </table>
+                        <table class="table-no-border" style="margin-left: 20px;">
+                            <tr>
+                                <td class="left">
+                                    <span>-</span>
+                                </td>
+                                <td class="right">
+                                    <span>Địa chỉ:</span> 
+                                    <span id="assetAddress"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>Số tầng:</span> 
+                                    <span id="floorCount"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>Diện tích xây dựng:</span> 
+                                    <span id="constructionArea"></span>
+                                    <span> m²</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>Kết cấu:</span> 
+                                    <span id="constructionStructure"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>Năm xây dựng:</span> 
+                                    <span id="constructionYear"></span>
+                                </td>
+                            </tr>
+                        </table>                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class=""></span>
+                    </td>
+                    <td>
+                        <div>
+                            <span class="italic">Hoặc</span>
+                        </div>
+                        <div>
+                            <span class="bold underline">Trường hợp thế chấp Quyền sử dụng đất:</span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <p class="thut-dong-c1"><span>Quyền sử dụng đất của Bên Thế Chấp đối với thửa đất theo Giấy chứng nhận
+                    <span id="landUseCertificate_key">. . . . . . . . . . . . . .</span> số <span
+                        id="landUseCertificateNumber_key">. . . . . . . . . .</span> do <span
+                        id="landUseCertificateIssuer_key">. . . . . . . . . . . . . . . . . . .</span> cấp ngày
+                    <span id="landUseCertificateIssueDate_key">. . . . . . . . . .</span>, số vào sổ: <span
+                        id="landUseCertificateRegistryNumber_key">. . . . . . . . . . . . . .</span>, cụ thể như
+                    sau:</span></p>
+
+            <div class="tx12 thut-dong-c2">
+                <div class=" bullet bullet-level-1">
+                    <table class="table-no-border">
+                        <tr>
+                            <td class="tx12" style="width: 15%;">
+                                <span>Thửa đất số:</span>
+                            </td>
+                            <td class="tx12">
+                                <span id="parcelNumber_key">. . . . . . . . . . . . . . . . . . . . . . . . .</span>
+                            </td>
+                            <td class="tx12" style="width: 15%;">
+                                <span>Tờ bản đồ số:</span>
+                            </td>
+                            <td class="tx12">
+                                <span id="mapSheetId_key">. . . . . . . . . . . . . . . . . . . . . . . . .</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <p class="tx12 bullet bullet-level-1"><span>Địa chỉ thửa
+                        đất:<span id="parcelAddress_key">. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+                            . . . . . . . . . . . . . . . . . . . . . . . . . . .</span></span>
+                </p>
+                <p class="tx12 bullet bullet-level-1">Diện tích:<span id="parcelArea_key">. . . . . . . . . . .</span>m2
+                    (bằng
+                    chữ:
+                    <span id="parcelAreaInWords_key">. . . . . . . . . . . . . . . . . . . . . . . . . . .</span>mét
+                    vuông)
+                </p>
+                <p class="tx12 bullet bullet-level-1">Hình thức sử dụng:</p>
+                <div class="tx12" style="margin-left: 150px;">
+                    <p class="tx12"><span>+</span>Sử dụng riêng: <span id="exclusiveUseArea_key">. . . . . . . . . .
+                            .</span> m2.</p>
+                    <p class="tx12"><span>+</span>Sử dụng chung: <span id="commonUseArea_key">. . . . . . . . . .
+                            .</span> m2.</p>
+                </div>
+                <p class="tx12 bullet bullet-level-1"><span>Nguồn gốc sử dụng đất:<span id="landOrigin_key">. . . . . .
+                            . .
+                            .
+                            . . . . . . . . . . . . . . . . . .</span></span>
+                </p>
+            </div>
+            <p class="tx12 italic"><span>Hoặc</span></p>
+
+            <p class="tx12bold subnumber " style="line-height: 20px;"><span class="underline ">Trường hợp thế
+                    chấp Tài sản gắn liền với đất:</span></p>
+            <div class="thut-dong">
+                <p class="tx12 thut-dong  subletter ">
+                    <span><span id="mortgagedAssetType_key">. . . . . . .</span> theo Giấy chứng nhận <span
+                            id="attachedAssetCertificate_key">. . . . . . . . . . . . . . . . .</span> số <span
+                            id="attachedAssetCertificateNumber_key">. . . . . . . . .</span> do <span
+                            id="attachedAssetCertificateIssuer_key">. . . . . . . . . . . . . . . . . . .</span>
+                        cấp ngày <span id="attachedAssetCertificateIssueDate_key">. . . . . . . .</span>, số vào sổ:
+                        <span id="attachedAssetRegistryNumber_key">. . . . . . . . . . .</span> , cụ thể:</span>
+                </p>
+            </div>
+            <div class="tx12 thut-dong-c2">
+                <p class="tx12 bullet bullet-level-1"><span>Địa
+                        chỉ:<span id="attachedAssetAddress_key">. . . . . . . . . . . . . . . . . . . . . . . . . . . .
+                            . . . . . . . . . .</span>
+                    </span></p>
+                <p class="tx12 bullet bullet-level-1"><span>Số
+                        tầng:<span id="attachedAssetFloorNumber_key">. . . . . . . . . . . . . . . . . . . . . . . . . .
+                            . . . . . . . . . . . .</span>
+                    </span></p>
+
+
+                <div class=" bullet bullet-level-1">
+                    <table class="table-no-border">
+                        <tr>
+                            <td class="tx12" style="width: 17%;">
+                                <span>Diện tích sàn:</span>
+                            </td>
+                            <td class="tx12">
+                                <span id="attachedAssetFloorArea_key">. . . . . . . . . . . . . . . . . .</span>
+                            </td>
+                            <td class="tx12" style="width: 23%;">
+                                <span>Diện tích xây dựng:</span>
+                            </td>
+                            <td class="tx12">
+                                <span id="attachedAssetConstructionArea_key">. . . . . . . . . . . . . . . . . .</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+
+                <p class="tx12 bullet bullet-level-1"><span>Kết
+                        cấu:<span id="attachedAssetStructureType_key">. . . . . . . . . . . . . . . . . . . . . . . . .
+                            . . . . . . . . . . . . .</span></span>
+                </p>
+            </div>
+            <div class="thut-dong">
+                <p class="tx12 thut-dong subletter ">
+                    <span>Tài Sản Thế Chấp nêu trên là tài sản gắn liền với thửa đất sau:</span>
+                </p>
+            </div>
+
+            <div class="tx12 thut-dong-c2">
+
+                <div class=" bullet bullet-level-1">
+                    <table class="table-no-border">
+                        <tr>
+                            <td class="tx12" style="width: 15%;">
+                                <span>Thửa đất số:</span>
+                            </td>
+                            <td class="tx12">
+                                <span id="attachedLandParcelNumber_key">. . . . . . . . . . . . . . . . . .</span>
+                            </td>
+                            <td class="tx12" style="width: 16%;">
+                                <span>Tờ bản đồ số:</span>
+                            </td>
+                            <td class="tx12">
+                                <span id="attachedMapSheetNumber_key">. . . . . . . . . . . . . . . . . .</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+
+                <p class="tx12 bullet bullet-level-1"><span>Địa chỉ thửa
+                        đất:<span id="attachedLandAddress_key">. . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+                            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</span>
+                    </span></p>
+                <p class="tx12 bullet bullet-level-1"><span>Diện tích:<span id="attachedLandArea_key">. . . . . . . . .
+                            .</span>m2 (bằng
+                        chữ:<span id="attachedLandAreaInWords_key">. . . . . . . . . . . . . . . . . . . . . . . . . .
+                            .</span>mét
+                        vuông)</span></p>
+                <p class="tx12 bullet bullet-level-1">Hình thức sử
+                    dụng:<span id="attachedLandUseType_key">. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+                        . . . . . . . . . . . . . . . . . . . . . . . . . . .</span>
+                </p>
+                <p class="tx12 bullet bullet-level-1">Nguồn gốc sử
+                    dụng:<span id="attachedLandUseOrigin_key">. . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+                        . . . . . . . . . . . . . . . . . . . . . . . . . . . .</span>
+                </p>
+            </div>
+
+            <p class="tx12 thut-dong">
+                <span>Bên Thế Chấp cam kết và xác nhận rằng mọi công trình, tài sản khác được cải tạo, xây dựng gắn liền
+                    với (các) tài sản nêu trên đều thuộc Tài Sản Thế Chấp và đều bảo đảm cho Nghĩa Vụ Được Bảo Đảm nêu
+                    tại Điều 2 của Hợp Đồng này.</span>
+            </p>
+            <p class="tx12 thut-dong">
+                <span class="italic">(Sau đây gọi tắt là “</span><span class="bold">Tài Sản Thế Chấp</span><span
+                    class="italic">”)</span>
+            </p>
+
+            <p class="tx12 number ">
+                <span>Các bên thống nhất xác định giá trị Tài Sản Thế Chấp tại thời điểm ký Hợp Đồng này
+                    là: <span id="mortgagedAssetValue_key">. . . . . . . . . . . .</span>(Bằng chữ:<span
+                        id="mortgagedAssetValueInWords_key">. . . . . . . . . . . . . . . . . . . .</span>đồng). Giá trị
+                    Tài Sản Thế Chấp này
+                    không áp dụng khi xử lý Tài Sản Thế Chấp để thu hồi nợ.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Bên Thế Chấp cam đoan rằng tại thời điểm ký Hợp Đồng này, Tài Sản Thế Chấp thuộc
+                    quyền sở hữu, sử dụng hợp pháp của riêng Bên Thế Chấp và được phép thế chấp theo quy định của pháp
+                    luật, không có bất kỳ khiếu nại, tranh chấp, khiếu kiện nào, không bị kê biên để bảo đảm thi hành
+                    án, chưa chuyển nhượng, góp vốn, trao đổi, thế chấp, tặng cho bên nào khác, chưa thực hiện bất cứ
+                    giao dịch nào làm ảnh hưởng đến quyền sở hữu, sử dụng của chủ tài sản.</span>
+            </p>
+
+            <p class="tx12bold section "><span>Nghĩa Vụ Được Bảo Đảm Và Thời Hạn Thế Chấp</span></p>
+            <p class="tx12 number ">
+                <span class="bold underline">Phương án 1:</span>
+            </p>
+            <p class="tx12 thut-dong"><span>
+                    Tài Sản Thế Chấp nêu tại Điều 1 Hợp Đồng này bảo đảm cho việc thực hiện toàn bộ nghĩa vụ của Bên
+                    Được Bảo Đảm đối với Ngân Hàng phát sinh từ:
+                </span></p>
+
+            <div class="tx12 thut-dong-c1">
+                <p class="tx12 subletter ">
+                    <span>Hợp đồng cho vay số/Hợp đồng tín dụng số/Hợp đồng cấp bảo lãnh
+                        số<span id="creditAgreementNumber_key">. . . .</span>ngày<span id="creditAgreementDay_key">. . .
+                            .</span>/<span id="creditAgreementMonth_key">. . . .</span>/<span
+                            id="creditAgreementYear_key">.
+                            . . .</span> với số tiền
+                        cấp tín dụng gốc tối
+                        đa là <span id="maximumCreditAmount_key">[. . . .]</span>; và</span>
+                </p>
+                <p class="tx12 subletter ">
+                    <span id="additionalObligationDetails_key">[. . . .];</span>
+                </p>
+                <p class="tx12 subletter ">
+                    <span>Các hợp đồng, văn bản khác được ký kết trước, trong thời điểm ký kết Hợp Đồng
+                        này
+                        hoặc hình thành trong tương lai sau thời điểm ký kết Hợp Đồng này, bao gồm cả các phụ lục, văn
+                        bản
+                        sửa đổi, bổ sung, các khế ước nhận nợ và các văn bản liên quan.</span>
+                </p>
+            </div>
+
+
+            <p class="tx12 thut-dong"><span>
+                    (Toàn bộ các nghĩa vụ nêu trên sau đây được gọi chung là "<span class="bold">Nghĩa Vụ Được Bảo
+                        Đảm</span>". Toàn bộ các văn bản làm phát sinh Nghĩa Vụ Được Bảo Đảm giữa Bên Được Bảo Đảm và
+                    Ngân Hàng sau đây được gọi chung là “<span class="bold">Văn Kiện Tín Dụng</span>”).
+                </span></p>
+
+            <p class="tx12"><span class="italic">Hoặc</span></p>
+
+            <p class="tx12bold">
+                <span class="underline">Phương án 2:</span>
+            </p>
+            <p class="tx12 thut-dong"><span>
+                    Tài Sản Thế Chấp nêu tại Điều 1 Hợp Đồng này bảo đảm cho việc thực hiện:
+                </span></p>
+
+            <p class="tx12 thut-dong"><span>
+                    Toàn bộ nghĩa vụ thanh toán (bao gồm toàn bộ nợ gốc, lãi phát sinh, các khoản phí, phạt và bất kỳ
+                    nghĩa vụ tài chính nào khác) của Bên Được Bảo Đảm đối với Ngân Hàng (cho dù đã hình thành hoặc phát
+                    sinh trong tương lai) với điều kiện tổng số dư gốc cấp tín dụng tại mọi thời điểm không vượt quá
+                    <span id="maximumCreditBalance_key">[. . . .]</span> (bằng chữ: <span
+                        id="maximumCreditBalanceInWords_key">. . . .</span>).
+                </span></p>
+
+            <p class="tx12 thut-dong"><span>
+                    (Toàn bộ các nghĩa vụ nêu trên sau đây được gọi chung là "<span class="bold">Nghĩa Vụ Được Bảo
+                        Đảm</span>". Toàn bộ các văn bản làm phát sinh Nghĩa Vụ Được Bảo Đảm giữa Bên Được Bảo Đảm và
+                    Ngân Hàng sau đây được gọi chung là “<span class="bold">Văn Kiện Tín Dụng</span>”).</span></p>
+            <p class="tx12">
+
+                <span class="italic">Hoặc</span>
+            </p>
+
+            <p class="tx12bold">
+                <span class="underline">Phương án 3:</span>
+            </p>
+
+            <p class="tx12 thut-dong"><span>
+                    Trong thời hạn bảo đảm được quy định tại Khoản 3 Điều này, Tài Sản Thế Chấp nêu tại Điều 1 Hợp Đồng
+                    này bảo đảm cho việc thực hiện toàn bộ nghĩa vụ tài chính (bao gồm toàn bộ nợ gốc, lãi phát sinh,
+                    các khoản phí, phạt và bất kỳ nghĩa vụ tài chính nào khác) của Bên Được Bảo Đảm đối với Ngân Hàng
+                    cho dù đã được hình thành hoặc phát sinh trong tương lai sau thời điểm ký kết Hợp Đồng này. </span>
+            </p>
+            <p class="tx12 thut-dong">
+                <span>
+                    (Toàn bộ các nghĩa vụ nêu trên sau đây được gọi chung là "<span class="bold">Nghĩa Vụ Được Bảo
+                        Đảm</span>". Toàn bộ các văn bản làm phát sinh Nghĩa Vụ Được Bảo Đảm giữa Bên Được Bảo Đảm và
+                    Ngân Hàng sau đây được gọi chung là “<span class="bold">Văn Kiện Tín Dụng</span>”).
+                </span>
+            </p>
+
+            <p class="tx12 number ">
+                <span>Bên Được Bảo Đảm nêu tại Khoản 1 Điều này có các thông tin cụ thể như sau:</span>
+            </p>
+            <p class="tx12bold thut-dau-dong-c2"><span class="italic underline">Đối với Bên Được Bảo Đảm là tổ
+                    chức:</span></p>
+            <div class="tx12 thut-dong">
+                <p class="tx12 bullet bullet-level-1">
+                    <span>
+                        <span>Công ty:</span><span id="guaranteedPartyCompanyName_key">. . . . . . . . . . . . . . . . .
+                            . . . . . . . . . . . . . . . .
+                            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</span></span>
+                </p>
+                <p class="tx12 bullet bullet-level-1">
+                    <span>
+                        <span>Mã số doanh nghiệp:</span><span id="guaranteedPartyCompanyId_key">. . . . . . . . . . . .
+                            . . . . . . . . . . . . . . . . . . . .
+                            . . . . . . . . . . . . . . . . . . . . . . . . . . .</span></span>
+                </p>
+                <p class="tx12 bullet bullet-level-1">
+                    <span>
+                        <span>Trụ sở chính:</span><span id="guaranteedPartyCompanyAddress_key">. . . . . . . . . . . . .
+                            . .
+                            . .
+                            . . . . . . . . . . . . . . . .
+                            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</span></span>
+                </p>
+
+                <p class="tx12 bullet bullet-level-1">
+                    <span>
+                        <span>Mã số thuế:</span><span id="guaranteedPartyTaxCode_key">. . . . . . . . . . . . . . . . .
+                            . . . . . . . . . . . . . . . .
+                            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</span></span>
+                </p>
+            </div>
+
+
+            <p class="tx12bold thut-dau-dong-c2"><span class="italic underline">Đối với Bên Được Bảo Đảm là cá
+                    nhân:</span></p>
+            <div class="tx12 thut-dong">
+                <p class="tx12  bullet bullet-level-1">
+                    <span>Ông/Bà:
+                        <span id="guaranteedPartyFullName_key">. . . . . . . . . . . .</span>
+                        Chứng minh nhân dân/Căn cước công dân/Hộ chiếu số
+                        <span id="guaranteedPartyIdNumber_key">. . . . . . . . . . .</span>
+                        do
+                        <span id="guaranteedPartyIdIssuer_key">. . . . . . . . . . . . . . . . . .</span>
+                        cấp ngày
+                        <span id="guaranteedPartyIdIssueDate_key">. . . . . . . . . . . .</span>
+                    </span>
+                </p>
+                <p class="tx12  bullet bullet-level-1">
+                    <span>
+                        <span>Hộ khẩu thường trú tại:</span><span id="guaranteedPartyPermanentAddress_key">. . . . . . .
+                            . .
+                            . . .
+                            . . . . . . . . . . . . . . . . .
+                            . . . . . . . . . . . . . . . . . . . . . . . . . . .</span>
+                    </span>
+                </p>
+                <p class="tx12  bullet bullet-level-1">
+                    <span>
+                        <span>Địa chỉ hiện tại:</span><span id="guaranteedPartyCurrentAddress_key">. . . . . . . . . . .
+                            .
+                            . . . . . . . . . . . . . . . . .
+                            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</span>
+                    </span>
+                </p>
+            </div>
+            <p class="tx12 number ">
+                <span>Việc thế chấp tài sản nêu trên có thời hạn và hiệu lực cho đến khi Bên Được Bảo
+                    Đảm thực hiện xong tất cả các Nghĩa Vụ Được Bảo Đảm đối với Ngân Hàng và Ngân Hàng đã thực hiện các
+                    thủ tục giải chấp Tài Sản Thế Chấp. Nếu Bên Được Bảo Đảm còn bất kỳ khoản nợ hoặc nghĩa vụ nào đối
+                    với Ngân Hàng (bao gồm cả trường hợp khoản nợ của Bên Được Bảo Đảm được cơ cấu lại thời hạn trả nợ
+                    hoặc phát sinh nợ quá hạn), Tài Sản Thế Chấp tiếp tục bảo đảm cho đến khi Bên Được Bảo Đảm thực hiện
+                    xong tất cả các nghĩa vụ đối với Ngân Hàng. Các bên đồng ý rằng, Ngân Hàng trong Hợp Đồng này được
+                    hiểu là Hội sở chính, Trung tâm giao dịch, hay bất kỳ Chi nhánh, Phòng Giao dịch nào của Ngân hàng
+                    TMCP Đại Chúng Việt Nam.</span>
+            </p>
+
+            <p class="tx12bold section "><span>Quản Lý Tài Sản Thế Chấp Và Giấy Tờ Của Tài Sản Thế
+                    Chấp</span></p>
+            <p class="tx12 number ">
+                <span>Tài Sản Thế Chấp do Bên Thế Chấp quản lý và sử dụng. Trường hợp Bên Thế Chấp có
+                    nhu cầu cho thuê, cho mượn hoặc giao dịch liên quan đến Tài Sản Thế Chấp, thì phải thông báo và được
+                    sự đồng ý bằng văn bản của Ngân Hàng trước khi thực hiện. Bên Thế Chấp phải thông báo cho Bên thuê,
+                    Bên mượn, Bên liên quan biết việc Tài Sản Thế Chấp đang được thế chấp cho Ngân Hàng và trong Hợp
+                    đồng/giao dịch phải có nội dung về việc: Hợp đồng/giao dịch sẽ chấm dứt trong trường hợp Ngân Hàng
+                    xử lý Tài Sản Thế Chấp để thu hồi nợ; các bên phải bàn giao vô điều kiện Tài Sản Thế Chấp cho Ngân
+                    Hàng để xử lý trong thời hạn do Ngân Hàng thông báo, không được có bất kỳ hành vi nào chống đối, gây
+                    cản trở, trường hợp chậm bàn giao Tài Sản Thế Chấp mà gây thiệt hại cho Ngân Hàng thì các bên phải
+                    bồi thường thiệt hại cho Ngân Hàng.</span>
+            </p>
+
+            <p class="tx12 number ">
+                <span>Bên Thế Chấp phải bàn giao cho Ngân Hàng giữ bản chính các giấy tờ sau đây trong
+                    suốt thời hạn thế chấp</span>
+            </p>
+
+            <div class="tx12 thut-dong">
+                <p class="tx12  bullet bullet-level-1">
+                    <span>Giấy chứng nhận số<span id="certificate_giaychungnhanso_key">. . . . . . . . . . . . . . . .
+                            .</span>do<span id="certificateIssuer_key">. . . . . . . . . . . . . . . . .</span>cấp ngày
+                        <span id="certificateIssueDate_key">. . . . . .</span> , số
+                        vào sổ:<span id="certificateRegistryNumber_key">. . . . . . . .</span>;</span>
+                </p>
+                <p class="tx12 bullet bullet-level-1">
+                    <span id="amendmentDocuments_key">. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+                        . .
+                        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</span>
+                </p>
+                <p class="tx12 bullet bullet-level-1">
+                    <span>Bất kỳ văn bản gia hạn, sửa đổi hoặc bổ sung nào đối với các tài liệu nêu trên
+                        ngay
+                        khi có các văn bản gia hạn, sửa đổi, bổ sung đó;</span></span>
+                </p>
+                <p class="tx12  bullet bullet-level-1">
+                    <span>Các giấy tờ khác liên quan đến Tài Sản Thế Chấp (nếu có).</span>;</span>
+                </p>
+            </div>
+            <p class="tx12 number ">
+                <span>Sau khi Bên Được Bảo Đảm đã thực hiện xong tất cả các Nghĩa Vụ Được Bảo Đảm và các
+                    bên đã hoàn tất thủ tục giải chấp Tài Sản Thế Chấp theo quy định, Ngân Hàng sẽ trả lại toàn bộ giấy
+                    tờ về Tài Sản Thế Chấp cho chính Bên Thế Chấp hoặc người được Bên Thế Chấp ủy quyền. Trường hợp Bên
+                    Thế Chấp gồm nhiều chủ thể, Ngân Hàng được quyền trả lại giấy tờ cho bất kỳ người nào trong số những
+                    người thuộc Bên Thế Chấp, những người còn lại cam kết không có bất kỳ khiếu nại, tranh chấp, khiếu
+                    kiện gì. Trường hợp trong thời hạn thế chấp mà Bên Thế Chấp chuyển nhượng, nhận đặt cọc để chuyển
+                    nhượng hoặc thực hiện các hành vi, giao dịch tương tự nhằm mục đích chuyển nhượng Tài Sản Thế Chấp
+                    cho tổ chức, cá nhân khác và được sự đồng ý bằng văn bản của Ngân Hàng thì Ngân Hàng có quyền bàn
+                    giao các giấy tờ của Tài Sản Thế Chấp cho các tổ chức, cá nhân này; Bên Thế Chấp cam kết không có
+                    bất kỳ khiếu nại, tranh chấp, khiếu kiện gì đối với Ngân Hàng.
+                    Trường hợp Bên Thế Chấp là cá nhân: nếu trong thời hạn thế chấp mà Bên Thế Chấp chết, sau khi toàn
+                    bộ Nghĩa Vụ Được Bảo Đảm được thanh toán, Ngân Hàng có quyền bàn giao các giấy tờ của Tài Sản Thế
+                    Chấp cho một trong bất kỳ cá nhân nào thuộc hàng thừa kế của Bên Thế Chấp.
+                </span>
+            </p>
+
+            <p class="tx12bold section "><span>Quyền Và Nghĩa Vụ Của Ngân Hàng</span></p>
+            <p class="tx12"><span>Ngân Hàng có các quyền và nghĩa vụ sau:</span></p>
+            <p class="tx12 number ">
+                <span>Được quyền trực tiếp kiểm tra hoặc yêu cầu Bên Thế Chấp cung cấp thông tin về thực
+                    trạng và các thông tin khác liên quan đến Tài Sản Thế Chấp.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Được quyền định giá lại Tài Sản Thế Chấp theo định kỳ hoặc bất cứ khi nào Ngân
+                    Hàng thấy cần thiết.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Được quyền yêu cầu Bên Thế Chấp thực hiện thủ tục công chứng/chứng thực, đăng ký
+                    thế chấp, đăng ký xoá thế chấp tại cơ quan chức năng phù hợp với quy định tại Hợp Đồng và quy định
+                    pháp luật.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Được quyền yêu cầu Bên Thế Chấp và/hoặc bên thứ ba: (i) Chấm dứt việc đầu tư vào
+                    Tài Sản Thế Chấp nếu việc đầu tư làm giảm giá trị Tài Sản Thế Chấp; và (ii) Bồi thường thiệt hại cho
+                    Ngân Hàng nếu việc đầu tư vào Tài Sản Thế Chấp vi phạm quy định tại Hợp Đồng này và gây thiệt hại
+                    cho Ngân Hàng</span>
+            </p>
+            <p class="tx12 number ">
+                <span id="additionalRights_key">[. . . . . . . . .]</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Các quyền và nghĩa vụ khác theo thỏa thuận tại Hợp Đồng này và theo quy định của
+                    pháp luật có liên quan.</span>
+            </p>
+
+            <p class="tx12bold section "><span>Quyền Và Nghĩa Vụ Của Bên Thế Chấp</span></p>
+            <p><span>Bên Thế Chấp có các quyền và nghĩa vụ sau:</span></p>
+            <p class="tx12 number ">
+                <span>Có trách nhiệm thông báo trước bằng văn bản cho Ngân Hàng về quyền, nghĩa vụ của
+                    bên thứ ba đối với Tài Sản Thế Chấp phát sinh trước khi ký Hợp Đồng này (nếu có).</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Được sử dụng, quản lý Tài Sản Thế Chấp trong thời hạn thế chấp theo đúng thỏa
+                    thuận tại Hợp Đồng này. Bên Thế Chấp có nghĩa vụ áp dụng các biện pháp cần thiết để duy trì Tài Sản
+                    Thế Chấp luôn ở trong tình trạng tốt, không được phá hủy, làm giảm sút, sử dụng sai mục đích hoặc
+                    làm hư hỏng Tài Sản Thế Chấp.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Được quyền đầu tư để làm tăng giá trị Tài Sản Thế Chấp nhưng phải thông báo bằng
+                    văn bản cho Ngân Hàng trước khi thực hiện. Trường hợp: (i) Bên thứ ba đầu tư vào Tài Sản Thế Chấp;
+                    hoặc (ii) Bên Thế Chấp đầu tư vào Tài Sản Thế Chấp làm phát sinh tài sản mới mà tài sản này không
+                    thuộc Tài Sản Thế Chấp thì phải được sự đồng ý bằng văn bản của Ngân Hàng trước khi đầu tư. Trong
+                    trường hợp các bên thực hiện mà không có sự đồng ý của Ngân Hàng thì các bên có liên quan đồng ý tài
+                    sản mới hình thành cũng trở thành tài sản bảo đảm cho Nghĩa Vụ Được Bảo Đảm và Ngân Hàng có quyền xử
+                    lý tài sản này cùng với Tài Sản Thế Chấp theo quy định tại Hợp Đồng này.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Có trách nhiệm thực hiện các thủ tục công chứng/chứng thực, đăng ký thế chấp, đăng
+                    ký xoá thế chấp tại cơ quan chức năng. Các loại phí, lệ phí, chi phí liên quan do Bên Thế Chấp
+                    chịu.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Không được chuyển nhượng; chia; tách; chuyển đổi; tặng cho; cho thuê; góp vốn;
+                    dùng Tài Sản Thế Chấp để bảo đảm cho nghĩa vụ khác; hợp nhất, sáp nhập, trộn lẫn Tài Sản Thế Chấp
+                    với tài sản khác hoặc thực hiện các hành vi tương tự đối với Tài Sản Thế Chấp trong suốt thời hạn
+                    thế chấp, trừ trường hợp được Ngân Hàng đồng ý trước bằng văn bản.</span>
+            </p>
+
+            <p class="tx12 number ">
+                <span>Có trách nhiệm thông báo bằng văn bản cho Ngân Hàng bất kỳ biến động nào liên quan
+                    và/hoặc có khả năng ảnh hưởng đến Tài Sản Thế Chấp, bao gồm nhưng không hạn chế các trường hợp sau:
+                    Tài Sản Thế Chấp bị hư hỏng, giảm sút giá trị; Tài Sản Thế Chấp bị cơ quan chức năng quy hoạch, giải
+                    tỏa hoặc có kế hoạch quy hoạch, giải tỏa; Tài Sản Thế Chấp bị tranh chấp bởi Bên thứ bai.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Có trách nhiệm tạo điều kiện thuận lợi nhất để Ngân Hàng kiểm tra Tài Sản Thế Chấp
+                    vào bất kỳ thời điểm nào trong suốt thời hạn thế chấp và cung cấp thông tin về thực trạng Tài Sản
+                    Thế Chấp trong trường hợp Ngân Hàng yêu cầu.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Trường hợp Bên Thế Chấp có nhiều người thì tất cả các Bên Thế Chấp phải cùng liên
+                    đới thực hiện nghĩa vụ theo quy định của Hợp Đồng này. Không phụ thuộc vào bất kỳ quy định hay thỏa
+                    thuận nào khác giữa các Bên Thế Chấp, Ngân Hàng có quyền yêu cầu bất cứ ai trong số những người
+                    thuộc Bên Thế Chấp phải liên đới thực hiện toàn bộ nghĩa vụ.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Trường hợp Bên Thế Chấp vi phạm bất kỳ nghĩa vụ hoặc cam kết tại Hợp Đồng này thì
+                    phải bồi thường thiệt hại cho Ngân Hàng.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Có trách nhiệm mua bảo hiểm cho Tài Sản Thế Chấp theo yêu cầu của Ngân
+                    Hàng.</span>
+            </p>
+            <p class="tx12 number ">
+                <span id="additionalObligations_key">[. . . . . . . . .]</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Các quyền và nghĩa vụ khác theo thỏa thuận tại Hợp Đồng này và theo quy định của
+                    pháp luật có liên quan.</span>
+            </p>
+
+            <p class="tx12bold section "><span>Các Trường Hợp Xử Lý Tài Sản Thế Chấp</span></p>
+            <p class="tx12 number ">
+                <span>Các bên thống nhất thỏa thuận rằng Ngân Hàng có quyền (mà không có nghĩa vụ) xử lý
+                    Tài Sản Thế Chấp để thu hồi Nghĩa Vụ Được Bảo Đảm ngay khi xảy ra bất kỳ trường hợp nào sau
+                    đây:</span>
+            </p>
+            <div class="tx12 thut-dong-c1">
+                <p class="tx12 subletter ">
+                    <span>Bên Được Bảo Đảm không thực hiện hoặc thực hiện không đúng nghĩa vụ trả nợ theo
+                        các
+                        Văn Kiện Tín dụng, bao gồm cả trường hợp Bên Được Bảo Đảm phải trả nợ trước hạn cho Ngân Hàng
+                        theo
+                        quy định trong Văn Kiện Tín Dụng hoặc theo quy định của pháp luật nhưng Bên Được Bảo Đảm không
+                        thực
+                        hiện hoặc thực hiện không đúng nghĩa vụ trả nợ trước hạn.</span>
+                </p>
+                <p class="tx12 subletter ">
+                    <span>Bên Được Bảo Đảm và/hoặc Bên Thế Chấp vi phạm bất kỳ cam kết, nghĩa vụ nào quy
+                        định
+                        tại Hợp Đồng này, Văn Kiện Tín Dụng và các văn bản liên quan ký kết với Ngân Hàng;</span>
+                </p>
+                <p class="tx12 subletter ">
+                    <span>Xảy ra các sự kiện mà Ngân Hàng đánh giá là gây ảnh hưởng hoặc có khả năng gây
+                        ảnh
+                        hưởng đến Tài Sản Thế Chấp, bao gồm nhưng không hạn chế các trường hợp như: Tài Sản Thế Chấp bị
+                        cơ
+                        quan chức năng quy hoạch, giải tỏa; Tài Sản Thế Chấp bị hư hỏng, giảm sút giá trị; Tài Sản Thế
+                        Chấp
+                        bị tranh chấp bởi Bên thứ ba; hoặc có những thông tin, sự kiện phát sinh, theo đánh giá của Ngân
+                        Hàng làm ảnh hưởng nghiêm trọng đến khả năng giao dịch của Tài Sản Thế Chấp.</span>
+                </p>
+
+                <div class="tx12 subletter ">
+                    <div>
+                        <span class="tx12bolditalic underline">Trường hợp Bên Thế Chấp là cá nhân:</span>
+                        <p class="tx12"><span>Bất kỳ người nào thuộc Bên Thế Chấp chết hoặc bị tuyên bố chết, mất tích
+                                hoặc
+                                bị
+                                tuyên bố mất tích,
+                                bị tuyên bố mất năng lực hành vi, ly hôn, bỏ trốn hoặc thay đổi nơi cư trú mà không
+                                thông
+                                báo
+                                cho
+                                Ngân Hàng hoặc bị Tòa án xác định vắng mặt tại nơi cư trú; hoặc liên quan đến các tranh
+                                chấp,
+                                khiếu
+                                kiện có liên quan đến Tài Sản Thế Chấp; hoặc bị bắt, bị tạm giữ, là bị can, bị cáo hoặc
+                                thuộc
+                                các
+                                trường hợp khác mà theo đánh giá của Ngân Hàng có ảnh hưởng hoặc có khả năng ảnh hưởng
+                                bất
+                                lợi
+                                đến
+                                khả năng thực hiện các nghĩa vụ, thỏa thuận đã ký với Ngân Hàng.</span></p>
+                        <p class="tx12 italic"><span>
+                                Hoặc:
+                            </span></p>
+                        <p class="tx12bolditalic"><span class="underline">Trường hợp Bên Thế Chấp là tổ chức:</span></p>
+                        <p class="tx12"><span>Bên Thế Chấp thực hiện việc chuyển đổi, chia, tách, hợp nhất, sáp nhập,
+                                giải
+                                thể,
+                                phá sản, tạm ngừng hoạt động, thay đổi lớn về cơ cấu sở hữu, ngành nghề kinh doanh; hoặc
+                                liên
+                                quan đến các tranh chấp, khiếu kiện có liên quan đến Tài Sản Thế Chấp hoặc các trường
+                                hợp
+                                khác
+                                mà theo đánh giá của Ngân Hàng có ảnh hưởng hoặc có khả năng ảnh hưởng bất lợi đến khả
+                                năng
+                                thực
+                                hiện các nghĩa vụ, thỏa thuận đã ký với Ngân Hàng.</span></p>
+                    </div>
+                </div>
+                <div class="tx12 subletter ">
+                    <div>
+                        <span class="tx12bolditalic underline">Trường hợp Bên Được Bảo Đảm là cá nhân:</span>
+                        <p class="tx12"><span>Bất kỳ người nào thuộc Bên Được Bảo Đảm chết hoặc bị tuyên bố chết, mất
+                                tích
+                                hoặc
+                                bị tuyên bố mất tích, bị tuyên bố mất năng lực hành vi, ly hôn, bỏ trốn hoặc thay đổi
+                                nơi cư
+                                trú
+                                mà không thông báo cho Ngân Hàng hoặc bị Tòa án xác định vắng mặt tại nơi cư trú; hoặc
+                                liên
+                                quan
+                                đến các tranh chấp, khiếu kiện hoặc bị bắt, bị tạm giữ, là bị can, bị cáo hoặc thuộc các
+                                trường
+                                hợp khác mà theo đánh giá của Ngân Hàng có ảnh hưởng hoặc có khả năng ảnh hưởng bất lợi
+                                đến
+                                khả
+                                năng trả nợ của Bên Được Bảo Đảm đối với Ngân Hàng.</span></p>
+                        <p class="tx12 italic"><span>
+                                Hoặc:
+                            </span></p>
+                        <p class="tx12bolditalic"><span class="underline">Trường hợp Bên Được Bảo Đảm là tổ chức:</span>
+                        </p>
+                        <p class="tx12"><span>Bên Được Bảo Đảm thực hiện việc chuyển đổi, chia, tách, hợp nhất, sáp
+                                nhập,
+                                giải
+                                thể, phá sản, tạm ngừng hoạt động, thay đổi lớn về cơ cấu sở hữu, ngành nghề kinh doanh
+                                hoặc
+                                liên quan đến các tranh chấp, khiếu kiện hoặc các trường hợp khác mà theo đánh giá của
+                                Ngân
+                                Hàng
+                                có ảnh hưởng hoặc có khả năng ảnh hưởng bất lợi đến khả năng trả nợ của Bên Được Bảo Đảm
+                                đối
+                                với
+                                Ngân Hàng.</span></p>
+                    </div>
+                </div>
+
+                <p class="tx12 subletter ">
+                    <span>Các trường hợp khác mà Ngân Hàng xét thấy cần thiết. Trong các trường hợp này,
+                        Ngân
+                        Hàng sẽ thông báo bằng văn bản cho Bên Thế Chấp và Bên Được Bảo Đảm biết lý do trước khi xử lý
+                        Tài
+                        Sản Thế Chấp.</span>
+                </p>
+            </div>
+
+
+            <p class="tx12 number ">
+                <span>Việc xử lý theo Khoản 1 Điều này được hiểu là Ngân Hàng tự xử lý hoặc yêu cầu Cơ
+                    quan chức năng xử lý Tài Sản Thế Chấp theo thỏa thuận tại Hợp Đồng này và theo quy định của pháp
+                    luật. Khi xảy ra bất kỳ trường hợp nào nêu tại Khoản 1 Điều này, Bên Thế Chấp đồng ý để Ngân Hàng xử
+                    lý Tài Sản Thế Chấp để thu hồi nợ, cam kết không có bất kỳ khiếu nại, tranh chấp, khiếu kiện hoặc
+                    thực hiện bất kỳ hành vi nào khác gây cản trở.</span>
+            </p>
+
+            <p class="tx12bold section "><span>Phương Thức Xử Lý Tài Sản Thế Chấp</span></p>
+            <p class="tx12 number ">
+                <span>Các bên thống nhất thỏa thuận rằng ngay khi xảy ra bất kỳ trường hợp nào nêu tại
+                    Điều 6 Hợp Đồng này, Ngân Hàng được quyền (nhưng không có nghĩa vụ) xử lý Tài Sản Thế Chấp theo bất
+                    kỳ phương thức nào sau đây:</span>
+            </p>
+            <div class="tx12 thut-dong-c1">
+                <p class="tx12 subletter ">
+                    <span>
+                        <span class="bold">Yêu cầu Bên Thế Chấp tự bán, chuyển nhượng Tài Sản Thế
+                            Chấp:</span><span>Ngân Hàng thông báo và yêu cầu Bên Thế Chấp phải tự bán, chuyển nhượng Tài
+                            Sản
+                            Thế
+                            Chấp. Mức giá bán, chuyển nhượng Tài Sản Thế Chấp phải được Ngân Hàng đồng ý bằng văn bản
+                            trước
+                            khi
+                            thực hiện việc bán, chuyển nhượng Tài Sản Thế Chấp. Tiền bán, chuyển nhượng Tài Sản Thế Chấp
+                            phải
+                            được nộp cho Ngân Hàng để thanh toán Nghĩa Vụ Được Bảo Đảm.</span>
+                    </span>
+                </p>
+                <p class="tx12 subletter ">
+                    <span><span class="bold">Ngân Hàng bán, chuyển nhượng Tài Sản Thế Chấp:</span><span>Ngân
+                            Hàng
+                            có quyền bán, chuyển nhượng Tài Sản Thế Chấp để thu hồi nợ mà không cần có sự đồng ý của Bên
+                            Thế
+                            Chấp. Ngân Hàng có quyền bán, chuyển nhượng Tài Sản Thế Chấp theo hình thức bán đấu giá tài
+                            sản
+                            hoặc
+                            bán, chuyển nhượng không qua đấu giá, cụ thể như sau:</span>
+                    </span>
+                </p>
+            </div>
+            <div class="tx12 thut-dong-c2">
+                <p class="tx12 bullet bullet-level-1">
+                    <span>Trường hợp Ngân Hàng lựa chọn phương thức bán đấu giá Tài Sản Thế Chấp: Nếu
+                        Ngân
+                        Hàng lựa chọn phương thức này, giá khởi điểm được xác định theo quy định tại Khoản 3 Điều này.
+                        Thủ
+                        tục bán đấu giá Tài Sản Thế Chấp thực hiện theo quy định của pháp luật.</span>
+                </p>
+                <p class="tx12 bullet bullet-level-1">
+                    <span>Trường hợp Ngân Hàng bán, chuyển nhượng Tài Sản Thế Chấp không qua đấu giá: Bên
+                        Thế Chấp và Ngân Hàng sẽ thỏa thuận về giá bán, chuyển nhượng tài sản bằng văn bản trong thời
+                        hạn 15
+                        ngày kể từ ngày Ngân Hàng quyết định xử lý Tài Sản Thế Chấp theo phương thức bán, chuyển nhượng
+                        không qua đấu giá (Sau đây gọi là “<span class="bold">Giá Thỏa Thuận</span>”). Nếu quá thời hạn
+                        trên
+                        mà các bên không thống
+                        nhất được giá bán, chuyển nhượng thì Ngân Hàng có quyền quyết định giá bán, chuyển nhượng mà
+                        không
+                        cần sự chấp thuận của Bên Thế Chấp hoặc chỉ định một tổ chức có chức năng thẩm định giá để xác
+                        định
+                        giá bán, chuyển nhượng Tài Sản Thế Chấp (Sau đây gọi là “<span class="bold">Giá Trị Định
+                            Giá</span>”). Ngân Hàng sẽ bán,
+                        chuyển nhượng Tài Sản Thế Chấp cho người mua trên cơ sở Giá Thỏa Thuận hoặc Giá Trị Định Giá.
+                        Trường
+                        hợp không bán, chuyển nhượng được Tài Sản Thế Chấp theo Giá Thỏa Thuận hoặc Giá Trị Định Giá thì
+                        Ngân Hàng được quyền hạ giá bán, chuyển nhượng đến khi xử lý được Tài Sản Thế Chấp.</span>
+                </p>
+            </div>
+            <div class="tx12 thut-dong-c1">
+                <p class="tx12 subletter ">
+                    <span>
+                        <span class="bold">Ngân Hàng nhận chính Tài Sản Thế Chấp để thay thế cho việc thực
+                            hiện
+                            Nghĩa Vụ Được Bảo Đảm:</span><span>Trường hợp Ngân Hàng lựa chọn phương thức này, giá trị
+                            Tài
+                            Sản
+                            Thế Chấp được xác định theo quy định tại Khoản 3 Điều này</span>
+                    </span>
+                </p>
+                <p class="tx12 subletter ">
+                    <span>Ngân Hàng có quyền xử lý Tài Sản Thế Chấp bằng các phương thức khác theo quy
+                        định
+                        của pháp luật hoặc theo thỏa thuận bổ sung của các bên tại thời điểm xử lý.</span>
+                </p>
+            </div>
+            <p class="tx12 number ">
+                <span>Khi xảy ra bất kỳ trường hợp nào dẫn đến Ngân Hàng được quyền xử lý Tài Sản Thế
+                    Chấp theo quy định của Hợp Đồng, Ngân Hàng được quyền thu giữ Tài Sản Thế Chấp và yêu cầu Bên Thế
+                    Chấp hoặc bất cứ cá nhân, tổ chức nào đang giữ, quản lý Tài Sản Thế Chấp bàn giao Tài Sản Thế Chấp
+                    cho Ngân Hàng để xử lý theo các phương thức quy định tại Hợp Đồng này. Nếu Bên Thế Chấp hoặc tổ
+                    chức, cá nhân khác đang giữ, quản lý Tài Sản Thế Chấp không giao Tài Sản Thế Chấp theo yêu cầu của
+                    Ngân Hàng thì Ngân Hàng có quyền thu giữ Tài Sản Thế Chấp để xử lý.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Trừ trường hợp Hợp Đồng này hoặc pháp luật có quy định khác, các bên thống nhất
+                    rằng việc xác định giá trị Tài Sản Thế Chấp khi xử lý thuộc toàn quyền quyết định và thực hiện của
+                    Ngân Hàng mà không phụ thuộc vào sự chấp thuận của Bên Thế Chấp. Trong mọi trường hợp, Bên Thế Chấp
+                    cam kết sẽ không khiếu nại, khiếu kiện về mức giá và/hoặc giá trị Tài Sản Thế Chấp.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Trong trường hợp Ngân Hàng tiến hành bất kỳ phương thức nào để xử lý Tài Sản Thế
+                    Chấp và thủ tục đó bị gián đoạn hoặc bị từ bỏ vì bất kỳ lý do nào (kể cả theo quyết định của Ngân
+                    Hàng), thì trong mọi trường hợp Ngân Hàng được quyền tiếp tục thực hiện các thủ tục để xử lý Tài Sản
+                    Thế Chấp theo phương thức đó hoặc lựa chọn bất kỳ phương thức nào khác theo quy định tại Khoản 1
+                    Điều này mà Ngân Hàng đánh giá là phù hợp để xử lý Tài Sản Thế Chấp.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Trong trường hợp có nhiều Tài Sản Thế Chấp hoặc Tài Sản Thế Chấp có thể tách
+                    riêng, nhập lại để xử lý, các bên thỏa thuận rằng Ngân Hàng được quyền: (i) Lựa chọn một, một số
+                    hoặc toàn bộ Tài Sản Thế Chấp để xử lý; hoặc (ii) Tách riêng hoặc nhập lại để xử lý Tài Sản Thế
+                    Chấp; hoặc (iii) Theo các phương thức khác mà Ngân Hàng nhận thấy thích hợp nhất cho việc xử lý Tài
+                    Sản Thế Chấp.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Khi xử lý Tài Sản Thế Chấp, Bên Thế Chấp cam kết tự nguyên bàn giao và sẽ yêu cầu
+                    bất cứ cá nhân, tổ chức nào đang giữ, quản lý Tài Sản Thế Chấp bàn giao vô điều kiện Tài Sản Thế
+                    Chấp và mọi công trình, tài sản khác được cải tạo, xây dựng gắn liền với Tài Sản Thế Chấp để Ngân
+                    Hàng xử lý và không có bất kỳ khiếu nại, khiếu kiện hoặc thực hiện bất kỳ hành vi nào khác gây cản
+                    trở, chống đối việc Ngân Hàng xử lý Tài Sản Thế Chấp. Nếu Bên Thế Chấp hoặc bất cứ cá nhân, tổ chức
+                    nào đang giữ, quản lý Tài Sản Thế Chấp không bàn giao Tài Sản Thế Chấp và/hoặc có bất kỳ hành vi nào
+                    gây cản trở việc xử lý Tài Sản Thế Chấp thì: (i) Ngân Hàng có quyền xem xét, kiểm tra thực tế Tài
+                    Sản Thế Chấp để ngăn chặn việc tẩu tán Tài Sản Thế Chấp để xử lý theo quy định tại Hợp Đồng này; và
+                    (ii) Bên Thế Chấp phải bồi thường cho Ngân Hàng toàn bộ các thiệt hại xảy ra, bao gồm nhưng không
+                    giới hạn các khoản tiền mà Ngân Hàng phải chịu như: tiền phạt vi phạm hợp đồng, bồi thường thiệt hại
+                    cho các bên liên quan; tất cả các chi phí phát sinh trong quá trình xử lý Tài Sản Thế Chấp. Bên Thế
+                    Chấp và/hoặc bất cứ cá nhân, tổ chức nào đang giữ, quản lý Tài Sản Thế Chấp có trách nhiệm phối hợp
+                    với Ngân Hàng thực hiện việc xem xét, kiểm tra thực tế Tài Sản Thế Chấp.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Ngân Hàng có quyền khai thác, sử dụng hoặc cho phép Bên thế chấp hoặc ủy quyền cho
+                    Bên thứ ba khai thác, sử dụng Tài Sản Thế Chấp trong thời gian phải xử lý Tài Sản Thế Chấp để thu
+                    hồi nợ nhưng chưa xử lý được. Hoa lợi, lợi tức có được từ việc khai thác, sử dụng này sau khi trừ đi
+                    các chi phí sẽ được dùng để bù trừ vào Nghĩa Vụ Được Bảo Đảm.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Trường hợp trong thời gian thế chấp mà Tài Sản Thế Chấp bị Cơ quan nhà nước quy
+                    hoạch, thu hồi hoặc bị hư hỏng và được Nhà nước hoặc bên thứ ba bồi thường, thì toàn bộ tiền đền bù,
+                    tiền bảo hiểm (nếu có) đối với Tài Sản Thế Chấp phải được chuyển cho Ngân Hàng để thu hồi nợ. Trường
+                    hợp Bên Thế Chấp được bồi thường, thay thế hoặc được trao đổi bằng tài sản khác theo quy định pháp
+                    luật có liên quan thì các tài sản được bồi thường, tài sản được thay thế, tài sản được trao đổi trở
+                    thành tài sản bảo đảm. Bằng điều khoản này, Bên Thế Chấp ủy quyền không hủy ngang cho Ngân Hàng được
+                    làm việc với các Cơ quan chức năng và các tổ chức, cá nhân liên quan để nhận số tiền nêu trên hoặc
+                    xử lý các tài sản được bồi thường, tài sản được thay thế, tài sản được trao đổi nêu tại điều khoản
+                    này (bao gồm cả việc ký các văn bản trong quá trình làm việc và cung cấp các tài liệu liên quan theo
+                    yêu cầu của Cơ quan chức năng và các tổ chức, cá nhân có thẩm quyền).</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Các Bên thống nhất thỏa thuận rằng trong tất cả các trường hợp xử lý Tài Sản Thế
+                    Chấp, Bên Được Bảo Đảm và Bên Thế Chấp phải liên đới chịu toàn bộ các chi phí phát sinh trong quá
+                    trình xử lý tài sản (chi phí bảo quản, chi phí bán đấu giá, các khoản thuế, nghĩa vụ tài chính theo
+                    quy định của pháp luật, phí, lệ phí Tòa án, phí thi hành án…). Các chi phí này sẽ được khấu trừ vào
+                    tiền xử lý Tài Sản Thế Chấp trước khi Ngân Hàng thu nợ. Nếu trường hợp xử lý Tài Sản Thế Chấp không
+                    đủ để thanh toán cho toàn bộ các nghĩa vụ của Bên Được Bảo Đảm, Bên Được Bảo Đảm phải tiếp tục dùng
+                    tất cả các tài sản khác để thanh toán phần còn thiếu cho Ngân Hàng.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Các bên nhất trí rằng khi xử lý Tài Sản Thế Chấp, Ngân Hàng sẽ có toàn quyền xử
+                    lý theo đúng phương thức đã thỏa thuận tại Điều này mà không cần có thêm bất kỳ thỏa thuận, văn bản
+                    ủy quyền nào khác với Bên Thế Chấp. Ngân Hàng được quyền ký kết tất cả các hợp đồng, giấy tờ, văn
+                    bản, thực hiện tất cả các thủ tục và tự quyết định tất cả các vấn đề liên quan cho đến khi Tài Sản
+                    Thế Chấp được chuyển nhượng sang cho người mua theo thỏa thuận tại Điều này.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Trường hợp Nghĩa Vụ Được Bảo Đảm được bảo đảm bằng nhiều tài sản của một hoặc
+                    nhiều chủ tài sản khác nhau (trong đó có Tài Sản Thế Chấp), các bên thỏa thuận rằng Ngân Hàng có các
+                    quyền như sau:</span>
+            </p>
+            <div class="tx12 thut-dong-c1">
+                <p class="tx12 subletter ">
+                    <span>Khi Bên Được Bảo Đảm còn bất kỳ nghĩa vụ nào đối với Ngân Hàng thì Ngân Hàng vẫn có
+                        quyền giữ lại tất cả các tài sản này làm tài sản bảo đảm, hoặc giải chấp một, một số tài sản
+                        trong
+                        số đó tương ứng với phần nghĩa vụ đã giảm đi. Thứ tự giải chấp tài sản do Ngân Hàng toàn quyền
+                        quyết
+                        định</span>
+                </p>
+                <p class="tx12 subletter ">
+                    <span>Khi xử lý Tài Sản Thế Chấp, Ngân Hàng có quyền tự mình hoặc đề nghị Cơ quan
+                        chức
+                        năng xử lý một phần hoặc toàn bộ Tài Sản Thế Chấp.</span>
+                </p>
+            </div>
+
+
+
+            <p class="tx12bold section "><span>Thanh Toán Tiền Thu Được</span></p>
+            <p class="tx12 number ">
+                <span>Toàn bộ số tiền từ việc xử lý Tài Sản Thế Chấp hoặc bất kỳ khoản tiền nào khác mà
+                    Bên Thế Chấp nhận được hoặc nắm giữ từ bất kỳ tổ chức/cá nhân nào (kể cả các khoản tiền đền bù và
+                    tiền bảo hiểm và các khoản tiền khác) phải được chuyển cho Ngân Hàng hoặc chuyển vào tài khoản do
+                    Ngân Hàng chỉ định/chấp thuận để thanh toán theo quy định tại Khoản 2 Điều này, trừ trường hợp pháp
+                    luật có liên quan quy định khác.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Số tiền Ngân Hàng thu được theo quy định tại Khoản 1 Điều này sẽ được dùng để
+                    thanh toán theo thứ tự ưu tiên như sau:</span>
+            </p>
+            <div class="tx12 thut-dong-c1">
+                <p class="tx12 subletter ">
+                    <span>Thanh toán chi phí xử lý Tài Sản Thế Chấp, bao gồm: các khoản phí (kể cả phí
+                        thuê
+                        luật sư) và các chi phí, phí tổn cần thiết khác có liên quan đến việc xử lý Tài Sản Thế
+                        Chấp;</span>
+                </p>
+                <p class="tx12 subletter ">
+                    <span>Thanh toán các khoản thuế phát sinh từ việc xử lý Tài Sản Thế Chấp theo quy
+                        định
+                        pháp luật;</span>
+                </p>
+                <p class="tx12 subletter ">
+                    <span>Thanh toán các Nghĩa Vụ Được Bảo Đảm.</span>
+                </p>
+            </div>
+            <p class="tx12 number ">
+                <span>Ngân Hàng có quyền thay đổi thứ tự ưu tiên thanh toán nêu trên và/hoặc lựa chọn
+                    các Nghĩa Vụ Được Bảo Đảm để ưu tiên thanh toán.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Nếu số tiền Ngân Hàng thu được theo quy định tại Khoản 1 Điều này sau khi thanh
+                    toán theo quy định tại Khoản 2 Điều này còn thừa thì sẽ được chuyển trả lại cho Bên Thế Chấp.</span>
+            </p>
+
+
+            <p class="tx12bold section "><span>Điều 9. </span> <span>Luật Điều Chỉnh Và Giải Quyết Tranh
+                    Chấp</span></p>
+            <p class="tx12 number ">
+                <span>Hợp Đồng này được giải thích và điều chỉnh bởi pháp luật Việt Nam.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Các tranh chấp phát sinh từ hoặc liên quan đến Hợp Đồng này, nếu không giải quyết
+                    được bằng thương lượng, các bên có quyền xử lý theo đúng các điều khoản đã thỏa thuận tại Hợp Đồng
+                    này hoặc có quyền khởi kiện ra Tòa án có thẩm quyền theo quy định pháp luật. Nếu Bên Thế Chấp thay
+                    đổi địa chỉ mà không thông báo cho Ngân Hàng bằng văn bản, thì được hiểu là Bên Thế Chấp cố tình
+                    giấu địa chỉ, trốn tránh nghĩa vụ và Ngân Hàng có quyền yêu cầu Tòa án thụ lý giải quyết vụ án theo
+                    thủ tục chung. Bên Thế Chấp chấp nhận việc Tòa án xét xử vắng mặt Bên Thế Chấp, kể cả trường hợp
+                    không lấy được lời khai của Bên Thế Chấp.</span>
+            </p>
+
+            <p class="tx12bold section "><span>Điều Khoản Thi Hành</span></p>
+            <p class="tx12 number ">
+                <span>Mọi thay đổi đối với các nội dung của Hợp Đồng này chỉ có hiệu lực khi được các
+                    bên thỏa thuận bằng văn bản. Các văn bản này là bộ phận không tách rời của Hợp Đồng. Những vấn đề
+                    chưa được đề cập đến trong Hợp Đồng này sẽ được thực hiện theo các cam kết, thỏa thuận khác giữa các
+                    bên (nếu có) và theo quy định của pháp luật có liên quan.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Các thông báo, văn bản giao dịch giữa Bên Thế Chấp và Ngân Hàng được gửi theo địa
+                    chỉ của mỗi bên nêu tại phần đầu của Hợp Đồng này. Trường hợp bên nào có sự thay đổi địa chỉ thì
+                    phải thông báo cho bên kia bằng văn bản; nếu không thông báo thì bên kia có quyền gửi văn bản theo
+                    địa chỉ cũ và mặc nhiên coi như bên còn lại đã nhận được văn bản.</span>
+            </p>
+            <p class="tx12  number ">
+                <span>Hợp Đồng này có hiệu lực kể từ ngày được công chứng viên ký và đóng dấu của tổ
+                    chức hành nghề công chứng cho đến khi Bên Được Bảo Đảm thực hiện xong tất cả các Nghĩa Vụ Được Bảo
+                    Đảm và Ngân Hàng đã thực hiện các thủ tục giải chấp Tài Sản Thế Chấp.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Trong trường hợp Văn Kiện Tín Dụng bị vô hiệu hoặc hủy bỏ hoặc đơn phương chấm dứt
+                    thực hiện thì Hợp Đồng này vẫn có hiệu lực để đảm bảo cho các nghĩa vụ của Bên Được Bảo Đảm đối với
+                    Ngân Hàng.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Ngân hàng được quyền cung cấp thông tin Tài Sản Thế Chấp và Bên Thế Chấp cho: (a)
+                    Cơ quan có thẩm quyền theo quy định pháp luật; (b) Tổ chức hành nghề công chứng và cơ quan đăng ký
+                    giao dịch bảo đảm; và (c) Các cơ quan, tổ chức, cá nhân bất kỳ vì mục đích để thực hiện Hợp Đồng này
+                    và vì mục đích xử lý, thu hồi nợ.</span>
+            </p>
+            <p class="tx12 number ">
+                <span>Hợp Đồng này được lập thành 05 (năm) bản có giá trị như nhau, Ngân Hàng giữ 02
+                    (hai) bản, Bên Thế Chấp giữ 01 (một) bản, 01 (một) bản dùng để đăng ký giao dịch bảo đảm, 01 (một)
+                    bản để lưu tại Tổ chức hành nghề công chứng.</span>
+            </p>
+
+            <p class="tx12 number ">
+                <span>Các Bên xác nhận rằng việc giao kết Hợp Đồng này là hoàn toàn tự nguyện, không giả
+                    tạo, không bị ép buộc, lừa dối, đe dọa, nhầm lẫn. Từng bên một đã đọc lại, hiểu rõ, nhất trí và cùng
+                    ký tên dưới đây.</span>
+            </p>
+
+            <br>
+
+            <table class="table-no-border">
+                <tr>
+                    <td class="tx13 txcenter bold" style="width: 50%;">
+                        <span>
+                            BÊN THẾ CHẤP
+                        </span>
+                    </td>
+                    <td class="tx13 txcenter bold" style="width: 50%;">
+                        <span>NGÂN HÀNG</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
