@@ -311,7 +311,7 @@
                 </div>
             </div>
             <div id="noiDungHopDongTong">
-                <table id="noiDungHopDong" class="table-no-border tx12">
+                <table class="table-no-border tx12">
                     <tr>
                         <td class="left"> 
                             <span class=""></span> 
@@ -328,13 +328,26 @@
                             <span class="bold">Thông tin chung về tài sản thế chấp:</span>
                         </td>
                     </tr>
+                </table>
+                <table id="" class="table-no-border tx12">
                     <tr>
                         <td class="left"></td>
                         <td class="right">
-                            <span>Tài sản thế chấp bao gồm: </span>
-                            <span>Quyền sử dụng đất và tài sản gắn liền với đất tại </span>
-                            <span id="propertyAddress"></span>
-                            <span>(ghi cụ thể địa chỉ, thửa đất, tờ bản đồ, số GCN, ngày cấp, nơi cấp).</span>
+                            <div class="bold">
+                                <span>1.1. Tài sản 1:</span>
+                            </div>
+                            <div>
+                                <span>Tài sản thế chấp bao gồm: </span>
+                                <span>Quyền sử dụng đất và tài sản gắn liền với đất tại: </span>
+                                <span>thửa đất số: </span><span id="landLotNumber">[...]</span>,
+                                <span>tờ bản đồ số: </span><span id="mapSheetNumber">[...]</span>,
+                                <span>địa chỉ: </span><span id="propertyAddress">[...]</span>,
+                                <span>theo Giấy chứng nhận </span><span id="certificateType">[...]</span>
+                                <span>số: </span><span id="certificateNumber">[...]</span>;
+                                <span>[số vào sổ cấp GCN: </span><span id="certificateEntryNumber">[...]</span>];
+                                <span>do </span><span id="issuingAuthority">[...]</span>
+                                <span>cấp ngày </span><span id="issueDate">[...]</span>.
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -347,17 +360,79 @@
                         <td class="left"><span>a)</span></td>
                         <td class="right">
                             <span>Quyền sử dụng đất: </span>
-                            <span id="landUsageDetails"></span>
-                            <span>(mô tả diện tích, hình thức sử dụng, mục đích sử dụng,…)</span>
                         </td>
                     </tr>
                     <tr>
-                        <td class="left"><span>b)</span></td>
-                        <td class="right">
+                        <td></td>
+                        <td>
+                            <table class="table-no-border">
+                                <tr>
+                                    <td style="width: 3%;">-</td>
+                                    <td>
+                                        <span>Diện tích: </span>
+                                        <span id="area">[...]</span>
+                                        <span>m²</span>  
+                                        <span>(bằng chữ: </span>
+                                        <span id="areaInWords">[...]</span>
+                                        <span>)</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td>
+                                        <span>Hình thức sử dụng: </span>
+                                        <span id="usageForm">[...]</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td>
+                                        <span>Mục đích sử dụng: </span>
+                                        <span id="usagePurpose">[...]</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td>
+                                        <span>Thời hạn sử dụng: </span>
+                                        <span id="usageDuration">[...]</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td>
+                                        <span>Nguồn gốc sử dụng: </span>
+                                        <span id="usageOrigin">[...]</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td>
+                                        <span>Ghi chú: </span>
+                                        <span id="notes">[...]</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>b)</span></td>
+                        <td>
                             <span>Tài sản gắn liền với đất: </span>
-                            <span id="attachedAssetDetails"></span>
-                            <span>(mô tả kết cấu công trình xây dựng, diện tích sàn… - theo mô tả tại Báo
-                                cáo định giá).</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <table id="CTXD" class="table-no-border">
+                                <tr>
+                                    <td style="width: 3%;">&#9679;</td>
+                                    <td>
+                                        <span>CTXD số</span>
+                                        <span></span>
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
                     </tr>
                 </table>
