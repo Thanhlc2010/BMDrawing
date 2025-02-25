@@ -1,0 +1,1030 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="doc_management_style.css" />
+</head>
+
+<style>
+    .a4-format {
+      width: 210mm;
+      height: 297mm;
+      margin: auto;
+      padding: 20mm;
+      background-color: white;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+      overflow: auto;
+      line-height: 30px;
+    }
+
+    .container {
+      width: 100%;
+      height: auto;
+      padding: 25mm 18mm 350mm 22mm;
+      background: #fff;
+      margin: 0 auto;
+      box-sizing: border-box;
+      position: relative;
+      font-size: 16px;
+      white-space: normal;
+      /* Cho phép xuống dòng tự động */
+      word-wrap: break-word;
+    }
+
+    h1 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .tx16 {
+      font-size: 21.33px;
+    }
+
+    .left {
+      width: 7%;
+    }
+
+    .right {
+      width: 93%;
+    }
+
+    .red-text {
+      color: red;
+    }
+
+    /* Hàm mặc định */
+    .tx12 {
+      font-size: 16px;
+    }
+
+    /* Căn giữa */
+    .txcenter {
+      text-align: center;
+    }
+
+    /* In đậm */
+    .bold {
+      font-weight: bold;
+    }
+
+    /* In nghiêng */
+    .italic {
+      font-style: italic;
+    }
+
+    /* Bảng, đã được căn các cột đều nhau */
+    table {
+      width: 100%;
+      text-indent: 0;
+      table-layout: fixed;
+      border-collapse: collapse;
+    }
+
+    table td,
+    table th {
+      border: solid 1.5px black;
+      padding: 0px;
+      vertical-align: top;
+    }
+
+    /* Bảng không có viền */
+    .table-no-border td,
+    .table-no-border th {
+      border: none !important;
+    }
+  </style>
+
+<body>
+    <div id="editor" style="width: 100%;" spellcheck='false'>
+        <div class="container" id="allvoice">
+            <p style="text-align: right">
+                <b>MB-02B</b>
+            </p>
+            <p class="tx12 bold txcenter">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</p>
+            <p class="tx12 bold txcenter">Độc lập - Tự do - Hạnh phúc
+                <hr style="width: 30%" />
+            </p>
+            <p>&nbsp;</p>
+            <p class="tx12 bold txcenter">
+                THỎA THUẬN
+            </p>
+            <p class="tx12 bold txcenter">
+                PHONG TỎA TIỀN VÀ THU HỒI NỢ
+            </p>
+            <p>&nbsp;</p>
+            <p class="tx12 italic">- Căn cứ Giấy đề nghị và phương án vay vốn của Ông/Bà:
+                 <span class="html_key" id="docCusName_key">[...]</span></p>
+            <p class="tx12 italic">- Căn cứ Hợp đồng mua bán/chuyển nhượng quyền sử dụng đất ở và quyền sở hữu nhà ở công chứng số
+                <span class="html_key" id="transferAgrmtId_key">[...]</span>
+                ký ngày <span class="html_key" id="transferAgrmtSignDate_key">[...]</span>
+                giữa <span class="html_key" id="transferAgrmtStakeholderA_key">[...]</span>
+                và <span class="html_key" id="transferAgrmtStakeholderB_key">[...]</span>
+                tại Văn phòng Công chứng <span class="html_key" id="transferAgrmtSignAt_key">[...]</span>
+                (Sau đây Hợp đồng này cùng các văn bản khác liên quan đến giao dịch chuyển nhượng Tài sản giữa 
+                Bên Nhận Chuyển Nhượng và Bên Chuyển Nhượng, kể cả các văn bản phát sinh sau thời điểm ký 
+                Thỏa thuận này được gọi chung là “<b>Hợp Đồng Chuyển Nhượng Tài Sản</b>”);
+            </p>
+            <p class="tx12 italic">- Căn cứ Hợp đồng tín dụng số <span class="html_key" id="creditAgrmtId_key">[...]</span>
+                ngày <span class="html_key" id="creditAgrmtDate_key">[...]</span>
+                giữa Ngân hàng TMCP Đại Chúng Việt Nam - Chi nhánh/PGD <span class="html_key" id="creditAgrmtBranch_key">[...]</span>
+                và ông/Bà <span class="html_key" id="creditAgrmtCustomer_key">[...]</span>
+                (Sau đây gọi tắt là “<b>Hợp Đồng Tín Dụng</b>”)
+            </p>
+            <p class="tx12">Hôm nay,
+                ngày <span class="html_key" id="day_key">[...]</span>
+                tháng <span class="html_key" id="month_key">[...]</span>
+                năm <span class="html_key" id="year_key">[...]</span>
+                tại <span class="html_key" id="at_key">[...]</span>, chúng tôi gồm:
+            </p>
+            <p class="tx12 bold">I. NGÂN HÀNG TMCP ĐẠI CHÚNG VIỆT NAM - <span class="html_key"
+                    id="branchCode_key">[...]</span></p>
+            <table class="table-no-border tx12">
+                <tr>
+                    <td style="width: 25%">Địa chỉ</td>
+                    <td><span class="html_key" id="bankAddress_key">[...]</span></td>
+                </tr>
+            </table>
+            <p>Mã số doanh nghiệp <span class="html_key" id="bankCode_key">[...]</span>
+                do: <span class="html_key" id="bankCodeIssueBy_key">[...]</span>
+                cấp ngày: <span class="html_key" id="bankCodeIssueDate_key">[...]</span>
+            </p>
+            <table class="table-no-border tx12">
+                <tr>
+                    <td style="width: 25%">Điện thoại</td>
+                    <td><span class="html_key" id="bankPhone_key">[...]</span></td>
+                    <td style="width: 25%">Fax</td>
+                    <td><span class="html_key" id="bankFax_key">[...]</span></td>
+                </tr>
+                <tr>
+                    <td style="width: 25%">Đại diện</td>
+                    <td colspan="3"><span class="html_key" id="bankRep_key">[...]</span></td>
+                </tr>
+                <tr>
+                    <td style="width: 25%">Chức vụ</td>
+                    <td colspan="3"><span class="html_key" id="bankRepPos_key">[...]</span></td>
+                </tr>
+            </table>
+            <div id="giayUyQuyen" style="display: none;">
+            </div>
+            <span>(Theo Giấy ủy quyền số </span>
+            <span class="html_key" id="poaDocId_key">[...]</span>
+            <span> ngày </span>
+            <span class="html_key" id="poaDocDate_key">[...]</span>
+            <span> của </span>
+            <span class="html_key" id="poaDocBy_key">[...]</span>
+            <span>)</span>
+            <p class="tx12">(Sau đây gọi tắt là <b><i>“Ngân Hàng”</i></b>)</p>
+    
+            <p class="tx12 bold">II. BÊN CHUYỂN NHƯỢNG:</p>
+            <!-- Trường hợp Bên chuyển nhượng là tổ chức -->
+            <div id="toChuc" style="display: none;">
+                <table class="table-no-border tx12">
+                    <tr class="bold">
+                        <td style="width: 25%;">
+                            <p>Công ty</p>
+                        </td>
+                        <td>
+                            <p><span class="html_key" id="senderOrgName_key">[...]</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 25%;">
+                            <p>Địa chỉ</p>
+                        </td>
+                        <td>
+                            <p><span class="html_key" id="senderOrgAddress_key">[...]</span></p>
+                        </td>
+                    </tr>
+                </table>
+                <p class="tx12">
+                    Mã số doanh nghiệp: <span class="html_key" id="senderOrgCode_key">[...]</span>
+                    do: <span class="html_key" id="senderOrgCodeIssueBy_key">[...]</span>
+                    cấp ngày: <span class="html_key" id="senderOrgCodeIssueDate_key">[...]</span>
+                </p>
+                <table class="table-no-border tx12">
+                    <tr>
+                        <td style="width: 25%;">
+                            <p>Điện thoại</p>
+                        </td>
+                        <td>
+                            <p><span class="html_key" id="senderOrgPhone_key">[...]</span></p>
+                        </td>
+                        <td style="width: 25%;">Fax</td>
+                        <td>
+                            <p><span class="html_key" id="senderOrgFax_key">[...]</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 25%;">
+                            <p>Đại diện</p>
+                        </td>
+                        <td colspan="3">
+                            <p><span class="html_key" id="senderOrgRep_key">[...]</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 25%;">
+                            <p>Chức vụ</p>
+                        </td>
+                        <td colspan="3">
+                            <p><span class="html_key" id="senderOrgRepPos_key">[...]</span></p>
+                        </td>
+                    </tr>
+                </table>
+                <p class="tx12">
+                    (Theo Giấy ủy quyền số <span class="html_key" id="senderOrgPoaDocId_key">[...]</span>
+                    ngày <span class="html_key" id="senderOrgPoaDocDate_key">[...]</span>
+                    của <span class="html_key" id="senderOrgPoaDocBy_key">[...]</span>)
+                </p>
+            </div>
+            <!-- Trường hợp Bên chuyển nhượng là cá nhân -->
+            <div id="caNhan" style="display: none;">
+                <p class="tx12 bold">Ông bà <span class="html_key" id="senderIdvName_key">[...]</span></p>
+                <table class="tx12 table-no-border">
+                    <tr>
+                        <td style="width: 25%;">
+                            <p>Số CCCD/CMND/Hộ chiếu:</p>
+                        </td>
+                        <td>
+                            <p><span class="html_key" id="senderIdvId_key">[...]</span></p>
+                        </td>
+                        <td style="width: 50%;">
+                            <p>
+                                do: <span class="html_key" id="senderIdvIdIssueBy_key">[...]</span>
+                                cấp ngày: <span class="html_key" id="senderIdvIdIssueDate_key">[...]</span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 25%;">
+                            <p>Địa chỉ đăng ký thường trú:</p>
+                        </td>
+                        <td colspan="2">
+                            <p><span class="html_key" id="senderIdvRegAddress_key">[...]</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 25%;">
+                            <p>Nơi ở hiện nay:</p>
+                        </td>
+                        <td colspan="2">
+                            <p><span class="html_key" id="senderIdvAddress_key">[...]</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 25%;">
+                            <p>Điện thoại:</p>
+                        </td>
+                        <td colspan="2">
+                            <p><span class="html_key" id="senderIdvPhone_key">[...]</span></p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="voChong" style="display: none;">
+                <p class="tx12 bold">
+                    Và Vợ/Chồng: Ông/Bà <span class="html_key" id="senderIdvSpouseName_key">[...]</span>
+                </p>
+                <table class="tx12 table-no-border">
+                    <tr>
+                        <td style="width: 25%;">
+                            <p>Số CCCD/CMND/Hộ chiếu:</p>
+                        </td>
+                        <td>
+                            <p><span class="html_key" id="senderIdvSpouseId_key">[...]</span></p>
+                        </td>
+                        <td style="width: 50%;">
+                            <p>
+                                do: <span class="html_key" id="senderIdvSpouseIdIssueBy_key">[...]</span>
+                                cấp ngày: <span class="html_key" id="senderIdvSpouseIdIssueDate_key">[...]</span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 25%;">
+                            <p>Địa chỉ đăng ký thường trú:</p>
+                        </td>
+                        <td colspan="2">
+                            <p><span class="html_key" id="senderIdvSpouseRegAddress_key">[...]</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 25%;">
+                            <p>Nơi ở hiện nay:</p>
+                        </td>
+                        <td colspan="2">
+                            <p><span class="html_key" id="senderIdvSpouseAddress_key">[...]</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 25%;">
+                            <p>Điện thoại:</p>
+                        </td>
+                        <td colspan="2">
+                            <p><span class="html_key" id="senderIdvSpousePhone_key">[...]</span></p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <p class="tx12">(Sau đây gọi tắt là <b><i>“Bên Chuyển Nhượng”</i></b>)</p>
+            <p class="tx12 bold">III. BÊN NHẬN CHUYỂN NHƯỢNG</p>
+            <p class="tx12 bold">
+                Ông <span class="html_key" id="recvNameCap_key">[...]</span>
+                [và Bà <span class="html_key" id="recvMsNameCap_key">[...]</span>]
+            </p>
+            <p class="tx12">Ông: <span class="html_key" id="recvName_key">[...]</span></p>
+            <table class="tx12 table-no-border">
+                <tr>
+                    <td style="width: 30%;">
+                        <p>Số CCCD/CMND/Hộ chiếu:</p>
+                    </td>
+                    <td>
+                        <p><span class="html_key" id="recvId_key">[...]</span></p>
+                    </td>
+                    <td style="width: 40%;">
+                        <p>
+                            do: <span class="html_key" id="recvIdIssueBy_key">[...]</span>
+                            cấp ngày: <span class="html_key" id="recvIdIssueDate_key">[...]</span>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 30%;">
+                        <p>Địa chỉ đăng ký thường trú:</p>
+                    </td>
+                    <td colspan="2">
+                        <p><span class="html_key" id="recvRegAddress_key">[...]</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 30%;">
+                        <p>Nơi ở hiện nay:</p>
+                    </td>
+                    <td colspan="2">
+                        <p><span class="html_key" id="recvAddress_key">[...]</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 30%;">
+                        <p>Điện thoại:</p>
+                    </td>
+                    <td colspan="2">
+                        <p><span class="html_key" id="recvPhone_key">[...]</span></p>
+                    </td>
+                </tr>
+            </table>
+            <div id="spouseSection" style="display: none;">
+                <p class="tx12 bold italic">Và:</p>
+                <p class="tx12">Bà: <span class="html_key" id="recvMsName_key">[...]</span></p>
+                <table class="tx12 table-no-border">
+                    <tr>
+                        <td style="width: 30%;">
+                            <p>Số CCCD/CMND/Hộ chiếu:</p>
+                        </td>
+                        <td>
+                            <p><span class="html_key" id="recvMsId_key">[...]</span></p>
+                        </td>
+                        <td style="width: 40%;">
+                            <p>
+                                do: <span class="html_key" id="recvMsIdIssueBy_key">[...]</span>
+                                cấp ngày: <span class="html_key" id="recvMsIdIssueDate_key">[...]</span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 30%;">
+                            <p>Địa chỉ đăng ký thường trú:</p>
+                        </td>
+                        <td colspan="2">
+                            <p><span class="html_key" id="recvMsRegAddress_key">[...]</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 30%;">
+                            <p>Nơi ở hiện nay:</p>
+                        </td>
+                        <td colspan="2">
+                            <p><span class="html_key" id="recvMsAddress_key">[...]</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 30%;">
+                            <p>Điện thoại:</p>
+                        </td>
+                        <td colspan="2">
+                            <p><span class="html_key" id="recvMsPhone_key">[...]</span></p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+            <p>(Sau đây gọi tắt là <b><i>“Bên Nhận Chuyển Nhượng”</i></b>)</p>
+            <p>
+                Các bên thống nhất ký kết Thỏa thuận quản lý tiền giải ngân trên tài khoản của
+                Bên Chuyển Nhượng (Sau đây gọi tắt là <b><i>“Thỏa thuận”</i></b>) với các điều khoản như sau:
+            </p>
+            <p>&nbsp;</p>
+            <p class="tx12 bold">ĐIỀU 1: ĐIỀU KHOẢN CHUNG</p>
+            <table class="tx12 table-no-border">
+                <tr>
+                    <td style="width: 7%;">
+                        <p>1.1</p>
+                    </td>
+                    <td>
+                        <p>Bên Chuyển Nhượng và Bên Nhận Chuyển Nhượng đã ký Hợp Đồng Chuyển Nhượng Tài Sản, theo
+                            đó, Bên Chuyển Nhượng đồng ý thực hiện việc chuyển nhượng cho Bên Nhận Chuyển Nhượng Tài Sản
+                            theo mô tả dưới đây:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <p>- Diện tích:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <p>- Địa chỉ:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <p>- [các thông tin khác liên quan đến Tài Sản (nếu có)]:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <p>(Sau đây gọi chung là <b>“Tài Sản”</b>).</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%;">1.2</td>
+                    <td>
+                        <p>Bên Nhận Chuyển Nhượng và Ngân Hàng đã ký Hợp Đồng Tín Dụng, theo đó Bên Nhận Chuyển
+                            Nhượng có nhu cầu vay vốn và Ngân Hàng chấp thuận cho vay vốn để thanh toán tiền nhận chuyển
+                            nhượng Tài Sản với thông tin cụ thể như sau:
+                        </p>
+                        <p>- Số tiền cho vay tối đa là <span class="html_key" id="maxLoanAmt_key">[...]</span> (Bằng
+                            chữ: <span class="html_key" id="maxLoanAmtText_key">[...]</span>)
+                        </p>
+                        <p>- Thời hạn vay vốn: <span class="html_key" id="loanDuration_key">[...]</span></p>
+                        <p>(Sau đây gọi chung là <b>Khoản Vay”</b>).</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%;">1.3</td>
+                    <td>
+                        <p>Theo Hợp Đồng Chuyển Nhượng Tài Sản, Bên Nhận Chuyển Nhượng và Bên Chuyển Nhượng cam kết thực
+                            hiện việc đăng ký biến động theo quy định pháp luật và các công việc có liên quan để sang
+                            tên Giấy chứng nhận quyền sử dụng đất, quyền sở hữu nhà ở và tài sản khác gắn liền với đất
+                            (<b>“Giấy Chứng Nhận”</b>) cho Bên Nhận chuyển nhượng. Ngay sau khi nhận được bản gốc Giấy
+                            Chứng Nhận mang tên Bên Nhận Chuyển Nhượng từ cơ quan nhà nước có thẩm quyền, Bên Chuyển
+                            Nhượng và/hoặc Bên Nhận Chuyển Nhượng phải bàn giao bản gốc Giấy Chứng Nhận cho Ngân Hàng.
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%;">1.4</td>
+                    <td>
+                        <p>Ngay tại ngày có Giấy Chứng Nhận đã mang tên Bên Nhận Chuyển Nhượng, Bên Nhận Chuyển Nhượng
+                            có nghĩa vụ thế chấp Tài Sản (ký Hợp đồng thế chấp công chứng và hoàn thiện các thủ tục đăng
+                            ký giao dịch bảo đảm) để đảm bảo cho các nghĩa vụ trả nợ của Bên Vay đối với Ngân Hàng.
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%;">1.5</td>
+                    <td>
+                        <p>Để đảm bảo cho việc Ngân Hàng giải ngân và Các Bên hoàn thành các nghĩa vụ theo Hợp Đồng Tín
+                            Dụng, Hợp Đồng Chuyển Nhượng Tài Sản, Các Bên nhất trí thực hiện các biện pháp bảo đảm theo
+                            nội dung của Thỏa thuận này.
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            <p class="tx12 bold">ĐIỀU 2: BẢO ĐẢM THANH TOÁN LÃI VAY</p>
+            <table class="tx12 table-no-border">
+                <tr>
+                    <td style="width: 7%;">2.1</td>
+                    <td>
+                        Bên Vay thực hiện mở Tài khoản thanh toán tại Ngân Hàng và duy trì số dư tối thiểu trên tài
+                        khoản thanh toán (Sau đây gọi tắt là <b>“Tài Khoản Phong Tỏa Lãi”</b>) là <span class="html_key"
+                            id="minBalance_key">[...]</span> (Bằng chữ <span class="html_key"
+                            id="minBalanceText_key">[...]</span>) đồng (<b>“Lãi Phong Tỏa”</b>) trong thời hạn <span
+                            class="html_key" id="minBalanceDuration_key">[...]</span> kể từ ngày <span class="html_key"
+                            id="minBalanceSince_key">[...]</span> (Sau đây gọi là <b>“Thời Hạn Phong Tỏa”</b>). Thông
+                        tin chi tiết Tài Khoản Phong Tỏa Lãi mở tại Ngân Hàng như sau
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <p>Chủ tài khoản: <span class="html_key" id="blockedAccName_key">[...]</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <p>Số tài khoản: <span class="html_key" id="blockedAccNum_key">[...]</span>
+                            mở tại Ngân hàng: <span class="html_key" id="blockedAccBank_key">[...]</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%;">2.2</td>
+                    <td>
+                        <p>
+                            Bên Nhận Chuyển Nhượng đồng ý để Ngân Hàng thực hiện phong tỏa toàn bộ Lãi Phong Tỏa trên
+                            Tài Khoản Phong Tỏa Lãi để đảm bảo việc thanh toán lãi cho Ngân Hàng theo Hợp Đồng Tín Dụng
+                            trong <b><i>Thời Hạn Phong Tỏa</i></b>. Đến kỳ thu lãi theo Hợp Đồng Tín Dụng, Bên Nhận
+                            Chuyển Nhượng đồng
+                            ý để Ngân Hàng được quyền tự động giải tỏa một phần Lãi Phong Tỏa trên Tài Khoản Phong Tỏa
+                            Lãi để thu lãi vay, khi đó số tiền Lãi Phong Tỏa sẽ tự động giảm trừ đi một khoản tương ứng
+                            với số tiền Ngân Hàng đã thu nợ.
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%;">2.3</td>
+                    <td>
+                        <p>
+                            Trong vòng 03 ngày làm việc trước khi hết <b><i>Thời Hạn Phong Tỏa</i></b>, nếu Bên nhận
+                            chuyển nhượng
+                            chưa được cấp <b>Giấy chứng nhận</b> theo quy định của pháp luật hoặc Bên Nhận Chuyển Nhượng
+                            chưa
+                            hoàn thành việc thế chấp Tài Sản theo quy định tại Khoản 1.4 Điều 1 Thỏa thuận này, Bên
+                            Chuyển Nhượng đồng ý để Bên Nhận Chuyển Nhượng gửi văn bản đến Ngân Hàng để đề nghị gia hạn
+                            <b><i>Thời Hạn Phong Tỏa</i></b> và Bên Nhận Chuyển Nhượng thực hiện nộp bổ sung số tiền
+                            tương ứng với số tiền lãi của Khoản vay trong thời hạn gia hạn vào Tài Khoản Phong Tỏa Lãi.
+                            Bên Chuyển Nhượng cam kết đồng ý với toàn bộ nội dung tại văn bản đề nghị gia hạn mà Bên
+                            Nhận Chuyển Nhượng gửi tới Ngân Hàng. Trong trường hợp nhận được văn bản đề nghị gia hạn từ
+                            Bên Nhận Chuyển Nhượng , Ngân Hàng hiểu rằng Bên Chuyển Nhượng đã đồng ý với toàn bộ tại văn
+                            bản đề nghị gia hạn của Bên nhận chuyển nhượng mà không cần kiểm tra, xác nhận lại bằng bất
+                            cứ phương thức nào.
+                        </p>
+                        <p>
+                            Ngân Hàng có quyền (nhưng không có nghĩa vụ) dựa trên cơ sở thực tế để quyết định việc gia
+                            hạn <b><i>Thời Hạn Phong Tỏa</i></b>. Trường hợp Ngân Hàng đồng ý gia hạn thì số tiền nộp bổ
+                            sung được
+                            phong tỏa và Ngân Hàng thu lãi vay theo Khoản 2.2 Điều này.
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            <p class="tx12 bold">ĐIỀU 3: GIẢI NGÂN</p>
+            <table class="table-no-border tx12">
+                <tr>
+                    <td style="width: 7%">
+                        <p>3.1</p>
+                    </td>
+                    <td>
+                        <p>Ngân Hàng thực hiện giải ngân số tiền vay theo Hợp Đồng Tín Dụng (<b>“Tiền Mua Tài Sản”</b>)
+                            vào tài khoản của Bên Chuyển Nhượng mở tại Ngân Hàng như sau:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%"></td>
+                    <td>
+                        <p>Chủ tài khoản: <span class="html_key" id="beneficialAccName_key">[...]</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%"></td>
+                    <td>
+                        <p>Số tài khoản: <span class="html_key" id="beneficialAccNum_key">[...]</span>
+                            mở tại Ngân Hàng <span class="html_key" id="beneficialAccBank_key">[...]</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%"></td>
+                    <td>
+                        <p>(Sau đây gọi tắt là <b>“Tài Khoản Thụ Hưởng”</b>)</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%">
+                        <p>3.2</p>
+                    </td>
+                    <td>
+                        <p>Các Bên đồng ý để Ngân Hàng thực hiện:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%">
+                        <p>a)</p>
+                    </td>
+                    <td>
+                        <p>Phong tỏa toàn bộ Tiền Mua Tài Sản (bao gồm cả tiền lãi phát sinh từu Tiền Mua Tài Sản (nếu
+                            có)) đã giải ngân vào Tài Khoản Thụ Hưởng. Trường hợp Bên Chuyển Nhượng có nhu cầu sử dụng
+                            Tiền Mua Tài Sản để mở Thẻ tiết kiệm/Hợp đồng tiền gửi, Ngân Hàng xem xét chấp thuận với
+                            điều kiện toàn bộ số tiền theo <span class="html_key" id="var3_2_a_key">[...]</span> sẽ được
+                            phong tỏa</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%">
+                        <p>b)</p>
+                    </td>
+                    <td>
+                        <p>Bên Chuyển Nhượng đồng ý cầm cố số tiền quy định tại Điểm a Khoản này cho Ngân Hàng để đảm
+                            bảo cho nghĩa vụ thanh toán của Bên Nhận Chuyển Nhượng theo Hợp Đồng Tín Dụng.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%">
+                        <p>3.3</p>
+                    </td>
+                    <td>
+                        <p>Thời hạn phong tỏa:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%">
+                        <p>a)</p>
+                    </td>
+                    <td>
+                        <p>Thời hạn phong tỏa Tài Khoản Thụ Hưởng là: <span class="html_key"
+                                id="beneficialAccBlockedDuration_key">[...]</span> kể từ ngày <span class="html_key"
+                                id="beneficialAccBlockedSince_key">[...]</span> hoặc một thời hạn khác do Ngân hàng chấp
+                            thuận.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%">
+                        <p>b)</p>
+                    </td>
+                    <td>
+                        <p>Thời hạn phong tỏa Tài Khoản Thụ Hưởng có thể được gia hạn theo đề nghị của Các Bên và được
+                            Ngân Hàng chấp thuận theo quy định tại Khoản 2.3 Điều 2 Thỏa thuận này. Thời gian gia hạn
+                            cũng được tính là Thời Hạn Phong Tỏa</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="tx12 bold">ĐIỀU 4: XỬ LÝ TIỀN MUA TÀI SẢN</p>
+            <table class="table-no-border tx12">
+                <tr>
+                    <td style="width: 7%">
+                        <p>4.1</p>
+                    </td>
+                    <td>
+                        <p>Trong thời hạn phong tỏa quy định tại Điều 3 Thỏa thuận này, Ngân Hàng chỉ thực hiện giải tỏa
+                            tiền trên <span class="html_key" id="senderAccPaidTo_key">[...]</span> của Bên Chuyển Nhượng
+                            khi những điều kiện sau đây được đáp ứng một cách đầy đủ.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%">
+                        <p>a)</p>
+                    </td>
+                    <td>
+                        <p>Tài Sản đã được cấp Giấy Chứng Nhận mang tên của Bên Nhận Chuyển Nhượng; và</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%">
+                        <p>b)</p>
+                    </td>
+                    <td>
+                        <p>Bên Nhận Chuyển Nhượng đã hoàn thành việc ký hợp đồng thế chấp Tài Sản với Ngân Hàng và việc
+                            đăng ký giao dịch bảo đảm đã được hoàn thành theo quy định pháp luật; và</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%">
+                        <p>c)</p>
+                    </td>
+                    <td>
+                        <p>Tài Sản đã được mua bảo hiểm theo quy định của Ngân Hàng.</p>
+                        <p>Sau khi giải tỏa, Bên Chuyển Nhượng có toàn quyền sử dụng và định đoạt đối với Tiền Mua Tài
+                            Sản. Ngân Hàng được quyền miễn trừ toàn bộ trách nhiệm trong việc Bên Chuyển Nhượng sử dụng,
+                            định đoạt Tiền Mua Tài Sản cũng như các tranh chấp phát sinh từ việc sử dụng, định đoạt nêu
+                            trên (nếu có).</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%">
+                        <p>4.2</p>
+                    </td>
+                    <td>
+                        <p>Khi kết thúc thời hạn phong tỏa nêu tại Điều 3 Thỏa thuận này, nếu các điều kiện quy định
+                            tại Khoản 4.1 Điều 4 Thỏa thuận này không được đáp ứng đầy đủ, Bên Nhận Chuyển Nhượng và Bên
+                            Chuyển Nhượng đồng ý để Ngân Hàng có toàn quyền trích toàn bộ tiền Lãi Phong Tỏa, <span
+                                class="html_key" id="var_4_2_key">[...]</span>
+                            để thu hồi nợ của Bên Nhận Chuyển Nhượng theo Hợp Đồng Tín Dụng mà không cần thêm bất kỳ
+                            chứng từ nào khác. Hợp Đồng Tín Dụng sẽ tự động được chấm dứt khi Ngân hàng thu đầy đủ các
+                            khoản nợ gốc, lãi, phí và các khoản thanh toán khác phát sinh từ Hợp Đồng Tín Dụng</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%">
+                        <p>4.3</p>
+                    </td>
+                    <td>
+                        <p>Bên Nhận Chuyển Nhượng và Bên Chuyển Nhượng tự chịu trách nhiệm về giao dịch chuyển nhượng
+                            Tài Sản đã xác lập. Bên Nhận Chuyển Nhượng và Bên Chuyển Nhượng theo điều khoản này, miễn
+                            trừ toàn bộ trách nhiệm của Ngân Hàng đối với tranh chấp giữa hai bên liên quan đến Hợp Đồng
+                            Chuyển Nhượng Tài Sản.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="tx12 bold">ĐIỀU 5: QUYỀN VÀ NGHĨA VỤ CỦA NGÂN HÀNG</p>
+            <table class="table-no-border tx12">
+                <tr>
+                    <td style="width: 7%">
+                        <p>5.1</p>
+                    </td>
+                    <td>
+                        <p>Được nhận toàn bộ bản gốc Hợp Đồng Chuyển Nhượng Tài Sản cùng toàn bộ bản gốc các phiếu thu
+                            tiền (nếu có) và các chứng từ, hóa đơn thanh toán tiền mua Tài Sản của Bên Nhận Chuyển
+                            Nhượng và bản gốc Giấy Chứng Nhận đứng tên Bên Nhận Chuyển Nhượng để Ngân Hàng kiểm soát và
+                            quản lý theo quy định của Ngân Hàng.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%">
+                        <p>5.2</p>
+                    </td>
+                    <td>
+                        <p>Ngân hàng tiến hành giải ngân theo phương thức và tiến độ được quy định tại Hợp Đồng Tín Dụng
+                            ký với Bên Nhận Chuyển Nhượng.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%">
+                        <p>5.3</p>
+                    </td>
+                    <td>
+                        <p>Được quyền yêu cầu Bên Chuyển Nhượng và/hoặc Bên Nhận Chuyển Nhượng cung cấp thông tin liên
+                            quan đến việc thực hiện Hợp Đồng Chuyển Nhượng Tài Sản và mọi biến động liên quan đến Tài
+                            Sản.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%">
+                        <p>5.4</p>
+                    </td>
+                    <td>
+                        <p>Ngân Hàng được tự động trích tiền trên Tài Khoản Phong Tỏa Lãi, Tài Khoản Thụ Hưởng và các
+                            tài khoản khác của Bên chuyển nhượng, Bên Nhận Chuyển Nhượng để thực hiện việc thu nợ theo
+                            quy định tại Thỏa Thuận này, Hợp đồng tín dụng mà không cần thêm bất kỳ chứng từ, tài liệu
+                            nào khác.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%">
+                        <p>5.5</p>
+                    </td>
+                    <td>
+                        <p>Các quyền và nghĩa vụ khác theo quy định tại Hợp Đồng Tín Dụng, Hợp Đồng Thế Chấp, các văn
+                            kiện tín dụng khác có liên quan và các quy định khác của pháp luật.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="tx12 bold">ĐIỀU 6: QUYỀN VÀ NGHĨA VỤ CỦA BÊN CHUYỂN NHƯỢNG</p>
+            <table class="table-no-border tx12">
+                <tr>
+                    <td style="width: 7%">
+                        <p>6.1</p>
+                    </td>
+                    <td>
+                        <p>Đồng ý để Ngân Hàng thực hiện phong tỏa Tiền Mua Tài Sản và lãi phát sinh (nếu có) theo Thỏa
+                            thuận này.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%">
+                        <p>6.2</p>
+                    </td>
+                    <td>
+                        <p>Đồng ý để Ngân Hàng được: (i) toàn quyền xử lý Tiền Mua Tài Sản và (ii) không phải thực hiện
+                            trả lãi cho Bên Chuyển Nhượng đối với Tiền Mua Tài Sản trong thời hạn phong tỏa khi xảy ra
+                            trường hợp phải xử lý theo Khoản 4.2 Điều 4 Thỏa thuận này.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%">
+                        <p>6.3</p>
+                    </td>
+                    <td>
+                        <p>Được nhận Tiền Mua Tài Sản theo Thỏa thuận này.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%">
+                        <p>6.4</p>
+                    </td>
+                    <td>
+                        <p>Thông báo ngay cho Ngân Hàng khi có bất kỳ sự thay đổi hoặc ảnh hưởng nào liên quan đến việc
+                            thực hiện Hợp Đồng Chuyển Nhượng Tài Sản.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%">
+                        <p>6.5</p>
+                    </td>
+                    <td>
+                        <p>Thông báo ngay cho Ngân Hàng mọi sự biến động đối với Tài Sản ngay khi có sự kiện biến động
+                            mà không cần bất kỳ yêu cầu hoặc thông báo nào từ phía Ngân Hàng.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%">
+                        <p>6.6</p>
+                    </td>
+                    <td>
+                        <p>Bàn giao cho Ngân Hàng Giấy Chứng Nhận đã sang tên Bên Nhận Chuyển Nhượng (bản gốc) theo quy
+                            định tại Thỏa thuận này.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%">
+                        <p>6.7</p>
+                    </td>
+                    <td>
+                        <p>Chịu trách nhiệm liên đới với Bên Nhận Chuyển Nhượng về tính pháp lý của Hợp Đồng Chuyển
+                            Nhượng Tài Sản và tính xác thực của Giấy Chứng Nhận khi cung cấp cho Ngân Hàng.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 7%">
+                        <p>6.8</p>
+                    </td>
+                    <td>
+                        <p>Các quyền và nghĩa vụ khác theo quy định tại Thỏa thuận này và các quy định khác của pháp
+                            luật.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="tx12 bold">ĐIỀU 7: QUYỀN VÀ NGHĨA VỤ CỦA BÊN NHẬN CHUYỂN NHƯỢNG</p>
+            <table class="table-no-border tx12">
+                <tr>
+                    <td style="width:7%">
+                        <p>7.1</p>
+                    </td>
+                    <td>
+                        <p>
+                            Bàn giao cho Ngân Hàng Giấy chứng nhận (bản gốc) và chịu trách nhiệm liên đới với Bên Chuyển
+                            Nhượng về tính pháp lý của Hợp Đồng Chuyển Nhượng Tài Sản và tính xác thực của Giấy Chứng
+                            Nhận khi cung cấp cho Ngân Hàng.
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:7%">
+                        <p>7.2</p>
+                    </td>
+                    <td>
+                        <p>
+                            Đồng ý cho Ngân hàng được toàn quyền xử lý Lãi Phong Tỏa và không phải thực hiện trả lãi cho
+                            Bên Nhận Chuyển Nhượng đối với Lãi Phong Tỏa khi xảy ra trường hợp phải xử lý theo Khoản
+                            4.2, Điều 4 Thỏa thuận này.
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:7%">
+                        <p>7.3</p>
+                    </td>
+                    <td>
+                        <p>
+                            Thông báo ngay cho Ngân Hàng khi có bất kỳ sự thay đổi hoặc ảnh hưởng nào đối với việc thực
+                            hiện Hợp Đồng Chuyển Nhượng Tài Sản.
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:7%">
+                        <p>7.4</p>
+                    </td>
+                    <td>
+                        <p>
+                            Thông báo ngay cho Ngân Hàng mọi sự biến động đối với Tài Sản ngay khi có sự kiện biến động
+                            mà không cần bất kỳ yêu cầu hoặc thông báo nào từ phía Ngân Hàng.
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:7%">
+                        <p>7.5</p>
+                    </td>
+                    <td>
+                        <p>
+                            Ngay ngày Giấy Chứng Nhận đã sang tên Bên Nhận Chuyển Nhượng, Bên Nhận Chuyển Nhượng có
+                            nghĩa vụ thực hiện ký Hợp đồng thế chấp Tài Sản, hoàn thiện các thủ tục đăng ký giao dịch
+                            bảo đảm theo yêu cầu của Ngân Hàng và quy định của pháp luật, nộp các khoản phí, lệ phí phát
+                            sinh liên quan đến việc thực hiện các thủ tục này theo quy định.
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:7%">
+                        <p>7.6</p>
+                    </td>
+                    <td>
+                        <p>
+                            Các quyền và nghĩa vụ khác theo quy định tại Hợp Đồng Chuyển Nhượng Tài Sản, các văn kiện
+                            tín dụng khác có liên quan và các quy định khác của pháp luật.
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            <p class="tx12 bold">ĐIỀU 8: ĐIỀU KHOẢN THI HÀNH</p>
+            <table class="tx12 table-no-border">
+                <tr>
+                    <td style="width:7%">
+                        <p>8.1</p>
+                    </td>
+                    <td>
+                        <p>Các Bên đã hiểu rõ quyền, nghĩa vụ, lợi ích và hậu quả pháp lý của việc giao kết Thỏa thuận
+                            này. Khi có vấn đề phát sinh, các Bên kịp thời báo cho nhau biết và bàn bạc giải quyết trên
+                            cơ sở thương lượng, hòa giải. Trường hợp không giải quyết được thông qua thương lượng, các
+                            Bên đồng ý để Ngân Hàng được quyền lựa chọn một trong các phương thức giải quyết tranh chấp
+                            sau đây: (a) giải quyết tranh chấp tại Tòa án có thẩm quyền; hoặc (b) giải quyết tranh chấp
+                            tại một Trung tâm Trọng tài thương mại bất kỳ do Ngân hàng lựa chọn. Trường hợp Ngân hàng
+                            lựa chọn Trung tâm Trọng tài thương mại là cơ quan giải quyết tranh chấp, các Bên đồng ý
+                            tuân thủ theo quy tắc trọng tài của Trung tâm Trọng tài này, Hội đồng Trọng tài gồm 01 (một)
+                            người duy nhất do Chủ tịch Trung tâm Trọng tài chỉ định.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:7%">
+                        <p>8.2</p>
+                    </td>
+                    <td>
+                        <p>Thỏa Thuận này được điều chỉnh theo pháp luật Việt Nam. </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:7%">
+                        <p>8.3</p>
+                    </td>
+                    <td>
+                        <p>Mọi sửa đổi, bổ sung của Thỏa Thuận đều phải được các bên thống nhất bằng văn bản và là một
+                            phần không tách rời của Thỏa Thuận này.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:7%">
+                        <p>8.4</p>
+                    </td>
+                    <td>
+                        <p>Thỏa thuận này có hiệu lực kể từ ngày ký. Trường hợp một bên gây ra thiệt hại cho Bên còn lại
+                            thì Bên gây thiệt hại phải bồi thường những thiệt hại thực tế do mình gây ra hoặc bồi thường
+                            theo phán quyết của cơ quan có thẩm quyền.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:7%">
+                        <p>8.5</p>
+                    </td>
+                    <td>
+                        <p>Thỏa thuận này gồm <span class="html_key" id="pageCount_key">[...]</span> trang được lập
+                            thành <span class="html_key" id="copyCount_key">[...]</span> bản chính, có nội dung và giá
+                            trị pháp lý như nhau, mỗi bên giữ <span class="html_key"
+                                id="copyCountOfStakeholder_key">[...]</span> bản để thực hiện.</p>
+                    </td>
+                </tr>
+    
+            </table>
+    
+            <p>&nbsp;</p>
+            <table class="table-no-border txcenter">
+                <tr>
+                    <td>
+                        <p class="bold">NGÂN HÀNG</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                    </td>
+                    <td>
+                        <p class="bold">BÊN CHUYỂN NHƯỢNG</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <p class="bold">BÊN NHẬN CHUYỂN NHƯỢNG</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>

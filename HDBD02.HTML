@@ -275,7 +275,7 @@
                 <span class="underline">Trường hợp Bên Thế Chấp là tổ chức</span><span
                     id="mortgagorOrganization_key"></span>
             </p>
-            <table id="TableDoanhNghiep" class="table-no-border">
+            <table id="TableDoanhNghiep" class="table-no-border" style="display: none;">
                 <!-- Dòng 1 -->
                 <tr>
                     <td class="left">
@@ -844,120 +844,136 @@
                     </td>
                 </tr>
             </table>
-            <table class="table-no-border" id="phuongAn1">
+            <table class="table-no-border" id="">
                 <tr>
                     <td class="left">
                         <span class="bold">1.</span>
                     </td>
                     <td class="right">
-                        <span class="bold underline">Phương án 1:</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    </td>
-                    <td>
-                        <span class="">
-                            Tài Sản Thế Chấp nêu tại Điều 1 Hợp Đồng này bảo đảm cho việc thực hiện toàn bộ nghĩa vụ của Bên
-                            Được Bảo Đảm đối với Ngân Hàng phát sinh từ:
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    </td>
-                    <td>
-                        <table class="table-no-border">
-                            <tr>
-                                <td class="left">
-                                    a)
-                                </td>
-                                <td class="right">
-                                    <span id="contractType_key">Hợp đồng cho vay số/Hợp đồng tín dụng số/Hợp đồng cấp bảo lãnh số</span>
-                                    <span id="contractNumber_key"></span>
-                                    <span class="">ngày…</span>
-                                    <span id="contractNumber_key"></span>
-                                    <span class="">với số tiền cấp tín dụng gốc tối đa là</span>
-                                    <span id="maximumContractAmount_key"></span> 
-                                    <span class="">; và</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    b)
-                                </td>
-                                <td>
-                                    <span class="">[.....];</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    c)
-                                </td>
-                                <td>
-                                    Các hợp đồng, văn bản khác được ký kết trước, trong thời điểm ký kết Hợp Đồng này hoặc hình thành trong tương lai sau thời điểm ký kết Hợp Đồng này, bao gồm cả các phụ lục, văn bản sửa đổi, bổ sung, các khế ước nhận nợ và các văn bản liên quan.
-                                </td>
-                            </tr>
-                        </table>                        
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    </td>
-                    <td>
-                        <span class="">
-                            (Toàn bộ các nghĩa vụ nêu trên sau đây được gọi chung là "<span class="bold">Nghĩa Vụ Được Bảo
-                                Đảm</span>". Toàn bộ các văn bản làm phát sinh Nghĩa Vụ Được Bảo Đảm giữa Bên Được Bảo Đảm và
-                            Ngân Hàng sau đây được gọi chung là “<span class="bold">Văn Kiện Tín Dụng</span>”).
-                        </span>
                     </td>
                 </tr>
             </table>
-            <span class="italic">Hoặc</span>
-            <table class="table-no-border" id="phuongAn2">
-                <tr>
-                    <td class="left">
-                        <span class="bold"></span>
-                    </td>
-                    <td class="right">
-                        <span class="bold underline">Phương án 2:</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    </td>
-                    <td>
-                        <span class="">
-                            Tài Sản Thế Chấp nêu tại Điều 1 Hợp Đồng này bảo đảm cho việc thực hiện:
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    </td>
-                    <td>
-                        <span class="">
-                            <span class="">Toàn bộ nghĩa vụ thanh toán (bao gồm toàn bộ nợ gốc, lãi phát sinh, các khoản phí, phạt và bất kỳ nghĩa vụ tài chính nào khác) của Bên Được Bảo Đảm đối với Ngân Hàng (cho dù đã hình thành hoặc phát sinh trong tương lai) với điều kiện tổng số dư gốc cấp tín dụng tại mọi thời điểm không vượt quá</span>   
-                            <span id="maximumCreditBalance_key"></span> 
-                            <span class="">(bằng chữ:</span> 
-                            <span id="maximumCreditBalanceInWords_key"></span>
-                            <span class="">).</span>                    
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    </td>
-                    <td>
-                        <span class="">
-                            (Toàn bộ các nghĩa vụ nêu trên sau đây được gọi chung là "<span class="bold">Nghĩa Vụ Được Bảo
-                                Đảm</span>". Toàn bộ các văn bản làm phát sinh Nghĩa Vụ Được Bảo Đảm giữa Bên Được Bảo Đảm và
-                            Ngân Hàng sau đây được gọi chung là “<span class="bold">Văn Kiện Tín Dụng</span>”).
-                        </span>
-                    </td>
-                </tr>
-            </table>
-            <span class="italic">Hoặc</span>
+            <div id="phuongAn1" style="display: none;">
+                <table class="table-no-border">
+                    <tr>
+                        <td class="left">
+                            <span class="bold"></span>
+                        </td>
+                        <td class="right">
+                            <span class="bold underline">Phương án 1:</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <span class="">
+                                Tài Sản Thế Chấp nêu tại Điều 1 Hợp Đồng này bảo đảm cho việc thực hiện toàn bộ nghĩa vụ của Bên
+                                Được Bảo Đảm đối với Ngân Hàng phát sinh từ:
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <table class="table-no-border">
+                                <tr>
+                                    <td class="left">
+                                        a)
+                                    </td>
+                                    <td class="right">
+                                        <span id="">Hợp đồng cho vay số/Hợp đồng tín dụng số/Hợp đồng cấp bảo lãnh số</span>
+                                        <span id="contractNumber_key">[...]</span>
+                                        <span class="">ngày</span>
+                                        <span id="contractDate">[...]</span>
+                                        <span class="">với số tiền cấp tín dụng gốc tối đa là</span>
+                                        <span id="maximumContractAmount_key">[...]</span> 
+                                        <span class="">VND(bằng chữ là:</span>
+                                        <span id="maximumContractAmountText_key">[...]</span> 
+                                        <span class="">); và</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        b)
+                                    </td>
+                                    <td>
+                                        <span class="">[.....];</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        c)
+                                    </td>
+                                    <td>
+                                        Các hợp đồng, văn bản khác được ký kết trước, trong thời điểm ký kết Hợp Đồng này hoặc hình thành trong tương lai sau thời điểm ký kết Hợp Đồng này, bao gồm cả các phụ lục, văn bản sửa đổi, bổ sung, các khế ước nhận nợ và các văn bản liên quan.
+                                    </td>
+                                </tr>
+                            </table>                        
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <span class="">
+                                (Toàn bộ các nghĩa vụ nêu trên sau đây được gọi chung là "<span class="bold">Nghĩa Vụ Được Bảo
+                                    Đảm</span>". Toàn bộ các văn bản làm phát sinh Nghĩa Vụ Được Bảo Đảm giữa Bên Được Bảo Đảm và
+                                Ngân Hàng sau đây được gọi chung là “<span class="bold">Văn Kiện Tín Dụng</span>”).
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                <span class="italic">Hoặc</span>
+            </div>
+            <div id="phuongAn2">
+                <table class="table-no-border">
+                    <tr>
+                        <td class="left">
+                            <span class="bold"></span>
+                        </td>
+                        <td class="right">
+                            <span class="bold underline">Phương án 2:</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <span class="">
+                                Tài Sản Thế Chấp nêu tại Điều 1 Hợp Đồng này bảo đảm cho việc thực hiện:
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <span class="">
+                                <span class="">Toàn bộ nghĩa vụ thanh toán (bao gồm toàn bộ nợ gốc, lãi phát sinh, các khoản phí, phạt và bất kỳ nghĩa vụ tài chính nào khác) của Bên Được Bảo Đảm đối với Ngân Hàng (cho dù đã hình thành hoặc phát sinh trong tương lai) với điều kiện tổng số dư gốc cấp tín dụng tại mọi thời điểm không vượt quá</span>   
+                                <span id="maximumCreditBalance_key"></span> 
+                                <span class="">(bằng chữ:</span> 
+                                <span id="maximumCreditBalanceInWords_key"></span>
+                                <span class="">).</span>                    
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <span class="">
+                                (Toàn bộ các nghĩa vụ nêu trên sau đây được gọi chung là "<span class="bold">Nghĩa Vụ Được Bảo
+                                    Đảm</span>". Toàn bộ các văn bản làm phát sinh Nghĩa Vụ Được Bảo Đảm giữa Bên Được Bảo Đảm và
+                                Ngân Hàng sau đây được gọi chung là “<span class="bold">Văn Kiện Tín Dụng</span>”).
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                <span class="italic">Hoặc</span>
+            </div>
+            <div></div>
             <table class="table-no-border" id="phuongAn3">
                 <tr>
                     <td class="left">
@@ -1205,24 +1221,33 @@
                     <td>
                     </td>
                     <td>
-                        <table class="table-no-border">
+                        <table id="TableDieu3" class="table-no-border" style="display: none;">
                             <tr>
                                 <td class="left">
                                     <span class="">-</span>
                                 </td>
                                 <td class="right">
                                     <span class="">Giấy chứng nhận số</span>
-                                    <span id="certificate_giaychungnhanso_key"></span>
+                                    <span id="certificateNumberDieu3"></span>
                                     <span class="">do</span>
-                                    <span id="certificateIssuer_key"></span>
+                                    <span id="issueByDieu3"></span>
                                     <span class="">cấp ngày</span>
-                                    <span id="certificateIssueDate_key"></span>
-                                    <span class="">, số</span>
-                                    <span class="">vào sổ:</span>
-                                    <span id="certificateRegistryNumber_key"></span>
-                                    <span class="">;</span>
+                                    <span id="issueDateDieu3"></span>
                                 </td>
                             </tr>
+                            <tr>
+                                <td class="left">
+                                    <span class="">-</span>
+                                </td>
+                                <td class="right">
+                                    <span id="otherLegalDocuments">[...]</span>
+                                </td>
+                            </tr>
+                        </table>
+                        <div id="TableDieu3List">
+                            <span style="display: none;">hahahaha</span>
+                        </div>
+                        <table class="table-no-border">
                             <tr>
                                 <td class="left">
                                     <span class="">-</span>
