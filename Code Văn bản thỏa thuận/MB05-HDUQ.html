@@ -79,14 +79,6 @@
       font-style: italic;
     }
 
-    /* Bảng, đã được căn các cột đều nhau */
-    table {
-      width: 100%;
-      text-indent: 0;
-      table-layout: fixed;
-      border-collapse: collapse;
-    }
-
     table td,
     table th {
       border: solid 1.5px black;
@@ -116,9 +108,13 @@
           <span class=""> HỢP ĐỒNG ỦY QUYỀN </span>
         </div>
         <div class="bold italic tx12" style="margin-top: 20px; text-align: left">
-          <span class="">
-            Hôm nay, ngày<span id="header_date">.....</span>, tại<span id="header_place"></span>, các bên gồm:
-          </span>
+          <p class="">
+            <span class="">Hôm nay, ngày </span>
+            <span id="header_date">[...]</span>
+            <span class="">, tại </span>
+            <span id="header_place">[...]</span>
+            <span class="">, các bên gồm:</span>
+          </p>
         </div>
       </div>
       <div id="I" class="tx12">
@@ -129,8 +125,7 @@
             </td>
             <td style="width: 93%">
               <span class="bold">Bên ủy quyền:
-                <span id="honorific"></span>
-                <span id="authorizeFullName"></span>
+                <span id="honorific"></span><span id="authorizeFullName"></span>
               </span>
             </td>
           </tr>
@@ -139,8 +134,7 @@
               <span class="">-</span>
             </td>
             <td style="width: 93%">
-              <span class="">Sinh ngày:</span>
-              <span id="birthDate">………………………………………………………………………</span>
+              <span class="">Sinh ngày:</span><span id="birthDate">………………………………………………………………………</span>
             </td>
           </tr>
           <tr>
@@ -148,12 +142,7 @@
               <span class="">-</span>
             </td>
             <td style="width: 93%">
-              <span id="idType">Chứng minh thư số:</span>
-              <span id="idNumber">………………</span>
-              <span class="">do</span>
-              <span id="issuingAuthority">………..</span>
-              <span class="">cấp ngày</span>
-              <span id="issueDate">………………</span>
+              <span id="idType">Chứng minh thư số:</span><span id="idNumber">………………</span><span class="">do</span><span id="issuingAuthority">………..</span><span class="">cấp ngày</span><span id="issueDate">………………</span>
             </td>
           </tr>
           <tr>
@@ -161,8 +150,7 @@
               <span class="">-</span>
             </td>
             <td style="width: 93%">
-              <span class="">Địa chỉ đăng ký thường trú/tạm trú:</span>
-              <span id="address">………………</span>
+              <span class="">Địa chỉ đăng ký thường trú/tạm trú:</span><span id="address">………………</span>
             </td>
           </tr>
         </table>
@@ -180,41 +168,21 @@
               <span class="">-</span>
             </td>
             <td style="width: 93%">
-              <span id="spousehonorific"></span>
-              <span id="spouseName">………………</span>
+              <span id="spousehonorific"></span><span id="spouseName">………………</span>
             </td>
           </tr>
           <tr>
-            <td style="width: 7%">
-              <span class="">-</span>
-            </td>
-            <td style="width: 93%">
-              <span class="">Sinh ngày:</span>
-              <span id="spouseBirthDate">………………</span>
-            </td>
+            <td style="width: 7%"><span>-</span></td>
+            <td style="width: 93%"><span>Sinh ngày:</span><span id="spouseBirthDate">………………</span></td>
           </tr>
           <tr>
-            <td style="width: 7%">
-              <span class="">-</span>
-            </td>
-            <td style="width: 93%">
-              <span id="spouseIdType">CMND/CCCD/Hộ chiếu số:</span>
-              <span id="spouseIdNumber">………………</span>
-              <span class="">do</span>
-              <span id="spouseIssuingAuthority">………..</span>
-              <span class="">cấp ngày</span>
-              <span id="spouseIssueDate">………………</span>
-            </td>
+            <td style="width: 7%"><span>-</span></td>
+            <td style="width: 93%"><span id="spouseIdType">CMND/CCCD/Hộ chiếu số:</span><span id="spouseIdNumber">………………</span><span>do</span><span id="spouseIssuingAuthority">………..</span><span>cấp ngày</span><span id="spouseIssueDate">………………</span></td>
           </tr>
           <tr>
-            <td style="width: 7%">
-              <span class="">-</span>
-            </td>
-            <td style="width: 93%">
-              <span class="">Địa chỉ đăng ký thường trú/tạm trú:</span>
-              <span id="spouseAddress">………………</span>
-            </td>
-          </tr>
+            <td style="width: 7%"><span>-</span></td>
+            <td style="width: 93%"><span>Địa chỉ đăng ký thường trú/tạm trú:</span><span id="spouseAddress">………………</span></td>
+          </tr>          
         </table>
         
         <span class="bold"> (Sau đây gọi là Bên A):&sup2; </span>
@@ -232,45 +200,21 @@
             </td>
           </tr>
           <tr>
-            <td style="width: 7%">
-              <span class="">-</span>
-            </td>
-            <td style="width: 93%">
-              <span class="">Họ và tên:</span>
-              <span id="authorizedFullName">………………………………………………………………………</span>
-            </td>
+            <td style="width: 7%"><span>-</span></td>
+            <td style="width: 93%"><span>Họ và tên:</span><span id="authorizedFullName">………………………………………………………………………</span></td>
           </tr>
           <tr>
-            <td style="width: 7%">
-              <span class="">-</span>
-            </td>
-            <td style="width: 93%">
-              <span class="">Sinh ngày:</span>
-              <span id="authorizedBirthDate">………………………………………………………………………</span>
-            </td>
+            <td style="width: 7%"><span>-</span></td>
+            <td style="width: 93%"><span>Sinh ngày:</span><span id="authorizedBirthDate">………………………………………………………………………</span></td>
           </tr>
           <tr>
-            <td style="width: 7%">
-              <span class="">-</span>
-            </td>
-            <td style="width: 93%">
-              <span class="">CMND/CCCD/Hộ chiếu số:</span>
-              <span id="authorizedIdNumber">………………</span>
-              <span class="">do</span>
-              <span id="authorizedIssuingAuthority">………..</span>
-              <span class="">cấp ngày</span>
-              <span id="authorizedIssueDate">………………</span>
-            </td>
+            <td style="width: 7%"><span>-</span></td>
+            <td style="width: 93%"><span>CMND/CCCD/Hộ chiếu số:</span><span id="authorizedIdNumber">………………</span><span>do</span><span id="authorizedIssuingAuthority">………..</span><span>cấp ngày</span><span id="authorizedIssueDate">………………</span></td>
           </tr>
           <tr>
-            <td style="width: 7%">
-              <span class="">-</span>
-            </td>
-            <td style="width: 93%">
-              <span class="">Địa chỉ đăng ký thường trú/tạm trú:</span>
-              <span id="authorizedAddress">………………</span>
-            </td>
-          </tr>
+            <td style="width: 7%"><span>-</span></td>
+            <td style="width: 93%"><span>Địa chỉ đăng ký thường trú/tạm trú:</span><span id="authorizedAddress">………………</span></td>
+          </tr>          
         </table>
         <span class="bold"> (Sau đây gọi là Bên B): </span>
         <br />
@@ -297,22 +241,10 @@
             </td>
             <td class="right">
               <div>
-                <span class="">Bên A đã nhận chuyển nhượng/mua tài sản từ Ông/bà:</span>
-                <span id="transferorName">……………</span>
-                <span class="">theo Hợp đồng chuyển nhượng/Hợp đồng mua bán số công
-                  chứng</span>
-                <span id="contractNumber">………………</span>
-                <span class="">ngày</span>
-                <span id="contractDate">………</span>
-                <span class="">lập tại</span>
-                <span id="contractLocation">………………</span>
-                <span class="">Chi tiết tài sản như sau:</span>
-                <span id="assetDetails">………………</span>
+                <span>Bên A đã nhận chuyển nhượng/mua tài sản từ Ông/bà:</span><span id="transferorName">……………</span><span>theo Hợp đồng chuyển nhượng/Hợp đồng mua bán số công chứng</span><span id="contractNumber">………………</span><span>ngày</span><span id="contractDate">………</span><span>lập tại</span><span id="contractLocation">………………</span><span>Chi tiết tài sản như sau:</span><span id="assetDetails">………………</span>
                 <br />
                 <div style="margin-top: 10px">
-                  <span class="">&#40;Sau đây gọi tắt là "</span>
-                  <span class="bold">Tài Sản Bảo Đảm</span>
-                  <span class="">"&#41;</span>
+                  <span>&#40;Sau đây gọi tắt là "</span><span class="bold">Tài Sản Bảo Đảm</span><span>"&#41;</span>
                 </div>
               </div>
             </td>

@@ -208,13 +208,15 @@
             </div>
             <br />
             <div>
-                <span>
-                    Hôm nay, ngày<span id="headerDay"></span>
-                    tháng<span id="headerMonth"></span>
-                    năm<span id="headerYear"></span>
-                    , tại <span id="headerAt">Ngân hàng TMCP Đại Chúng Việt Nam – Chi nhánh/PGD</span>
+                    <span class="">Hôm nay, ngày </span>
+                    <span id="headerDay">[...]</span>
+                    tháng
+                    <span id="headerMonth">[...]</span>
+                    năm
+                    <span id="headerYear">[...]</span>
+                    <span class = "">, tại </span>
+                    <span id="headerAt">Ngân hàng TMCP Đại Chúng Việt Nam – Chi nhánh/PGD</span>
                     chúng tôi gồm có:
-                </span>
             </div>
             <div id="nganHang">
                 <span class="bold">I. </span>
@@ -329,7 +331,7 @@
                         </td>
                     </tr>
                 </table>
-                <table id="" class="table-no-border tx12">
+                <table id="TSDB" class="table-no-border tx12" style="display: none;">
                     <tr>
                         <td class="left"></td>
                         <td class="right">
@@ -346,7 +348,7 @@
                                 <span>số: </span><span id="certificateNumber">[...]</span>;
                                 <span>[số vào sổ cấp GCN: </span><span id="certificateEntryNumber">[...]</span>];
                                 <span>do </span><span id="issuingAuthority">[...]</span>
-                                <span>cấp ngày </span><span id="issueDate">[...]</span>.
+                                <span>cấp ngày </span><span id="issueDateLand">[...]</span>.
                             </div>
                         </td>
                     </tr>
@@ -409,7 +411,7 @@
                                     <td>-</td>
                                     <td>
                                         <span>Ghi chú: </span>
-                                        <span id="notes">[...]</span>
+                                        <span id="notes2">[...]</span>
                                     </td>
                                 </tr>
                             </table>
@@ -424,18 +426,68 @@
                     <tr>
                         <td></td>
                         <td>
-                            <table id="CTXD" class="table-no-border">
+                            <table id="CTXD" class="table-no-border" style="display: none;">
                                 <tr>
                                     <td style="width: 3%;">&#9679;</td>
                                     <td>
                                         <span>CTXD số</span>
-                                        <span></span>
+                                        <span id="indexCTXD"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <table class="table-no-border">
+                                            <tr>
+                                                <td style="width: 3%;">-</td>
+                                                <td>
+                                                    <span>Loại công trình, kết cấu, đặc điểm</span>
+                                                    <span id="structureTypeAndFeatures"></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <span>Diện tích xây dựng (chiếm đất):</span>
+                                                    <span id="landOccupancyArea"></span>
+                                                    <span>m2</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>-</td>
+                                                <td>
+                                                    <span>Tổng diện tích sàn xây dựng:</span>
+                                                    <span id="totalFloorArea"></span>
+                                                    <span>m2</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>-</td>
+                                                <td>
+                                                    <span>Số tầng:</span>
+                                                    <span id="numberOfFloors"></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>-</td>
+                                                <td>
+                                                    <span>Năm xây dựng:</span>
+                                                    <span id="constructionYear"></span>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </td>
                                 </tr>
                             </table>
+                            <div id="CTXDList">
+                                <span style="display: none;">hahaha</span>
+                            </div>
                         </td>
                     </tr>
                 </table>
+                <div id="TSDBList">
+                    <span style="display: none;">hahaha</span>
+                </div>
                 <table class="table-no-border tx12">
                     <tr>
                         <td class="left">

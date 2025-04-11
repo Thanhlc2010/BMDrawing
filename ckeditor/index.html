@@ -1,0 +1,158 @@
+<script src="main.js"></script>
+<head>
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
+  <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+  body {
+    counter-reset: css-counters 0;
+    width: 1000px;
+  }
+  .normal {
+    position: relative;
+    left: -100px;
+    right: auto;
+    bottom: auto;
+    padding: 10px;
+  }
+  
+  .first {
+    position: relative;
+    left: 90px;
+    right: auto;
+    bottom: auto;
+    padding: 10px;
+  }
+
+  .first:before {
+    counter-increment: css-counters;
+    content: "Điều " counter(css-counters) " ";
+    position: absolute;
+    left: -60px;
+    top: 10px;
+    counter-reset: sub-counter;
+    background-color: white;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .first .second {
+    position: relative;
+  }
+
+  .first .second:before {
+    counter-increment: sub-counter;
+    content: counter(css-counters) "." counter(sub-counter) " ";
+    position: absolute;
+    left:  -70px;
+    top: 0;
+    counter-reset: third-counter;
+    background-color: white;
+    padding-left: 12px;
+             padding-right: 12px;
+  }
+
+  .first .second .third {
+    position: relative;
+  }
+
+  .first .second .third:before {
+    counter-increment: third-counter;
+    content: counter(css-counters) "." counter(sub-counter) "." counter(third-counter) " ";
+    position: absolute;
+    left:  -70px;
+    top: 0;
+    counter-reset: fourth-counter;
+    background-color: white;
+    padding-left: 12px;
+             padding-right: 12px;
+  }
+
+  .first .second .third .fourth {
+    position: relative;
+  }
+
+  .first .second .third .fourth:before {
+    counter-increment: fourth-counter;
+    content: counter(css-counters) "." counter(sub-counter) "." counter(third-counter) "." counter(fourth-counter) " ";
+    position: absolute;
+    left:  -70px;
+    top: 0;
+    background-color: white;
+    padding-left: 12px;
+             padding-right: 12px;
+  }
+</style>
+
+<body>
+  <div>
+    <button class="btn-primary btn  nav-action-comment fa fa-comments" id="comment"></button>
+</div>
+  <div id="allvoice" contenteditable="true">
+    <div class="first">
+      <span>CẤP HẠN MỨC TÍN DỤNG:</span>
+      
+      <div class="second">
+        <span id="dieu1_key4" class="bold">Hạn Mức Tín Dụng:</span>
+        <span id="dieu1_key5"
+          >Tại bất kỳ thời điểm nào trong Thời Hạn Cấp Hạn Mức, Ngân Hàng đồng ý
+          cấp tín dụng cho Bên Được Cấp Tín Dụng với điều kiện tổng số dư gốc
+          cấp tín dụng tại mọi thời điểm không vượt quá
+        </span>
+        <span id="dieu1Value_creditLimit">[… (…)]</span>
+        <span id="dieu1_key6"
+          >VNĐ (Việt Nam Đồng) hoặc ngoại tệ quy đổi tương đương theo tỷ giá do
+          Ngân Hàng niêm yết tại thời điểm Ngân Hàng thực hiện Cấp Tín
+          Dụng</span
+        >
+        <span id="dieu1_key7" class="bold">(“Hạn Mức Tín Dụng”)</span>
+        <span id="dieu1_key8">. Trong đó:</span>
+      </div>
+      <div class="second">
+        <span id="dieu1_key4" class="bold">hahahahhahahaha</span>
+        <span id="dieu1_key5"
+          >Tại bất kỳ thời điểm nào trong Thời Hạn Cấp Hạn Mức, Ngân Hàng đồng ý
+          cấp tín dụng cho Bên Được Cấp Tín Dụng với điều kiện tổng số dư gốc
+          cấp tín dụng tại mọi thời điểm không vượt quá
+        </span>
+        <span id="dieu1Value_creditLimit">[… (…)]</span>
+        <span id="dieu1_key6"
+          >VNĐ (Việt Nam Đồng) hoặc ngoại tệ quy đổi tương đương theo tỷ giá do
+          Ngân Hàng niêm yết tại thời điểm Ngân Hàng thực hiện Cấp Tín
+          Dụng</span
+        >
+        <span id="dieu1_key7" class="bold">(“Hạn Mức Tín Dụng”)</span>
+        <span id="dieu1_key8">. Trong đó:</span>
+      </div>
+    </div>
+    <div class="first">
+      <span>CẤP TÍN DỤNG THEO HẠN MỨC TÍN DỤNG</span>
+      <div class="second">
+        <span id="dieu1_key4" class="bold">second hihi</span>
+        <div class="third">
+          <span id="dieu1_key4" class="bold">third hihi</span>
+        </div>
+      </div>
+      <div class="second">
+        <span id="dieu1_key4" class="bold">Hạn Mức Tín Dụng:</span>
+        <span id="dieu1Value_creditLimit">[… (…)]</span>
+        <span id="dieu1_key7" class="bold">(“Hạn Mức Tín Dụng”)</span>
+        <span id="dieu1_key8">. Trong đó:</span>
+      </div>
+    </div>
+    <div>
+      <span>
+        hihi
+      </span>
+    </div>
+    <div class="first">
+      <span>CẤP TÍN DỤNG THEO HẠN MỨC TÍN DỤNG</span>
+    </div>
+    <div>
+      <span>
+        hihi
+      </span>
+    </div>
+  </div>
+</body>

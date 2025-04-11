@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    /* Dùng để bỏ margin tự động khi xuất PDF */
+    @page {
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+        /* Có thể thêm cả số trang khi xuất PDF */
+    }
+
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+
+    a:hover,
+    a:active,
+    a:focus {
+        color: #888;
+        text-decoration: none;
+    }
+
+    body {
+        font-family: "Times New Roman";
+        color: #000;
+        font-weight: normal;
+        background: #f0f0f0;
+        width: 100%;
+        line-height: 30px;
+        text-align: justify;
+        margin: 0 auto;
+    }
+
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    span {
+        font-family: "Times New Roman";
+        margin: 0;
+    }
+
+    /* Kích cỡ khổ A4 */
+    .container {
+        width: 210mm;
+        height: auto;
+        padding: 25mm 18mm 350mm 22mm;
+        background: #FFF;
+        margin: 0 auto;
+        box-sizing: border-box;
+        position: relative;
+        font-size: 16px;
+    }
+
+    /* In đậm */
+    .bold {
+        font-weight: bold;
+    }
+
+    /* In nghiêng */
+    .italic {
+        font-style: italic;
+    }
+
+    .tx9 {
+        font-size: 9px;
+        font-weight: normal;
+    }
+
+    .tx12 {
+        font-size: 16px;
+    }
+
+    /* font-size 12 in đậm */
+    .tx12bold {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    /* font-size 12 in đậm */
+    .tx12bolditalic {
+        font-size: 16px;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    .tx13 {
+        font-size: 17px;
+    }
+
+    /* font-size 13 in nghiêng */
+    .tx13italic {
+        font-size: 17px;
+        font-weight: normal;
+        font-style: italic;
+    }
+
+    /* font-size 13 in đậm */
+    .tx13bold {
+        font-size: 17px;
+        font-weight: bold;
+    }
+
+    /* font-size 14 */
+    .tx14 {
+        font-size: 18.6px;
+    }
+
+    /* font-size 14 in đậm */
+    .tx14bold {
+        font-size: 18.6px;
+        font-weight: bold;
+    }
+
+    /* Căn giữa */
+    .txcenter {
+        text-align: center;
+    }
+
+    /* Căn phải */
+    .txright {
+        text-align: right;
+    }
+
+    /* Căn trái */
+    .txleft {
+        text-align: left;
+    }
+
+    /* Thụt đầu dòng đoạn văn */
+    .txindent {
+        text-indent: 10mm;
+    }
+
+    /* Gạch chân chữ */
+    .underline {
+        border-bottom: 2px solid #000;
+        width: 50mm;
+    }
+
+    /* Gạch chân chữ */
+    .underline-small {
+        border-bottom: 0.5px solid #000;
+        width: 50mm;
+    }
+
+    /* Đường kẻ dưới, áp dụng thêm style="width=xx%" tùy chỗ */
+    hr {
+        border: none;
+        height: 0.5px;
+        color: black;
+        background-color: black;
+    }
+
+    /* Bảng, đã được căn các cột đều nhau */
+    table {
+        width: 100%;
+        text-indent: 0;
+        table-layout: fixed;
+        border-collapse: collapse;
+    }
+
+    table td,
+    table th {
+        border: solid 1.5px black;
+        padding: 0px;
+        vertical-align: top;
+    }
+
+
+    /* Bảng không có viền */
+    .table-no-border td,
+    .table-no-border th {
+        border: none !important;
+    }
+
+    .left {
+        width: 3%;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    .right {
+        width: 97%;
+        text-align: left;
+        vertical-align: top;
+    }
+</style>
+
+<body>
+    <div id="editor" style="width: 100%; height: 1100px;" spellcheck='false'>
+        <div class="container" id="allvoice">
+            <div class="tx12bold txcenter"><strong>HỢP ĐỒNG CHO VAY</strong></div>
+            <div class="txcenter">Số: <span id="numberContract_key" contenteditable="false"
+                    style="background-color: rgb(255, 255, 255);">…....</span></div>
+            <div class="txcenter"><span class=""> <br></span></div>
+            <div><br></div>
+            <div><span class="tx12">Hôm nay, ngày </span> <span id="dayContract_key" contenteditable="false"
+                    style="background-color: rgba(245, 39, 39, 0.54);">........</span> <span class=""> tháng</span> <span
+                    id="monthContract_key" contenteditable="false"
+                    style="background-color: rgba(245, 39, 39, 0.54);">........</span>
+                <span class=""> năm</span> <span id="yearContract_key" contenteditable="false"
+                    style="background-color: rgba(245, 39, 39, 0.54);">........</span> <span class=""> , tại</span> <span
+                    id="placeContract_key" contenteditable="false"
+                    style="background-color: rgba(245, 39, 39, 0.54);">........</span>
+                <span class=""> , chúng tôi gồm có:</span>
+            </div>
+            <div>
+                <span class="tx12bold underLine">BÊN CHO VAY</span><span class="">:</span>
+                <span id="benChoVay_branchName_key" contenteditable="false" style="background-color: rgba(245, 39, 39, 0.54);">.......</span>
+            </div>
+            <div class="tx12">
+                <div>
+                    <span class="">Địa chỉ</span>
+                    <span class="">: </span>
+                    <span id="benChoVay_address_key" contenteditable="false" style="background-color: rgba(245, 39, 39, 0.54);">…....</span>
+                </div>
+                <div>
+                    <span class="">Mã số doanh nghiệp</span>
+                    <span class="">: </span>
+                    <span id="benChoVay_businessCode_key" contenteditable="false" style="background-color: rgba(245, 39, 39, 0.54);">…....</span>
+                </div>
+                <div>
+                    <span class="">Điện thoại</span>
+                    <span class="">: </span>
+                    <span id="benChoVay_phoneNumber_key" contenteditable="false" style="background-color: rgb(255, 255, 255);">…....</span>
+                </div>
+                <div>
+                    <span class="">Đại diện</span>
+                    <span class="">: </span>
+                    <span id="benChoVay_representativeName_key" contenteditable="false" style="background-color: rgba(245, 39, 39, 0.54);">…....</span>
+                </div>
+                <div>
+                    <span class="">Chức vụ</span>
+                    <span class="">: </span>
+                    <span id="benChoVay_position_key" contenteditable="false" style="background-color: rgba(245, 39, 39, 0.54);">…....</span>
+                </div>
+            </div>
+            
+            
+            <div id="BenChoVayID" class="none">
+                <div class="tx12"><span class=""> Văn bản ủy quyền số: </span><span
+                        id="benChoVay_authorizationDocumentNumber">…....</span> <span class=""> ngày: </span><span
+                        id="benChoVay_authorizationDocumentDate">…....</span> <span class=""> của: </span><span
+                        id="benChoVay_branchAuthorizationDocument">…....</span></div>
+            </div>
+            <div class="tx12 italic"><span class=""> (Sau đây trong hợp đồng gọi tắt là </span> <span class="bold">“Ngân
+                    Hàng”</span><span id="benA_key13">)</span></div>
+            <div class="tx12bold"><span class="underLine">BÊN VAY: </span></div>
+            <div class="tx12"><span id="benVay_representative_key" contenteditable="false"
+                    style="background-color: rgba(245, 39, 39, 0.54);">…....</span> <span id="benVay_customerName_key"
+                    contenteditable="false" style="background-color: rgba(245, 39, 39, 0.54);">…....</span></div>
+                    <div class="tx12">
+                        <div>
+                            <span id="benVay_documentType_key" contenteditable="false" style="background-color: rgba(245, 39, 39, 0.54);">.....</span><span class="">: </span>
+                            <span id="benVay_businessCode_key" contenteditable="false" style="background-color: rgba(245, 39, 39, 0.54);">.....</span>
+                            <span class="">do</span>
+                            <span id="benVay_placeOfIssue_key" contenteditable="false" style="background-color: rgb(255, 255, 255);">…....</span>
+                            <span class="">ngày cấp</span>
+                            <span id="benVay_dateOfIssue_key" contenteditable="false" style="background-color: rgb(255, 255, 255);">…....</span>
+                        </div>
+                        <div>
+                            <span class="">Nơi thường trú</span>
+                            <span class="">: </span>
+                            <span id="benVay_permanentResidence_key" contenteditable="false" style="background-color: rgb(255, 255, 255);">…....</span>
+                        </div>
+                        <div>
+                            <span class="">Điện thoại</span>
+                            <span class="">: </span>
+                            <span id="benVay_phoneNumber_key" contenteditable="false" style="background-color: rgb(255, 255, 255);">…....</span>
+                        </div>
+                        <div>
+                            <span id="benVay_ThongTinKhac_key" class="none">.....</span>
+                        </div>
+                    </div>
+                    
+            <div id="isHasWifeHusband" style="display: block;" data-mce-style="display: block;">
+                <div class="tx12"><span id="spouseTitle_key" contenteditable="false"
+                        style="background-color: rgb(255, 255, 255);">…....</span> <span id="spouseFullName_key"
+                        contenteditable="false" style="background-color: rgb(255, 255, 255);">…....</span></div>
+                        <div class="tx12">
+                            <div>
+                                <span id="spouseDocumentType_key" contenteditable="false" style="background-color: rgb(255, 255, 255);">.....</span><span class="">: </span>
+                                <span id="spouseDocumentNumber_key" contenteditable="false" style="background-color: rgb(255, 255, 255);">.....</span>
+                                <span class="">Nơi cấp</span>
+                                <span id="spouseDocumentIssuedPlace_key" contenteditable="false" style="background-color: rgb(255, 255, 255);">…....</span>
+                                <span class="">Ngày cấp</span>
+                                <span id="spouseDocumentIssuedDate">…....</span>
+                            </div>
+                        
+                            <div>
+                                <span class="">Nơi thường trú</span>
+                                <span class="">: </span>
+                                <span id="spousePermanentAddress_key" contenteditable="false" style="background-color: rgb(255, 255, 255);">…....</span>
+                            </div>
+                        
+                            <div>
+                                <span class="">Điện thoại</span>
+                                <span class="">: </span>
+                                <span id="spousePhoneNumber_key_key">…....</span>
+                            </div>
+                            <div>
+                                <span id="spouseThongTinKhac_key" class="none">…....</span>
+                            </div>
+                        </div>                        
+            </div>
+            <div class="tx12 italic"><span class=""> (Sau đây trong Hợp Đồng gọi tắt là </span><strong>“Bên Vay”</strong> <span
+                    class=""> )</span>
+                <div>Các Bên thống nhất ký kết Hợp đồng Hạn mức tín dụng này (sau đây gọi tắt là<strong>“Hợp Đồng”</strong>
+                    <span class=""> ) với các điều kiện và điều khoản sau:</span>
+                </div>
+            </div>
+            <div class="tx12bold ">
+                <div class=""><span class=""> ĐIỀU 1. </span> <span class=""> CHO VAY, GIẢI NGÂN:</span></div>
+            </div>
+            <div class="tx12 "><span class="bold">1.1. </span> <span class="bold">Số tiền vay:</span><span
+                    id="dieu1_loadAmount_key" contenteditable="false"
+                    style="background-color: rgba(245, 39, 39, 0.54);">.....</span><span class="italic">(Bằng chữ <span
+                        id="dieu1_LoadAmountWord_key" contenteditable="false"
+                        style="background-color: rgb(255, 255, 255);">…....</span>)</span></div>
+            <div class="tx12 "><span class="bold">1.2. </span> <span class="bold">Thời hạn trả nợ:</span><span
+                    id="dieu1_repaymentTerm_key" contenteditable="false"
+                    style="background-color: rgb(255, 255, 255);">…....</span> <span class=""> kể từ ngày </span><span
+                    id="dieu1_repaymentTermStartDate_key" contenteditable="false"
+                    style="background-color: rgb(255, 255, 255);">…....</span> <span class=""> đến hết ngày </span><span
+                    id="dieu1_repaymentTermEndDate_key">…....</span></div>
+            <div class="tx12 "><span class="bold">1.3. </span> <span class="bold">Mục đích sử dụng Số tiền vay</span><span
+                    id="dieu1_loanPurpose_key" contenteditable="false" style="background-color: rgb(255, 255, 255);">…....</span>
+            </div>
+            <div class="tx12 "><span class="bold">1.4. </span> <span class="bold">Cho vay, giải ngân:</span></div>
+            <div id="phuongan1" style="display: block;" data-mce-style="display: block;">
+                <table class="table-no-border mce-item-table">
+                    <tbody>
+                        <tr>
+                            <td style="width: 7%;" data-mce-style="width: 7%;">
+                                <div><span class=""> 1.4.1</span></div>
+                            </td>
+                            <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Thời hạn giải ngân: trong vòng
+                                    <span id="1_4_1_key" contenteditable="false"
+                                        style="background-color: rgb(255, 255, 255);">.....</span> ngày kể từ ngày ký Hợp Đồng
+                                    hoặc một thời hạn khác do Ngân hàng chấp thuận theo đề nghị của Bên Vay.</span></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 7%;" data-mce-style="width: 7%;">
+                                <div><span class=""> 1.4.2 </span></div>
+                            </td>
+                            <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Phương thức giải ngân: được quy
+                                    định cụ thể tại mỗi Khế ước nhận nợ.</span></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 7%;" data-mce-style="width: 7%;">
+                                <div><span class=""> 1.4.3 </span></div>
+                            </td>
+                            <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Điều kiện cho vay, giải ngân:
+                                    Ngân Hàng thực hiện cho vay, giải ngân và duy trì khoản vay đối với Bên Vay khi các điều
+                                    kiện sau đây đã được đáp ứng đầy đủ:</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table-no-border mce-item-table">
+                    <tbody>
+                        <tr>
+                            <td style="width: 7%;" data-mce-style="width: 7%;">
+                                <div><span class=""> a</span></div>
+                            </td>
+                            <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Bên Vay đã điền đầy đủ thông
+                                    tin, ký và gửi Ngân Hàng <span id="1_4_3_a_key" contenteditable="false"
+                                        style="background-color: rgb(255, 255, 255);">.....</span> bản gốc Khế ước nhận nợ. Mỗi
+                                    lần chấp thuận giải ngân, Ngân Hàng sẽ phê duyệt/xác nhận vào Khế ước nhận nợ đã được Bên
+                                    Vay ký kết và chuyển giao cho Ngân Hàng. Khế ước nhận nợ đã được Ngân Hàng phê duyệt/xác
+                                    nhận là một phần không tách rời của Hợp Đồng;</span></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 7%;" data-mce-style="width: 7%;">
+                                <div><span class=""> b</span></div>
+                            </td>
+                            <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Không xảy ra bất kỳ Sự Kiện Vi
+                                    Phạm hoặc Thay Đổi Bất Lợi Đáng Kể nào theo quy định tại Hợp Đồng này;</span></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 7%;" data-mce-style="width: 7%;">
+                                <div><span class=""> c</span></div>
+                            </td>
+                            <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Hoàn thành các thủ tục bảo đảm
+                                    theo quy định tại Hợp Đồng này và các thỏa thuận có liên quan đến khoản tín dụng;</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 7%;" data-mce-style="width: 7%;">
+                                <div><span class=""> d</span></div>
+                            </td>
+                            <td style="width: 93%;" data-mce-style="width: 93%;"><span id="1_4_3_d_key" contenteditable="false"
+                                    style="background-color: rgb(255, 255, 255); white-space: pre-line;">.....</span></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 7%;" data-mce-style="width: 7%;">
+                                <div><span class=""> e</span></div>
+                            </td>
+                            <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Các điều kiện khác theo quy
+                                    định của Ngân Hàng và quy định pháp luật trong từng thời kỳ tại thời điểm cho vay, giải
+                                    ngân.</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="phuongan2" style="display: block;" data-mce-style="display: block;">
+                <table class="table-no-border mce-item-table">
+                    <tbody>
+                        <tr>
+                            <td style="width: 7%;" data-mce-style="width: 7%;">
+                                <div><span class=""> 1.4.1 </span></div>
+                            </td>
+                            <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Ngày dự kiến giải ngân: <span
+                                        id="1_4_1_p2_key" contenteditable="false"
+                                        style="background-color: rgb(255, 255, 255);">.....</span> hoặc một ngày khác do Ngân
+                                    hàng chấp thuận. </span></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 7%;" data-mce-style="width: 7%;">
+                                <div><span class=""> 1.4.2 </span></div>
+                            </td>
+                            <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Phương thức giải ngân:</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="subTitlelayout" id="checkBox_chuyenKhoan" style="display: block;" data-mce-style="display: block;">
+                    <span class=""> Chuyển khoản</span>
+                    <div id="loanDisbursementTransferAmountID" style="display: block;">
+                        <!-- <ul>
+                            <li><span class=""> Người thụ hưởng: </span><span id="beneficiary_chuyenKhoan_key">.....</span></li>
+                            <li><span class=""> Tài khoản số: </span><span id="accountNumber_chuyenKhoan_key">.....</span></li>
+                            <li><span class=""> Tại: </span><span id="at_chuyenKhoan_key">.....</span></li>
+                        </ul> -->
+                    </div>
+                </div>
+                <div class="subTitlelayout" id="checkBox_tienMat" style="display: block;" data-mce-style="display: block;"><span
+                        class=""> Tiền mặt</span>
+                    <div id="loanDisbursementCashID" class="none">
+                        <!-- <ul>
+                            <li><span class=""> Người thụ hưởng</span><span id="beneficiary_cash_key">.....</span></li>
+                        </ul>
+                        <ul>
+                            <li><span class=""> CMND/CCCD/Hộ chiếu</span><span id="persionID_cash_key">.....</span></li>
+                        </ul>
+                        <ul>
+                            <li><span class=""> Ngày cấp</span><span id="dateStart_cash_key">.....</span></li>
+                        </ul>
+                        <ul>
+                            <li><span class=""> Nơi cấp</span><span id="placeOfIssuse_cash_key">.....</span></li>
+                        </ul> -->
+                    </div>
+                </div>
+                <div class="subTitlelayout" id="checkBox_khac" style="display: block;" data-mce-style="display: block;"><span
+                        class=""> Hình thức khác</span><span id="alternativeForm_key" contenteditable="false"
+                        style="background-color: rgb(255, 255, 255);">.....</span></div>
+                <table class="table-no-border mce-item-table">
+                    <tbody>
+                        <tr>
+                            <td style="width: 7%;" data-mce-style="width: 7%;">
+                                <div><span class=""> 1.4.3 </span></div>
+                            </td>
+                            <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Số LD: <span id="1_4_3_key"
+                                        contenteditable="false" style="background-color: rgb(255, 255, 255);">.....</span>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 7%;" data-mce-style="width: 7%;">
+                                <div><span class=""> 1.4.4 </span></div>
+                            </td>
+                            <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Điều kiện cho vay, giải ngân:
+                                    Ngân
+                                    Hàng thực hiện cho vay, giải ngân và duy trì khoản vay đối với Bên Vay khi các điều kiện sau
+                                    đây
+                                    đã được đáp ứng đầy đủ:</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table-no-border mce-item-table">
+                    <tbody>
+                        <tr>
+                            <td style="width: 7%;" data-mce-style="width: 7%;">
+                                <div><span class=""> a,</span></div>
+                            </td>
+                            <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Không xảy ra bất kỳ Sự Kiện Vi Phạm
+                                    hoặc Thay Đổi Bất Lợi Đáng Kể nào theo quy định tại Hợp Đồng này;</span></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 7%;" data-mce-style="width: 7%;">
+                                <div><span class=""> b,</span></div>
+                            </td>
+                            <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Hoàn thành các thủ tục bảo đảm theo
+                                    quy định tại Hợp Đồng này và các thỏa thuận có liên quan đến khoản tín dụng;</span></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 7%;" data-mce-style="width: 7%;">
+                                <div><span class=""> c,</span></div>
+                            </td>
+                            <td style="width: 93%;" data-mce-style="width: 93%;"><span id="1_4_4_c_key" contenteditable="false"
+                                    style="background-color: rgb(255, 255, 255); white-space: pre-line;">.....</span></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 7%;" data-mce-style="width: 7%;">
+                                <div><span class=""> d,</span></div>
+                            </td>
+                            <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Các điều kiện khác theo quy định
+                                    của Ngân Hàng và quy định pháp luật trong từng thời kỳ tại thời điểm cho vay, giải ngân.</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tx12bold "><span class=""> ĐIỀU 2. </span> <span class=""> LÃI SUẤT VÀ PHÍ</span></div>
+            <div class="tx12"><span class="bold">2.1. </span> <span class="bold">Lãi suất trong hạn:</span></div>
+            <table class="table-no-border mce-item-table">
+                <tbody>
+                    <tr>
+                        <td style="width: 7%;" data-mce-style="width: 7%;">
+                            <div><span class=""> 2.1.1 </span></div>
+                        </td>
+                        <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Lãi suất áp dụng</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="" id="phuongan1LaiSuatVaPhi" style="display: block;" data-mce-style="display: block;"><span class="">
+                    Lãi suất tại thời điểm giải ngân được ghi cụ thể tại mỗi Khế ước nhận nợ. </span></div>
+            <div id="phuongan2LaiSuatVaPhi" style="display: block;" data-mce-style="display: block;">
+                <div class="title4Content" id="fixedInterestRateSelected" style="display: block;"
+                    data-mce-style="display: block;"><span class=""> Từ ngày <span id="fixedInterestRateFromDay_key"
+                            contenteditable="false" style="background-color: rgb(255, 255, 255);">…....</span> đến ngày <span
+                            id="fixedInterestRateToDay_key" contenteditable="false"
+                            style="background-color: rgb(255, 255, 255);">…....</span>, lãi suất bằng: <span
+                            id="fixedInterestRateLaisuat_key" contenteditable="false"
+                            style="background-color: rgba(245, 39, 39, 0.54);">…....</span>%/năm. </span></div>
+                <div id="floatingInterestRateSelected" style="display: block;" data-mce-style="display: block;">
+                    <table class="table-no-border mce-item-table">
+                        <tbody>
+                            <tr>
+                                <td style="width: 7%;" data-mce-style="width: 7%;">
+                                    <div><span class=""> a,</span></div>
+                                </td>
+                                <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Từ ngày <span
+                                            id="2_1_1_pa2_fromDay_key" contenteditable="false"
+                                            style="background-color: rgb(255, 255, 255);">…....</span> đến ngày <span
+                                            id="2_1_1_pa2_toDay_key" contenteditable="false"
+                                            style="background-color: rgb(255, 255, 255);">…....</span>, lãi suất bằng: <span
+                                            id="2_1_1_pa2_laisuat_key" contenteditable="false"
+                                            style="background-color: rgb(255, 255, 255);">…....</span>%/năm. </span></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 7%;" data-mce-style="width: 7%;">
+                                    <div><span class=""> b,</span></div>
+                                </td>
+                                <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Sau thời hạn nêu tại điểm
+                                        a, Lãi suất được điều chỉnh như quy định tại Khoản 2.1.2 Điều này.</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table-no-border mce-item-table">
+                        <tbody>
+                            <tr>
+                                <td style="width: 7%;" data-mce-style="width: 7%;">
+                                    <div><span class=""> 2.1.2 </span></div>
+                                </td>
+                                <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Điều chỉnh lãi suất:</span>
+                                    <div class="subTitlelayout">
+                                        <div id="listFloatingInterestRateID" class="none">
+                                            <div class="title4Content">- Từ ngày <span id="adjustment_start_date">.......</span>
+                                                đến hết ngày <span id="adjustment_end_date">.......</span>, lãi suất được điều
+                                                chỉnh <span id="adjustment_frequency">.......</span> tháng/lần, theo công thức
+                                                bằng: <span id="adjustment_formula_base_rate">.......</span> + <span
+                                                    id="adjustment_formula_additional_rate">.......</span> %/năm.</div>
+                                        </div>
+                                        <div class="title4Content">Trong đó: Lãi suất cơ sở là: <span id="base_interest_rate"
+                                                contenteditable="false"
+                                                style="background-color: rgb(255, 255, 255);">.......</span></div>
+                                    </div>
+                                    <div id="otherInterestRateSelected" style="display: block;"
+                                        data-mce-style="display: block;"><span id="user_defined_interest_rate_info"
+                                            contenteditable="false" style="background-color: rgb(255, 255, 255);">.......</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="otherInterestRateSelected" style="display: block;" data-mce-style="display: block;"><span
+                        id="user_defined_interest_rate_info">.......</span></div>
+                <table class="table-no-border mce-item-table">
+                    <tbody>
+                        <tr>
+                            <td style="width: 7%;" data-mce-style="width: 7%;">
+                                <div><span class=""> 2.1.3 </span></div>
+                            </td>
+                            <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Trường hợp Bên Vay vi phạm
+                                    nghĩa vụ Điều 9 Hợp Đồng, Lãi suất cho vay trong hạn sẽ được điều chỉnh tăng thêm <span
+                                        id="2_1_3_key" contenteditable="false"
+                                        style="background-color: rgb(255, 255, 255);">…....</span>%/năm kể từ ngày Ngân Hàng thông
+                                    báo cho Bên Vay.</span></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 7%;" data-mce-style="width: 7%;">
+                                <div><span class=""> 2.1.4 </span></div>
+                            </td>
+                            <td style="width: 93%;" data-mce-style="width: 93%;"><span id="2_1_4_key" contenteditable="false"
+                                    style="background-color: rgb(255, 255, 255);">.....</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="tx12 "><span class="bold">2.2. </span> <span class="bold">Lãi suất trong hạn:</span> <span class="">
+                        Bằng <span id="overdueInterestRateKey" contenteditable="false"
+                            style="background-color: rgba(245, 39, 39, 0.54);">150%</span> Lãi suất cho vay trong hạn áp dụng
+                        tại ngày đến hạn đối với số dư nợ gốc đến hạn nhưng không được Bên Vay trả nợ đúng hạn.</span></div>
+                <div class="tx12 "><span class="bold">2.3. </span> <span class="bold">Lãi suất chậm trả lãi:</span> <span
+                        class=""> <span id="latePaymentInterestRateKey" contenteditable="false"
+                            style="background-color: rgba(245, 39, 39, 0.54);"> 10%/năm hoặc một mức lãi suất khác do Ngân Hàng
+                            quyết định </span> áp dụng đối với khoản lãi đến hạn nhưng không được Bên Vay trả lãi đúng
+                        hạn</span></div>
+                <div class="tx12 "><span class="bold">2.4. </span> <span class="bold"> Phí: </span></div>
+                <table class="table-no-border mce-item-table">
+                    <tbody>
+                        <tr>
+                            <td style="width: 7%;" data-mce-style="width: 7%;">
+                                <div><span class=""> 2.4.1 </span></div>
+                            </td>
+                            <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Phí trả nợ trước hạn: <span
+                                        id="2_4_1_key" contenteditable="false"
+                                        style="background-color: rgb(255, 255, 255);">…....</span>.</span></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 7%;" data-mce-style="width: 7%;">
+                                <div><span class=""> 2.4.2 </span></div>
+                            </td>
+                            <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Phí khác: <span id="2_4_2_key"
+                                        contenteditable="false" style="background-color: rgb(255, 255, 255);">…....</span>.</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tx12bold "><span class=""> ĐIỀU 3. </span> <span class=""> TRẢ NỢ GỐC, LÃI VAY, PHÍ.</span></div>
+            <div class="tx12 "><span class="bold">3.1. </span> <span class="bold"> Trả nợ gốc: </span>
+                <div id="principalPaidAtMaturity" style="display: block;" data-mce-style="display: block;">
+                    <ul class="list-line">
+                        <li><span class=""> Bên Vay trả hết nợ gốc cho Ngân Hàng vào ngày kết thúc thời hạn trả nợ quy định tại
+                                khoản 1.2 Điều 1 Hợp Đồng.</span></li>
+                    </ul>
+                </div>
+                <div id="principalPaidMonthlyNoGrace" style="display: block;" data-mce-style="display: block;">
+                    <ul class="list-line">
+                        <li><span class=""> <span id="principalRepaymentFrequencyKey" contenteditable="false"
+                                    style="background-color: rgba(245, 39, 39, 0.54);">01</span> tháng/kỳ vào ngày <span
+                                    id="monthly_payment_date" contenteditable="false"
+                                    style="background-color: rgb(255, 255, 255);">.......</span> hàng tháng. Kỳ thanh toán gốc
+                                đầu tiên được trả vào ngày <span id="first_principal_payment_date" contenteditable="false"
+                                    style="background-color: rgb(255, 255, 255);">.......</span>. Kỳ thanh toán gốc cuối cùng sẽ
+                                được trả vào ngày kết thúc thời hạn trả nợ. </span></li>
+                        <li><span class=""> Số tiền gốc trả từ kỳ 1 đến kỳ <span id="principal_payment_period"
+                                    contenteditable="false" style="background-color: rgba(245, 39, 39, 0.54);">.......</span>
+                                là: <span id="principal_payment_amount" contenteditable="false"
+                                    style="background-color: rgba(245, 39, 39, 0.54);">.......</span> VND/kỳ (bằng chữ: <span
+                                    id="principal_payment_amount_in_words" contenteditable="false"
+                                    style="background-color: rgb(255, 255, 255);">.......</span>/kỳ). </span></li>
+                        <li><span class=""> Số tiền gốc trả kỳ <span id="payment_period_number">.......</span> là: <span
+                                    id="payment_amount" contenteditable="false"
+                                    style="background-color: rgba(245, 39, 39, 0.54);">.......</span> VND (bằng chữ: <span
+                                    id="payment_amount_in_words" contenteditable="false"
+                                    style="background-color: rgb(255, 255, 255);">.......</span>) </span></li>
+                    </ul>
+                </div>
+                <div id="principalPaidMonthlyWithGrace" style="display: block;" data-mce-style="display: block;">
+                    <ul class="list-line">
+                        <li><span class=""> Bên Vay được ân hạn gốc <span id="grace_period_months" contenteditable="false"
+                                    style="background-color: rgba(245, 39, 39, 0.54);">.......</span> tháng kể từ ngày <span
+                                    id="grace_period_start_date" contenteditable="false"
+                                    style="background-color: rgb(255, 255, 255);">.......</span>. Hết thời gian ân hạn gốc, nợ
+                                gốc được thanh toán đều <span id="principal_payment_frequency" contenteditable="false"
+                                    style="background-color: rgba(245, 39, 39, 0.54);">.......</span> kỳ, mỗi kỳ <span
+                                    id="principalRepaymentFrequencyText_TS_key" contenteditable="false"
+                                    style="background-color: rgba(245, 39, 39, 0.54);"></span>01 tháng. </span></li>
+                        <li><span class=""> Kỳ thanh toán gốc đầu tiên được trả vào ngày <span
+                                    id="first_principal_payment_date_D3" contenteditable="false"
+                                    style="background-color: rgb(255, 255, 255);">.......</span> </span></li>
+                        <li><span class=""> Kỳ thanh toán gốc thứ hai được trả vào ngày <span
+                                    id="secondPrincipalRepaymentDateKey" contenteditable="false"
+                                    style="background-color: rgb(255, 255, 255);">.......</span> </span></li>
+                        <li><span class=""> Các kỳ thanh toán gốc tiếp theo được trả vào ngày <span
+                                    id="subsequent_principal_payment_date" contenteditable="false"
+                                    style="background-color: rgb(255, 255, 255);">.......</span> hàng tháng. Kỳ thanh toán gốc
+                                cuối cùng sẽ được trả vào ngày kết thúc thời hạn trả nợ. </span></li>
+                        <li><span class=""> Số tiền gốc trả từ kỳ 1 đến kỳ <span id="principal_payment_period_2"
+                                    contenteditable="false" style="background-color: rgba(245, 39, 39, 0.54);">.......</span>
+                                là: <span id="principal_payment_amount_2" contenteditable="false"
+                                    style="background-color: rgba(245, 39, 39, 0.54);">.......</span> VND/kỳ (bằng chữ: <span
+                                    id="principal_payment_amount_in_words_2" contenteditable="false"
+                                    style="background-color: rgb(255, 255, 255);">.......</span>/kỳ). </span></li>
+                        <li><span class=""> Số tiền gốc trả kỳ <span id="last_principal_payment_period" contenteditable="false"
+                                    style="background-color: rgba(245, 39, 39, 0.54);">.......</span> là: <span
+                                    id="last_principal_payment_amount" contenteditable="false"
+                                    style="background-color: rgba(245, 39, 39, 0.54);">.......</span> VND (bằng chữ: <span
+                                    id="last_principal_payment_amount_in_words" contenteditable="false"
+                                    style="background-color: rgb(255, 255, 255);">.......</span>) </span></li>
+                    </ul>
+                </div>
+                <div id="irregularPrincipalRepayment" style="display: block;" data-mce-style="display: block;">
+                    <ul class="list-line">
+                        <li><span class=""> Bên Vay trả hết nợ gốc cho Ngân Hàng theo lịch trả nợ như sau: </span></li>
+                    </ul>
+                    <ul class="list-line">
+                        <li id="unevenRepaymentMultiplePeriodsID" class="none">
+                            <!-- <span class=""> Ngày <span
+                                    id="principal_payment_date">.......</span> trả nợ gốc số tiền: <span
+                                    id="principal_payment_amount">.......</span> VND (bằng chữ: <span
+                                    id="principal_payment_amount_in_words">.......</span>) </span> -->
+                        </li>
+                        <li><span class=""> (Tổng số tiền trả nợ gốc các kỳ = số tiền nhận nợ; Ngày trả nợ gốc kỳ cuối cùng =
+                                ngày kết thúc thời hạn vay) </span></li>
+                        <li id="nonStandardRepayment" class="none" data-mce-style="display: block;"><span id="other_case_info"
+                                contenteditable="false" style="background-color: rgb(255, 255, 255);">.......</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tx12 title2Layout">
+                <div class="title2Index"><span class="bold">3.2. </span></div>
+                <div class="title2Content"><span class="bold"> Trả lãi: </span></div>
+                <ul class="list-line">
+                    <li>Số tiền lãi của toàn bộ thời hạn tính lãi được xác định theo công thức sau:</li>
+                </ul>
+                <div class="maths">
+                    <div class="maths_title">Số tiền lãi =</div>
+                    <div class="maths_content"><span class=""> ∑ (Số dư thực tế × Số ngày duy trì số dư thực tế × Lãi suất cho
+                            vay) <br>———————————————————————————<br> <span class=""> 365</span> </span></div>
+                </div>
+                <div class="maths_note">
+                    <div class="bold"><span class=""> Trong đó: </span></div>
+                    <ul class="roman-list">
+                        <li>Số dư thực tế: là số dư được sử dụng để tính lãi theo theo thỏa thuận của các Bên và theo quy định
+                            của pháp luật về cấp tín dụng;</li>
+                        <li>Số ngày duy trì số dư thực tế: là số ngày mà số dư thực tế được duy trì để tính lãi.</li>
+                        <li>Lãi suất cho vay: được xác định theo quy định tại Điều 2 của Hợp Đồng này.</li>
+                    </ul>
+                </div>
+                <div id="interestPaidMonthlyNoGrace" style="display: block;" data-mce-style="display: block;">
+                    <ul class="list-line">
+                        <li><span class=""> Nợ lãi được trả vào ngày <span id="interest_payment_date" contenteditable="false"
+                                    style="background-color: rgb(255, 255, 255);">.......</span> hàng tháng tính theo dư nợ thực
+                                tế. Kỳ thanh toán lãi đầu tiên được trả vào ngày: <span id="first_interest_payment_date"
+                                    contenteditable="false" style="background-color: rgb(255, 255, 255);">.......</span>. Số
+                                tiền lãi của kỳ thanh toán lãi cuối cùng sẽ được trả vào ngày trả nợ gốc cuối cùng. </span></li>
+                    </ul>
+                </div>
+                <div id="interestPaidMonthlyWithGrace" style="display: block;" data-mce-style="display: block;">
+                    <ul class="list-line">
+                        <li><span class=""> Bên Vay được ân hạn lãi <span id="interest_grace_period_months"
+                                    contenteditable="false" style="background-color: rgba(245, 39, 39, 0.54);">.......</span>
+                                tháng kể từ ngày <span id="interest_grace_period_start_date" contenteditable="false"
+                                    style="background-color: rgb(255, 255, 255);">.......</span>. Sau thời gian ân hạn, nợ lãi
+                                được trả vào ngày <span id="interest_payment_frequency" contenteditable="false"
+                                    style="background-color: rgb(255, 255, 255);">.......</span> hàng tháng tính theo dư nợ thực
+                                tế. </span></li>
+                        <li><span class=""> Kỳ thanh toán lãi đầu tiên được trả vào ngày <span
+                                    id="first_interest_payment_date_after_grace" contenteditable="false"
+                                    style="background-color: rgb(255, 255, 255);">.......</span> </span></li>
+                        <li><span class=""> Kỳ thanh toán lãi thứ hai được trả vào ngày <span id="second_interest_payment_date"
+                                    contenteditable="false" style="background-color: rgb(255, 255, 255);">.......</span> </span>
+                        </li>
+                        <li><span class=""> Ngày trả nợ lãi hàng kỳ: <span id="interest_payment_date_monthly"
+                                    contenteditable="false" style="background-color: rgb(255, 255, 255);">.......</span> </span>
+                        </li>
+                        <li><span class=""> Số tiền lãi của kỳ thanh toán lãi cuối cùng sẽ được trả vào ngày trả nợ gốc cuối
+                                cùng. </span></li>
+                    </ul>
+                </div>
+                <div id="irregularInterestRepayment" style="display: block;" data-mce-style="display: block;">
+                    <div id="listPrincipalRepaymentDateID">
+                        <div class=""><span class="">Bên Vay trả nợ lãi cho Ngân Hàng tính theo dư nợ thực tế vào các ngày: Ngày
+                                <span id="interest_payment_dates_non_equal_1">.......</span></span></div>
+                    </div>
+                </div>
+                <div id="interestPaidAtMaturity" style="display: block;" data-mce-style="display: block;">
+                    <ul class="list-line">
+                        <li><span class=""> Bên vay trả hết nợ lãi cho Ngân Hàng vào ngày kết thúc thời hạn trả nợ. </span></li>
+                    </ul>
+                </div>
+                <div id="alternativeInterestOption" style="display: block;" data-mce-style="display: block;">
+                    <ul class="list-line">
+                        <li><span id="other_case_interest_payment" contenteditable="false"
+                                style="background-color: rgb(255, 255, 255);">.......</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tx12 "><span class="bold">3.3. </span> <span class="bold">Trả phí</span></div>
+            <table class="table-no-border mce-item-table">
+                <tbody>
+                    <tr>
+                        <td style="width: 7%;" data-mce-style="width: 7%;">
+                            <div><span class=""> 3.3.1 </span></div>
+                        </td>
+                        <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Phí trả nợ trước hạn: Bên vay trả
+                                phí trả nợ trước hạn vào thời điểm tất toán khoản vay trước hạn;</span></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 7%;" data-mce-style="width: 7%;">
+                            <div><span class=""> 3.3.2 </span></div>
+                        </td>
+                        <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Phí khác: <span id="3_3_2"
+                                    contenteditable="false" style="background-color: rgb(255, 255, 255);">…....</span></span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="tx12bold "><span class=""> ĐIỀU 4. </span> <span class=""> BIỆN PHÁP BẢO ĐẢM </span></div>
+            <div class="tx12 "><span class="bold">4.1. </span> <span class="bold">Tài sản bảo đảm gồm:</span></div>
+            <span class=""> 4.1.1 </span>
+            <div id="securedAssetsAndDescriptionID" class="none"></div>
+            <div id="listVehicleIDTable" class="none">
+                <span class="">
+                    Thế chấp phương tiện vận tải có thông tin như sau:
+                </span>
+                <table class="mce-item-table">
+                    <tbody>
+                        <tr>
+                            <td style="width: 16.6667%;" data-mce-style="width: 16.6667%;"><span id="">TT</span></td>
+                            <td style="width: 16.6667%;" data-mce-style="width: 16.6667%;"><span id="">Loại xe,màu sơn</span>
+                            </td>
+                            <td style="width: 16.6667%;" data-mce-style="width: 16.6667%;"><span id="">Số khung</span></td>
+                            <td style="width: 16.6667%;" data-mce-style="width: 16.6667%;"><span id="">Số máy</span></td>
+                            <td style="width: 16.6667%;" data-mce-style="width: 16.6667%;"><span id="">Biển số</span></td>
+                            <td style="width: 16.6667%;" data-mce-style="width: 16.6667%;"><span id="">Giấy đăng ký xe</span>
+                            </td>
+                        </tr>
+                        <tr id="listVehicleID" class="none">
+                            <td style="width: 16.6667%;" data-mce-style="width: 16.6667%;"><br></td>
+                            <td style="width: 16.6667%;" data-mce-style="width: 16.6667%;"><br></td>
+                            <td style="width: 16.6667%;" data-mce-style="width: 16.6667%;"><br></td>
+                            <td style="width: 16.6667%;" data-mce-style="width: 16.6667%;"><br></td>
+                            <td style="width: 16.6667%;" data-mce-style="width: 16.6667%;"><br></td>
+                            <td style="width: 16.6667%;" data-mce-style="width: 16.6667%;"><br></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <span class="" id="note_key" contenteditable="false" style="background-color: rgb(255, 255, 255);">…....
+            </span>
+            <table class="table-no-border mce-item-table">
+                <tbody>
+                    <tr>
+                        <td style="width: 7%;" data-mce-style="width: 7%;">
+                            <div><span class=""> 4.1.2 </span></div>
+                        </td>
+                        <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Các nguồn thu và tài sản hợp pháp
+                                khác của Bên Vay</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="tx12 "><span class="bold">4.2. </span> <span class=""> Trong trường hợp xảy ra Sự Kiện Vi Phạm, Thay Đổi
+                    Bất Lợi Đáng Kể và/hoặc khi tổng giá trị tài sản bảo đảm không đủ để đảm bảo cho nghĩa vụ thanh toán, Bên
+                    Vay cam kết bổ sung tài sản bảo đảm và/hoặc tạo lập các biện pháp bảo đảm khác theo yêu cầu của Ngân
+                    Hàng.</span></div>
+            <div class="tx12bold"><span class=""> ĐIỀU 5. </span> <span class=""> THỜI HẠN CHO VAY VÀ ĐIỀU CHỈNH LÃI SUẤT/PHÍ
+                </span></div>
+            <div class="tx12 "><span class="bold">5.1. </span> <span class=""> Thời hạn cho vay: là khoảng thời gian được tính
+                    từ ngày tiếp theo của ngày tổ chức tín dụng giải ngân vốn vay cho Bên Vay cho đến thời điểm Bên Vay phải trả
+                    hết nợ gốc và lãi tiền vay. Trường hợp ngày cuối cùng của Thời hạn cho vay không phải là Ngày Làm Việc, thì
+                    chuyển sang Ngày Làm Việc tiếp theo. Đối với Thời hạn cho vay không đủ một ngày thì thực hiện theo quy định
+                    tại Bộ luật dân sự về thời điểm bắt đầu thời hạn.</span></div>
+            <div class="tx12 "><span class="bold">5.2. </span> <span class=""> Ngân Hàng thực hiện điều chỉnh lãi suất/phí trong
+                    các trường hợp sau đây:</span></div>
+            <table class="table-no-border mce-item-table">
+                <tbody>
+                    <tr>
+                        <td style="width: 7%;" data-mce-style="width: 7%;"><span class=""> 5.2.1 </span></td>
+                        <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Điều chỉnh theo định kỳ như đã thỏa
+                                thuận tại Hợp Đồng; </span></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 7%;" data-mce-style="width: 7%;"><span class=""> 5.2.2 </span></td>
+                        <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Trong trường hợp phát sinh Sự Kiện
+                                Vi Phạm và/hoặc Thay Đổi Bất Lợi Đáng Kể, Bên Vay đồng ý Ngân Hàng có quyền điều chỉnh lãi
+                                suất/phí theo quy định của Ngân Hàng trong từng thời kỳ. </span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="tx12 "><span class="bold">5.3. </span> <span class=""> Trường hợp Lãi suất cơ sở tại Hợp Đồng quy định
+                    có nhiều mức khác nhau tại một thời điểm, Ngân Hàng và Bên Vay thống nhất xác định Lãi suất cơ sở là mức lãi
+                    suất cao nhất trong biểu lãi suất mà Ngân Hàng công bố tùy từng thời kỳ.</span></div>
+            <div class="tx12bold "><span class=""> ĐIỀU 6. </span> <span class=""> THANH TOÁN</span></div>
+            <div class="tx12 "><span class="bold">6.1. </span> <span class=""> Bên Vay phải chủ động thanh toán các khoản gốc,
+                    lãi, phí và các nghĩa vụ thanh toán khác cho Ngân Hàng trước 16h00 của ngày đến hạn theo quy định tại Hợp
+                    Đồng bằng phương thức nộp tiền mặt tại điểm giao dịch hoặc chuyển khoản vào tài khoản của Bên Vay để Ngân
+                    Hàng thu nợ. Trường hợp ngày đến hạn không phải là một ngày làm việc thì ngày trả nợ sẽ là ngày làm việc
+                    liền kề ngay sau đó và lãi vẫn được tính cho tới ngày thực trả. Ngày làm việc theo Hợp Đồng là bất kỳ ngày
+                    nào trừ ngày nghỉ lễ tại Việt Nam hoặc bất kỳ ngày nào mà Ngân Hàng không làm việc (“Ngày Làm Việc”). Việc
+                    thanh toán của Bên Vay chỉ được coi là thành công khi Ngân Hàng đã hạch toán thu nợ và khoản thanh toán của
+                    Bên Vay đã được ghi nhận vào hệ thống của Ngân Hàng.</span></div>
+            <div class="tx12"><span class="bold">6.2. </span> <span class=""> Bên Vay được giải ngân bằng đồng tiền nào thì trả
+                    nợ bằng đồng tiền đó, trừ khi được Ngân Hàng chấp thuận thay thế bằng đồng tiền khác với tỷ giá quy đổi do
+                    Ngân Hàng quyết định.</span></div>
+            <div class="tx12"><span class="bold">6.3. </span> <span class=""> Khi nhận được bất kỳ khoản tiền thanh toán nào từ
+                    Bên Vay, thứ tự thu nợ như sau: Các khoản chi phí, phí tổn, phí của Ngân Hàng (nếu có); tiền phạt; tiền bồi
+                    thường thiệt hại; tiền lãi quá hạn; tiền lãi chậm trả lãi; tiền lãi đến hạn; nợ gốc và các khoản liên quan
+                    khác. Trên cơ sở không trái các văn bản quy phạm pháp luật có liên quan, Ngân Hàng có thể thay đổi thứ tự ưu
+                    tiên thanh toán nêu trên. Trường hợp nếu quy định pháp luật có quy định về thứ tự thu nợ thì tuân thủ theo
+                    quy định pháp luật.</span></div>
+            <div class="tx12 title2Layout"><span class="bold">6.4. </span> <span class=""> Trách nhiệm thực hiện nghĩa vụ thanh
+                    toán của Bên Vay theo quy định tại Hợp Đồng là trách nhiệm liên đới. Ngân Hàng có quyền chỉ định từng Bên
+                    Vay (nêu tại Phần giới thiệu Hợp Đồng) hoặc tất cả các Bên Vay tham gia ký kết Hợp Đồng thực hiện một phần
+                    hoặc toàn bộ các nghĩa vụ quy định tại Hợp Đồng. Bên Vay đồng ý một hoặc một số người trong Bên Vay ký kết
+                    Ủy nhiệm chi, Giấy lĩnh tiền, Khế ước nhận nợ (nếu có), Phụ lục nhằm sửa đổi, bổ sung Hợp Đồng này hoặc bất
+                    kỳ văn bản nào liên quan đến việc thực hiện Hợp Đồng (như trả nợ, bao gồm cả việc trả nợ trước hạn; đề nghị
+                    gia hạn nợ, cơ cấu lại thời hạn trả nợ ...) với Ngân Hàng đều có giá trị pháp lý và làm phát sinh quyền và
+                    nghĩa vụ của tất cả các Bên Vay theo thỏa thuận tại Hợp Đồng. Bằng Hợp Đồng, các cá nhân vay vốn tham gia ký
+                    kết Hợp Đồng đồng ý ủy quyền cho bất kỳ người nào thuộc Bên Vay sử dụng tài khoản thanh toán của mình để
+                    thanh toán khoản vay và các khoản phí, chi phí phát sinh liên quan đến khoản vay cho Ngân Hàng.</span></div>
+            <div class="tx12 "><span class="bold">6.5. </span> <span class=""> Bên Vay đồng ý sẽ thanh toán bất kỳ khoản phí,
+                    chi phí bao gồm nhưng không giới hạn các chi phí để thực hiện việc: (i) soạn thảo, ký kết, sửa đổi, bổ sung
+                    Hợp Đồng và (ii) các khoản lệ phí công chứng, chứng thực, đăng ký giao dịch bảo đảm và các phí, chi phí khác
+                    liên quan đến việc thực hiện Hợp Đồng, (các) Hợp đồng bảo đảm bảo đảm cho khoản tín dụng theo Hợp
+                    Đồng.</span></div>
+            <div class="tx12 "><span class="bold">6.6. </span> <span class=""> Bên Vay đồng ý mở và duy trì tài khoản tại Ngân
+                    Hàng. Bên Vay đồng ý cho Ngân Hàng được quyền tự động trích tiền trên tài khoản thanh toán hoặc bất kỳ khoản
+                    tiền nào mà Bên Vay đang duy trì tại Ngân Hàng để thanh toán cho nghĩa vụ của Bên Vay phát sinh theo Hợp
+                    Đồng.</span></div>
+            <div class="tx12bold "><span class=""> ĐIỀU 7. </span> <span class=""> TRẢ NỢ TRƯỚC HẠN, CƠ CẤU LẠI KHOẢN NỢ, CHUYỂN
+                    NỢ QUÁ HẠN</span></div>
+            <div class="tx12 "><span class="bold">7.1. </span> <span class="bold">Trả nợ trước hạn: </span> <span class="">
+                    Trong trường hợp có nhu cầu trả nợ trước hạn, một trong các Bên Vay gửi đề nghị trả nợ cho Ngân Hàng và phải
+                    được Ngân Hàng chấp thuận. Bên Vay có trách nhiệm thực hiện đầy đủ thủ tục trả nợ trước hạn theo quy định
+                    của Ngân Hàng. Trường hợp Ngân Hàng yêu cầu Bên Vay trả nợ trước hạn, Ngân Hàng sẽ gửi thông báo yêu cầu thu
+                    nợ trước hạn cho Bên Vay. Ngoài các khoản gốc, lãi phải trả, Bên Vay có nghĩa vụ thanh toán Phí trả nợ trước
+                    hạn và các phí khác theo quy định của Ngân Hàng phù hợp với quy định pháp luật.</span></div>
+            <div class="tx12 "><span class="bold">7.2. </span>
+                <div class="title2Content"><span class="bold">Cơ cấu lại thời hạn trả nợ: </span> <span class=""> Trường hợp Bên
+                        Vay không có khả năng trả nợ đúng hạn nợ gốc và/hoặc lãi vay theo quy định của Hợp Đồng, Bên Vay có thể
+                        đề nghị Ngân Hàng cơ cấu lại thời hạn trả nợ. Văn bản đề nghị phải được kèm theo các tài liệu chứng minh
+                        gửi tới Ngân Hàng trước ngày đến hạn trả nợ tối thiểu 10 (mười) Ngày Làm Việc. Trường hợp chấp thuận,
+                        Ngân Hàng sẽ cơ cấu lại thời hạn trả nợ và có thông báo bằng văn bản cho Bên Vay. Trường hợp Ngân Hàng
+                        không có văn bản chấp thuận về việc cơ cấu lại thời hạn trả nợ, Bên Vay có nghĩa vụ thanh toán đầy đủ nợ
+                        gốc và/hoặc lãi vay vào ngày đến hạn.</span></div>
+            </div>
+            <div class="tx12 "><span class="bold">7.3. </span> <span class="bold">Chuyển nợ quá hạn: </span> <span class=""> Khi
+                    Bên Vay không trả được bất kỳ khoản nợ gốc hoặc lãi nào đến hạn, Ngân Hàng sẽ thực hiện chuyển khoản nợ theo
+                    Hợp Đồng thành khoản nợ quá hạn theo hướng dẫn của Ngân hàng Nhà nước trong từng thời kỳ. </span></div>
+            <div class="tx12bold "><span class=""> ĐIỀU 8. </span> <span class=""> CHẤM DỨT CHO VAY VÀ THU HỒI NỢ TRƯỚC
+                    HẠN</span></div>
+            <div class="tx12 "><span class=""> Ngân Hàng toàn quyền quyết định chấm dứt cho vay và thu hồi nợ trước hạn, xử lý
+                    tài sản bảo đảm hoặc áp dụng các biện pháp khác phù hợp với quy định pháp luật và quy định của Hợp Đồng
+                    trong trường hợp xảy một hoặc các sự kiện sau:</span></div>
+            <div class="tx12 "><span class="bold">8.1. </span> <span class=" bold">Sự Kiện Vi Phạm: </span><br> <span class="">
+                    Bên Vay đồng ý mở và duy trì tài khoản tại Ngân Hàng. Bên Vay đồng ý cho Ngân Hàng được quyền tự động trích
+                    tiền trên tài khoản thanh toán hoặc bất kỳ khoản tiền nào mà Bên Vay đang duy trì tại Ngân Hàng để thanh
+                    toán cho nghĩa vụ của Bên Vay phát sinh theo Hợp Đồng.</span></div>
+            <div class="tx12 "><span class="bold">8.2. </span> <span class=" bold">Thay Đổi Bất Lợi Đáng Kể: </span><br> <span
+                    class=""> Thay Đổi Bất Lợi Đáng Kể theo Hợp Đồng là bất kỳ hành động, sự kiện cho dù liên quan hoặc không
+                    liên quan trực tiếp đến Bên Vay, nhưng theo quan điểm, đánh giá của Ngân Hàng có ảnh hưởng hoặc có khả năng
+                    ảnh hưởng bất lợi đến việc thực hiện Hợp Đồng, bao gồm:</span></div>
+            <div class="tx12 title3Layout">
+                <div class="title3Index">8.2.1.</div>
+                <div class="title3Content">Tài sản bảo đảm cho các nghĩa vụ thanh toán của Bên Vay theo Hợp Đồng (i) bị kê biên,
+                    phong tỏa, cầm giữ; hoặc (ii) phát sinh tranh chấp với bên thứ ba; hoặc (iii) Tài sản bảo đảm không còn;
+                </div>
+            </div>
+            <table class="table-no-border mce-item-table">
+                <tbody>
+                    <tr>
+                        <td style="width: 7%;" data-mce-style="width: 7%;"><span class=""> 8.2.2. </span></td>
+                        <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Bên Vay tham gia bất kỳ thủ tục
+                                khiếu nại, khiếu kiện, thủ tục tố tụng, thủ tục trọng tài nào mà theo đánh giá của Ngân Hàng có
+                                ảnh hưởng hoặc có khả năng ảnh hưởng đến tình hình tài chính, tài sản và khả năng trả nợ của Bên
+                                Vay;</span></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 7%;" data-mce-style="width: 7%;"><span class=""> 8.2.3.</span></td>
+                        <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Bên Vay chết, mất tích hoặc bị
+                                tuyên bố là đã chết, bị tuyên bố là mất tích, bị mất năng lực hành vi dân sự, bị hạn chế năng
+                                lực hành vi dân sự, ly hôn, bỏ trốn hoặc đi khỏi nơi cư trú mà không thông báo địa chỉ liên lạc
+                                hoặc Ngân Hàng không liên lạc được; Bên Vay và/hoặc Người bảo lãnh của Bên Vay và/hoặc Bên bảo
+                                đảm cho khoản vay của Bên Vay là đối tượng vi phạm trong các vụ án dân sự, hình sự và hành chính
+                                đang được cơ quan nhà nước có thẩm quyền áp dụng các biện pháp ngăn chặn, cưỡng chế, điều
+                                tra;</span></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 7%;" data-mce-style="width: 7%;"><span class=""> 8.2.4. </span></td>
+                        <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Người bảo lãnh, bên có liên quan
+                                đến tài sản bảo đảm cho nghĩa vụ trả nợ của Bên Vay (nếu có) không có khả năng thực hiện nghĩa
+                                vụ bảo lãnh hoặc bị rơi vào các trường hợp tương tự như của Bên Vay nêu trên hoặc Người bảo
+                                lãnh, bên có liên quan đó là tổ chức bị chia tách, giải thể, phá sản, chấm dứt hoạt động;</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 7%;" data-mce-style="width: 7%;"><span class=""> 8.2.5.</span></td>
+                        <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Bất kỳ sự kiện nào mà theo đánh giá
+                                của Ngân Hàng có ảnh hưởng tới (i) sự ổn định của thị trường tiền tệ, việc cân đối, huy động vốn
+                                trên thị trường; hoặc (ii) việc thực hiện Hợp Đồng của Bên Vay đối với Ngân Hàng.</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="tx12"><span class="bold">8.3. </span> <span class=" bold">Xử lý trong trường hợp có Sự Kiện Vi Phạm/Thay
+                    Đổi Bất Lợi Đáng Kể:</span> <br> <span class=""> Khi xảy ra Sự Kiện Vi Phạm/Thay Đổi Bất Lợi Đáng Kể, ngoài
+                    các quyền, quyền hạn và biện pháp khắc phục theo quy định của pháp luật, Ngân Hàng có toàn quyền quyết định
+                    áp dụng một, một số hoặc tất cả các biện pháp sau: </span></div>
+            <table class="table-no-border mce-item-table">
+                <tbody>
+                    <tr>
+                        <td style="width: 7%;" data-mce-style="width: 7%;"><span class=""> 8.3.1. </span></td>
+                        <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Yêu cầu Bên Vay bổ sung Tài sản bảo
+                                đảm và/hoặc tạo lập các biện pháp bảo đảm khác bổ sung, thay thế;</span></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 7%;" data-mce-style="width: 7%;"><span class=""> 8.3.2. </span></td>
+                        <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Tạm dừng hoặc đình chỉ việc giải
+                                ngân, cho vay;</span></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 7%;" data-mce-style="width: 7%;"><span class=""> 8.3.3.</span></td>
+                        <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Điều chỉnh tăng Lãi suất cho vay
+                                theo quy định của Ngân Hàng trong từng thời kỳ;</span></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 7%;" data-mce-style="width: 7%;"><span class=""> 8.3.4.</span></td>
+                        <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Tất cả các nghĩa vụ thanh toán của
+                                Bên Vay được coi là đến hạn và Ngân Hàng có quyền thu hồi toàn bộ các khoản vay;</span></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 7%;" data-mce-style="width: 7%;"><span class=""> 8.3.5.</span></td>
+                        <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Phong tỏa và/hoặc đề nghị bên thứ
+                                ba phong tỏa tài khoản, tài sản của Bên Vay;</span></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 7%;" data-mce-style="width: 7%;"><span class=""> 8.3.6.</span></td>
+                        <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Trích tiền trên bất kỳ tài khoản
+                                nào của Bên Vay tại Ngân Hàng hoặc bất kỳ chi nhánh, phòng giao dịch nào của Ngân Hàng hoặc tại
+                                bất kỳ tổ chức tín dụng nào Bên Vay có tài khoản để thu hồi nợ và các nghĩa vụ tài chính khác.
+                                Bên Vay bằng quy định này, ủy quyền không hủy ngang cho Ngân Hàng trích tiền từ tài khoản của
+                                Bên Vay tại Ngân Hàng hoặc tại bất kỳ tổ chức tín dụng nào khác để thu hồi nợ và các nghĩa vụ
+                                tài chính khác;</span></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 7%;" data-mce-style="width: 7%;"><span class=""> 8.3.7.</span></td>
+                        <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Xử lý Tài sản bảo đảm hoặc áp dụng
+                                các chế tài theo quy định của pháp luật, quy định tại Hợp Đồng và (các) Hợp đồng bảo đảm để thu
+                                hồi nợ và các nghĩa vụ tài chính khác. Trong trường hợp quy định pháp luật hoặc quy định của bên
+                                thứ ba bất kỳ có yêu cầu, bằng điều khoản này, Bên Vay ủy quyền không hủy ngang và vô điều kiện
+                                cho Ngân Hàng được toàn quyền nhân danh và đại diện cho Bên Vay thực hiện tất cả các hành động,
+                                ký các văn bản cần thiết và thích hợp để xử lý Tài sản bảo đảm để thu hồi nợ và các nghĩa vụ tài
+                                chính khác.</span></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 7%;" data-mce-style="width: 7%;"><span class=""> 8.3.8.</span></td>
+                        <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Các biện pháp khác Ngân Hàng quyết
+                                định không trái với pháp luật.</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="tx12bold"><span class=""> ĐIỀU 9. </span> <span class=""> BẢO HIỂM:</span></div>
+            <div class="tx12 "><span class=" bold">9.1. </span> <span class=""> Trong suốt thời gian được cấp tín dụng theo Hợp
+                    Đồng, Bên Vay tự nguyện đồng ý: (i) mua bảo hiểm cho khoản vay và/hoặc bất kỳ Tài sản bảo đảm nào của Khoản
+                    Khoản vay tại Công ty bảo hiểm uy tín đã được Ngân Hàng đánh giá; và (ii) chuyển quyền thụ hưởng bảo hiểm
+                    cho Ngân Hàng. Trong thời hạn 03 (ba) Ngày Làm Việc sau khi bất kỳ hợp đồng bảo hiểm và/hoặc giấy chứng nhận
+                    bảo hiểm nào được cấp, Bên Vay sẽ cung cấp cho Ngân Hàng bản gốc của hợp đồng và/hoặc giấy chứng nhận đó với
+                    Bên thụ hưởng là Ngân Hàng</span></div>
+            <div class="tx12 "><span class=" bold">9.2. </span> <span class=""> Bên Vay cam kết thanh toán đúng hạn mọi khoản
+                    phí bảo hiểm và bất kỳ khoản tiền nào khác cần thiết để bảo đảm và duy trì hiệu lực của mỗi hợp đồng bảo
+                    hiểm trong suốt Thời hạn cho vay. Trường hợp Bên Vay không tiếp tục mua hoặc duy trì bảo hiểm trong suốt
+                    Thời hạn cho vay hoặc Bên Vay không chuyển quyền thụ hưởng bảo hiểm cho Ngân Hàng, Bên Vay đồng ý Ngân Hàng
+                    được quyền:: (i) thu hồi nợ trước hạn; hoặc (ii) điều chỉnh tăng Lãi suất cho vay; hoặc (iii) mua bảo hiểm
+                    thay cho Bên Vay</span> <span class=""> Trường hợp Ngân Hàng mua bảo hiểm thay cho Bên Vay, Ngân Hàng được
+                    lựa chọn Tổ chức bảo hiểm và quyết định tất cả các vấn đề liên quan khi mua bảo hiểm. Bên Vay có nghĩa vụ
+                    hoàn trả khoản tiền này cho Ngân Hàng trong kỳ thanh toán gần nhất và phải chịu một khoản tiền lãi phát sinh
+                    trong thời hạn chưa hoàn trả tính theo Lãi suất cho vay tại thời điểm Ngân Hàng mua bảo hiểm.</span></div>
+            <div class="tx12 "><span class="title2Index bold">9.3. </span> <span class=""> Bên Vay đồng ý và hiểu rõ: (i) việc
+                    mua bảo hiểm theo Điều này hoàn toàn tự nguyện, nhằm bảo vệ rủi ro cho Bên Vay và/hoặc Tài Sản Bảo Đảm; và
+                    (ii) thoả thuận này không gắn việc bán sản phẩm bảo hiểm với việc cung ứng sản phẩm, dịch vụ của Ngân
+                    Hàng.</span></div>
+            <div class="tx12bold "><span class=""> ĐIỀU 10. </span> <span class=""> THÔNG BÁO VÀ CUNG CẤP THÔNG TIN</span></div>
+            <div class="tx12 "><span class=" bold">10.1. </span> <span class=""> Tất cả các thông báo và thông tin được đưa ra
+                    theo Hợp Đồng sẽ được Ngân Hàng gửi đi theo một trong các cách thức sau: (i) đường bưu điện đến địa chỉ của
+                    Bên Vay tại phần giới thiệu Hợp Đồng, (ii) giao tận tay, (iii) nhắn tin đến số điện thoại mà Bên Vay đăng
+                    ký, (iv) Gửi thư điện tử tới hộp thư điện tử Bên Vay đăng ký hoặc (v) bất kỳ hình thức thông báo nào do Ngân
+                    Hàng quyết định không trái với quy định pháp luật. Các Bên đồng ý rằng việc thông báo bằng tin nhắn, thư
+                    điện tử, fax được coi là một hình thức thông báo bằng văn bản.</span></div>
+            <div class="tx12 "><span class=" bold">10.2. </span> <span class=""> Bên Vay có nghĩa vụ thông báo cho Ngân Hàng về
+                    bất kỳ thay đổi nào đối với địa chỉ, số điện thoại hoặc số fax, email của mình. Trong trường hợp không thông
+                    báo thì các thông tin được nêu tại phần mở đầu của Hợp Đồng vẫn giữ nguyên hiệu lực.</span></div>
+            <div class="tx12 "><span class=" bold">10.3. </span> <span class=""> Các thông tin của Bên Vay được Ngân Hàng bảo
+                    mật, trừ trường hợp phải cung cấp: (i) cho cá nhân, tổ chức có thẩm quyền theo quy định pháp luật; (ii) cho
+                    Trung tâm thông tin tín dụng của Ngân hàng nhà nước (CIC); (iii) cho tổ chức hành nghề công chứng và cơ quan
+                    đăng ký giao dịch bảo đảm; (iv) cho các cơ quan, tổ chức, cá nhân bất kỳ để bảo vệ các quyền và lợi ích hợp
+                    pháp của Ngân Hàng vì mục đích để thực hiện giải ngân, thu nợ, và thực hiện các nội dung khác theo quy định
+                    tại Hợp Đồng và Hợp đồng bảo đảm; (v) các trường hợp khác do pháp luật quy định</span></div>
+            <div class="tx12bold "><span class=""> ĐIỀU 11. </span> <span class=""> CAM KẾT CỦA BÊN VAY</span></div>
+            <div class="tx12 "><span class=" bold">11.1. </span> <span class=""> Bên Vay hiểu rõ và đồng ý Ngân Hàng có quyền
+                    kiểm tra, giám sát việc sử dụng vốn vay và trả nợ của Bên Vay; có quyền yêu cầu Bên Vay báo cáo việc sử dụng
+                    vốn vay và cung cấp tài liệu, dữ liệu chứng minh vốn vay được sử dụng đúng mục đích. Bên Vay có nghĩa vụ sử
+                    dụng vốn vay đúng mục đích đã cam kết. </span></div>
+            <div class="tx12 "><span class=" bold">11.2. </span> <span class=""> Bên Vay có trách nhiệm cung cấp thông tin, tài
+                    liệu, dữ liệu cho tổ chức tín dụng trung thực, chính xác, đầy đủ, kịp thời và phải chịu trách nhiệm về việc
+                    cung cấp thông tin, tài liệu, dữ liệu đó:</span></div>
+            <table class="table-no-border mce-item-table">
+                <tbody>
+                    <tr>
+                        <td style="width: 7%;" data-mce-style="width: 7%;"><span class=""> 11.2.1.</span></td>
+                        <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Các thông tin, tài liệu, dữ liệu
+                                chứng minh đủ điều kiện vay vốn theo yêu cầu của Ngân hàng và các thông tin về người có liên
+                                quan trong trường hợp pháp luật có quy định.</span></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 7%;" data-mce-style="width: 7%;"><span class=""> 11.2.2.</span></td>
+                        <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Báo cáo việc sử dụng vốn vay và
+                                cung cấp thông tin, tài liệu, dữ liệu chứng minh vốn vay được sử dụng đúng mục đích ghi trong
+                                thỏa thuận cho vay;</span></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 7%;" data-mce-style="width: 7%;"><span class=""> 11.2.3.</span></td>
+                        <td style="width: 93%;" data-mce-style="width: 93%;"><span class=""> Các thông tin, tài liệu, dữ liệu về
+                                biện pháp bảo đảm tiền vay trong trường Ngân Hàng, Bên Vay có thỏa thuận về việc áp dụng biện
+                                pháp bảo đảm.</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="tx12bold "><span class=""> ĐIỀU 12. </span> <span class=""> GIẢI QUYẾT TRANH CHẤP</span></div>
+            <div class="tx12 "><span class=""> Các Bên thỏa thuận tại Hợp đồng này về lựa chọn giải quyết tranh chấp tại cơ quan
+                    có thẩm quyền giải quyết như sau: (i) Trong trường hợp Ngân hàng khởi kiện thì Ngân hàng có quyền lựa chọn
+                    một trong các Tòa án nơi có Trụ sở của Ngân hàng hoặc Tòa án nơi cư trú của Bên Vay để nộp đơn khởi kiện;
+                    hoặc (ii) Nếu Bên Vay khởi kiện thì Bên Vay nộp đơn khởi kiện tại Tòa án nơi có trụ sở của Ngân hàng; hoặc
+                    (iii) giải quyết tranh chấp tại một Trung tâm Trọng tài thương mại bất kỳ do Ngân hàng lựa chọn, các bên
+                    đồng ý tuân thủ theo quy tắc trọng tài của Trung tâm Trọng tài này, Hội đồng trọng tài gồm 01 người duy nhất
+                    do Chủ tịch Trung tâm Trọng tài chỉ định. Trụ sở của Ngân Hàng được hiểu là trụ sở chính hoặc trụ sở của
+                    Phòng giao dịch hoặc Chi nhánh đã ghi tại phần giới thiệu Hợp Đồng. </span></div>
+            <div class="tx12bold "><span class=""> ĐIỀU 13. </span> <span class=""> ĐIỂU KHOẢN CHUNG</span></div>
+            <div class="tx12 "><span class=" bold">13.1 </span> <span class=""> Bên Vay đã được Ngân Hàng cung cấp đầy đủ thông
+                    tin liên quan đến khoản vay trước khi hai Bên xác lập Hợp Đồng này. Bên Vay đã đọc, hiểu rõ các thông tin
+                    được Ngân Hàng cung cấp. Bên Vay đồng ý với toàn bộ nội dung Hợp Đồng này. </span></div>
+            <div class="tx12 "><span class=" bold">13.2 </span> <span class=""> Các Bên đồng ý thực hiện đúng và đầy đủ các
+                    quyền và nghĩa vụ tại Hợp Đồng này. Trường hợp Bên nào vi phạm nghĩa vụ với Bên còn lại thì phải chịu phạt
+                    vi phạm, bồi thường thiệt hại cho Bên còn lại theo thoả thuận tại thời điểm xảy ra vi phạm hoặc theo quy
+                    định pháp luật. </span></div>
+            <div class="tx12 "><span class=" bold">13.3 </span> <span class=""> Hợp Đồng này được điều chỉnh theo pháp luật Việt
+                    Nam. Trong trường hợp khi có sự thay đổi của pháp luật, hướng dẫn của Ngân Hàng Nhà Nước Việt Nam hoặc các
+                    quy định nội bộ của Ngân Hàng dẫn tới sự khác biệt đối với các thỏa thuận đã được ghi nhận tại Hợp Đồng này,
+                    Các Bên đồng ý Ngân Hàng được tự động áp dụng những thay đổi này theo quy định pháp luật và quy định nội bộ
+                    cho phù hợp và thông báo cho Bên Vay được biết khi điều chỉnh. </span></div>
+            <div class="tx12 "><span class=" bold">13.4 </span> <span class=""> Trong trường hợp Hợp Đồng này được xác lập thông
+                    qua phương thức điện tử, Bên Vay tự chịu trách nhiệm về việc sử dụng chữ ký điện tử hoặc phương thức xác
+                    nhận giao dịch thông qua phương tiện điện tử được Ngân Hàng chấp thuận. Bên Vay hiểu rõ và đồng ý Hợp đồng
+                    được giao kết bằng phương thức điện tử có giá trị tương đương như được xác lập bằng văn bản và ràng buộc
+                    trách nhiệm của Bên Vay theo Hợp Đồng này. Bên Vay tự chịu trách nhiệm bảo quản và bảo mật các thiết bị được
+                    sử dụng để thực hiện giao dịch với Ngân Hàng thông qua phương thức điện tử. Bên Vay cam kết: (i) đã hiểu và
+                    đồng ý rằng việc sử dụng phương thức điện tử để giao kết Hợp Đồng không ảnh hưởng đến hiệu lực, nội dung của
+                    Hợp Đồng; (ii) chấp thuận mọi rủi ro có thể xảy ra từ việc giao kết Hợp Đồng thông qua phương thức điện tử
+                    và miễn trừ cho Ngân Hàng các trách nhiệm liên quan trong trường hợp có rủi ro/tranh chấp khi phương tiện
+                    điện tử bị lỗi hoặc bên thứ ba lợi dụng hoặc chiếm quyền hoặc xâm nhập; (iii) việc sử dụng phương thức điện
+                    tử trong giao dịch với Ngân Hàng không nhằm bất cứ mục đích bất hợp pháp nào khác.</span></div>
+            <div class="tx12 "><span class=" bold">13.5 </span>
+                <div class=""><span class=""> Hợp Đồng có hiệu lực kể từ ngày ký, được lập thành <span id="13_5_1"
+                            contenteditable="false" style="background-color: rgba(245, 39, 39, 0.54);">.....</span> <span
+                            class="">(</span><span id="13_5_1_word" contenteditable="false"
+                            style="background-color: rgb(255, 255, 255);">...</span> <span class="">)</span> bản có giá trị
+                        pháp lý như nhau, Bên Vay giữ <span id="13_5_2" contenteditable="false"
+                            style="background-color: rgba(245, 39, 39, 0.54);">.....</span> <span class="">(</span><span
+                            id="13_5_2_word" contenteditable="false" style="background-color: rgb(255, 255, 255);">...</span>
+                        <span class="">)</span> bản, Ngân Hàng giữ <span id="13_5_3" contenteditable="false"
+                            style="background-color: rgba(245, 39, 39, 0.54);">.....</span> <span class="">(</span><span
+                            id="13_5_3_word" contenteditable="false" style="background-color: rgb(255, 255, 255);">...</span>
+                        <span class="">)</span> bản.</span></div>
+            </div>
+            <table class="table-no-border tx12 bold mce-item-table" style="text-align: center; margin-top: 20px;"
+                data-mce-style="text-align: center; margin-top: 20px;">
+                <tbody>
+                    <tr>
+                        <td style="width: 50%;" data-mce-style="width: 50%;">
+                            <div class=" txcenter bold"><span id="footer_key1">BÊN VAY</span></div>
+                            <div><span class="italic">(Ký và ghi đầy đủ họ tên)</span></div>
+                        </td>
+                        <td style="width: 50%;" data-mce-style="width: 50%;">
+                            <div class=" txcenter bold"><span id="footer_key2">BÊN CHO VAY</span></div>
+                            <div><span class="italic">(Ký, ghi rõ họ tên, đóng dấu)</span></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

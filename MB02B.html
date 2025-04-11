@@ -170,13 +170,11 @@
             </table>
             <div id="giayUyQuyen" style="display: none;">
             </div>
-            <span>(Theo Giấy ủy quyền số </span>
-            <span class="html_key" id="poaDocId_key">[...]</span>
-            <span> ngày </span>
-            <span class="html_key" id="poaDocDate_key">[...]</span>
-            <span> của </span>
-            <span class="html_key" id="poaDocBy_key">[...]</span>
-            <span>)</span>
+            <div id="nganHangTable" style="display: none;">
+                <span class="tx12">(Theo Giấy ủy quyền số </span><span class="html_key" id="poaDocId_key">[...]</span>
+                <span> ngày </span><span class="html_key" id="poaDocDate_key">[...]</span>
+                <span> của </span><span class="html_key" id="poaDocBy_key">[...]</span><span>)</span>
+            </div>
             <p class="tx12">(Sau đây gọi tắt là <b><i>“Ngân Hàng”</i></b>)</p>
     
             <p class="tx12 bold">II. BÊN CHUYỂN NHƯỢNG:</p>
@@ -440,24 +438,31 @@
                             theo mô tả dưới đây:</p>
                     </td>
                 </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <p>- Diện tích:</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <p>- Địa chỉ:</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <p>- [các thông tin khác liên quan đến Tài Sản (nếu có)]:</p>
-                    </td>
-                </tr>
+                </table>
+                <table id="dieu1Table" class="tx12 table-no-border" style="display: none;">
+                    <tr>
+                        <td style="width: 7%;"></td>
+                        <td>
+                            <span>- Diện tích:</span>
+                            <span id="areaDieu1">[...]</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <span>- Địa chỉ:</span>
+                            <span id="addressDieu1">[...]</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <span>- [các thông tin khác liên quan đến Tài Sản (nếu có)]:</span>
+                            <span id="otherDieu1">[...]</span>
+                        </td>
+                    </tr>
+                </table>
+                <table class="tx12 table-no-border">            
                 <tr>
                     <td></td>
                     <td>
@@ -526,14 +531,15 @@
                 <tr>
                     <td></td>
                     <td>
-                        <p>Chủ tài khoản: <span class="html_key" id="blockedAccName_key">[...]</span></p>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <p>Số tài khoản: <span class="html_key" id="blockedAccNum_key">[...]</span>
-                            mở tại Ngân hàng: <span class="html_key" id="blockedAccBank_key">[...]</span></p>
+                        <div id="dieu2Table" style="display: none;">
+                            <div>
+                                <span>Chủ tài khoản: </span><span class="html_key" id="blockedAccName_key">[...]</span>
+                            </div>
+                            <div>
+                                <span>Số tài khoản: </span><span class="html_key" id="blockedAccNum_key">[...]</span>
+                                <span> mở tại Ngân hàng: </span><span class="html_key" id="blockedAccBank_key">[...]</span>
+                            </div>
+                        </div>
                     </td>
                 </tr>
                 <tr>
@@ -591,14 +597,15 @@
                 <tr>
                     <td style="width: 7%"></td>
                     <td>
-                        <p>Chủ tài khoản: <span class="html_key" id="beneficialAccName_key">[...]</span></p>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 7%"></td>
-                    <td>
-                        <p>Số tài khoản: <span class="html_key" id="beneficialAccNum_key">[...]</span>
-                            mở tại Ngân Hàng <span class="html_key" id="beneficialAccBank_key">[...]</span></p>
+                        <div id="dieu3Table" style="display: none;">
+                            <div>
+                                <span>Chủ tài khoản: </span><span class="html_key" id="beneficialAccName_key">[...]</span>
+                            </div>
+                            <div>
+                                <span>Số tài khoản: </span><span class="html_key" id="beneficialAccNum_key">[...]</span>
+                                <span> mở tại Ngân Hàng </span><span class="html_key" id="beneficialAccBank_key">[...]</span>
+                            </div>
+                        </div>
                     </td>
                 </tr>
                 <tr>
@@ -984,10 +991,12 @@
                         <p>8.5</p>
                     </td>
                     <td>
-                        <p>Thỏa thuận này gồm <span class="html_key" id="pageCount_key">[...]</span> trang được lập
-                            thành <span class="html_key" id="copyCount_key">[...]</span> bản chính, có nội dung và giá
-                            trị pháp lý như nhau, mỗi bên giữ <span class="html_key"
-                                id="copyCountOfStakeholder_key">[...]</span> bản để thực hiện.</p>
+                        <span>Thỏa thuận này gồm </span><span class="html_key" id="pageCount_key">[...]</span>
+                        <span> trang được lập thành </span><span class="html_key" id="copyCount_key">[...]</span>
+                        <span> ( </span><span class="html_key" id="copyCountText_key">[...]</span><span> ) </span>
+                        <span> bản chính, có nội dung và giá trị pháp lý như nhau, mỗi bên giữ </span>
+                        <span class="html_key" id="copyCountOfStakeholder_key">[...]</span><span> bản để thực hiện.</span>
+                        <span> ( </span><span class="html_key" id="copyCountOfStakeholderText_key">[...]</span><span> ) </span>
                     </td>
                 </tr>
     
