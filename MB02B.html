@@ -130,7 +130,7 @@
             </p>
             <p class="tx12 italic">- Căn cứ Hợp đồng tín dụng số <span class="html_key" id="creditAgrmtId_key">[...]</span>
                 ngày <span class="html_key" id="creditAgrmtDate_key">[...]</span>
-                giữa Ngân hàng TMCP Đại Chúng Việt Nam - Chi nhánh/PGD <span class="html_key" id="creditAgrmtBranch_key">[...]</span>
+                giữa Ngân hàng TMCP Đại Chúng Việt Nam - <span class="html_key" id="creditAgrmtBranch_key">[...]</span>
                 và ông/Bà <span class="html_key" id="creditAgrmtCustomer_key">[...]</span>
                 (Sau đây gọi tắt là “<b>Hợp Đồng Tín Dụng</b>”)
             </p>
@@ -241,7 +241,7 @@
             </div>
             <!-- Trường hợp Bên chuyển nhượng là cá nhân -->
             <div id="caNhan" style="display: none;">
-                <p class="tx12 bold">Ông bà <span class="html_key" id="senderIdvName_key">[...]</span></p>
+                <p class="tx12 bold"><span id="senderDanxung"></span> <span class="html_key" id="senderIdvName_key">[...]</span></p>
                 <table class="tx12 table-no-border">
                     <tr>
                         <td style="width: 25%;">
@@ -285,7 +285,7 @@
             </div>
             <div id="voChong" style="display: none;">
                 <p class="tx12 bold">
-                    Và Vợ/Chồng: Ông/Bà <span class="html_key" id="senderIdvSpouseName_key">[...]</span>
+                    Và <span id="senderQuanHe"></span> : <span id="senderDanhXung"></span> <span class="html_key" id="senderIdvSpouseName_key">[...]</span>
                 </p>
                 <table class="tx12 table-no-border">
                     <tr>
@@ -330,11 +330,11 @@
             </div>
             <p class="tx12">(Sau đây gọi tắt là <b><i>“Bên Chuyển Nhượng”</i></b>)</p>
             <p class="tx12 bold">III. BÊN NHẬN CHUYỂN NHƯỢNG</p>
-            <p class="tx12 bold">
+            <!-- <p class="tx12 bold">
                 Ông <span class="html_key" id="recvNameCap_key">[...]</span>
                 [và Bà <span class="html_key" id="recvMsNameCap_key">[...]</span>]
-            </p>
-            <p class="tx12">Ông: <span class="html_key" id="recvName_key">[...]</span></p>
+            </p> -->
+            <p class="tx12 bold"><span id="recvDanhXung"></span> <span class="html_key" id="recvName_key">[...]</span></p>
             <table class="tx12 table-no-border">
                 <tr>
                     <td style="width: 30%;">
@@ -477,7 +477,7 @@
                             nhượng Tài Sản với thông tin cụ thể như sau:
                         </p>
                         <p>- Số tiền cho vay tối đa là <span class="html_key" id="maxLoanAmt_key">[...]</span> (Bằng
-                            chữ: <span class="html_key" id="maxLoanAmtText_key">[...]</span>)
+                            chữ: <span class="html_key" id="maxLoanAmtText_key">[...]</span><span>) đồng</span>
                         </p>
                         <p>- Thời hạn vay vốn: <span class="html_key" id="loanDuration_key">[...]</span></p>
                         <p>(Sau đây gọi chung là <b>Khoản Vay”</b>).</p>

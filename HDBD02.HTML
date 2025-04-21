@@ -204,11 +204,9 @@
             </p>
             <br>
 
-            <p class="tx15 txcenter bold"><span class="">HỢP ĐỒNG THẾ CHẤP CĂN HỘ CHUNG CƯ</span> <span id="mortgageContractType_key">. . . .
-                    .</span></p>
+            <p class="tx15 txcenter bold"><span class="">HỢP ĐỒNG THẾ CHẤP CĂN HỘ CHUNG CƯ</span></p>
             <p class="tx12 txcenter italic"><span class="">Số:</span><span id="mortgageContractNumber_key">. . . .
-                    .</span>/20<span id="contractYear_key">. . .</span>/HĐBĐ/PVB - <span id="bankCode_key">. . .
-                    .</span></p>
+                    .</span>
             <div style="text-align: center;"><span class=""><br></span></div>
 
 
@@ -222,7 +220,8 @@
                 <span class=""> Bên Thế Chấp:</span>
             </p>
 
-            <p class="tx12 bold "><span class="underline">Trường hợp Bên Thế Chấp là cá nhân:</span></p>
+            <div id="caNhanSection">
+<p class="tx12 bold "><span class="underline">Trường hợp Bên Thế Chấp là cá nhân:</span></p>
 
             <table id="TableCaNhan" class="table-no-border" style="display: none;">
                 <tr>
@@ -271,6 +270,9 @@
             <div id="TableCaNhanList">
                 <span style="display: none;">hahaha</span>
             </div>
+            </div>
+            
+            <div id="tochucSection">
             <p class="tx12 bold ">
                 <span class="underline">Trường hợp Bên Thế Chấp là tổ chức</span><span
                     id="mortgagorOrganization_key"></span>
@@ -442,6 +444,8 @@
                     </td>
                 </tr>
             </table>
+            </div>
+
             <p class="tx12 italic">
                 <span class="">(Sau đây gọi tắt là </span><span class="bold">“Bên Thế
                     Chấp”</span><span class="">)</span>
@@ -940,7 +944,7 @@
                 </table>
                 <span class="italic">Hoặc</span>
             </div>
-            <div id="phuongAn2">
+            <div id="phuongAn2" style="display: none;">
                 <table class="table-no-border">
                     <tr>
                         <td class="left">
@@ -987,7 +991,7 @@
                 <span class="italic">Hoặc</span>
             </div>
             <div></div>
-            <table class="table-no-border" id="phuongAn3">
+            <table class="table-no-border" id="phuongAn3" style="display: none;">
                 <tr>
                     <td class="left">
                         <span class="bold"></span>
@@ -1033,7 +1037,7 @@
                     <td>
                     </td>
                     <td>
-                        <table class="table-no-border" id="TableToChucDieu2">
+                        <table class="table-no-border" id="TableToChucDieu2" style="display: none;">
                             <tr>
                                 <td class="left">
                                     <span class=""></span>
@@ -1086,7 +1090,7 @@
                     <td>
                     </td>
                     <td>
-                        <table class="table-no-border" id="TableCaNhanDieu2">
+                        <table class="table-no-border" id="TableCaNhanDieu2" style="display: none;">
                             <tr>
                                 <td class="left">
                                     <span class=""></span>
@@ -1248,7 +1252,7 @@
                                     <span id="issueDateDieu3"></span>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr id="other" style="display: none;">
                                 <td class="left">
                                     <span class="">-</span>
                                 </td>
@@ -1373,7 +1377,7 @@
                         <span class="">5.</span>
                     </td>
                     <td class="right">
-                        <span id="additionalRights_key">[. . . . . . . . .]</span>
+                        <span id="additionalRights_key" style="display: none;">[. . . . . . . . .]</span>
                     </td>
                 </tr>
                 <tr>
@@ -1510,7 +1514,7 @@
                         <span class="">11.</span>
                     </td>
                     <td class="right">
-                        <span id="additionalObligations_key">[. . . . . . . . .]</span>
+                        <span id="additionalObligations_key" style="display: none;">[. . . . . . . . .]</span>
                     </td>
                 </tr>
                 <tr>
@@ -1588,6 +1592,8 @@
                                         Hàng làm ảnh hưởng nghiêm trọng đến khả năng giao dịch của Tài Sản Thế Chấp.</span>
                                 </td>
                             </tr>
+                        </table>
+                        <table class="table-no-border" id="dieu6CaNhan" style="display: none;">
                             <tr>
                                 <td>
                                     <span class="">d)</span>
@@ -1603,16 +1609,11 @@
                                     <span class="">Bất kỳ người nào thuộc Bên Thế Chấp chết hoặc bị tuyên bố chết, mất tích hoặc bị tuyên bố mất tích, bị tuyên bố mất năng lực hành vi, ly hôn, bỏ trốn hoặc thay đổi nơi cư trú mà không thông báo cho Ngân Hàng hoặc bị Tòa án xác định vắng mặt tại nơi cư trú; hoặc liên quan đến các tranh chấp, khiếu kiện có liên quan đến Tài Sản Thế Chấp; hoặc bị bắt, bị tạm giữ, là bị can, bị cáo hoặc thuộc các trường hợp khác mà theo đánh giá của Ngân Hàng có ảnh hưởng  hoặc có khả năng ảnh hưởng bất lợi đến khả năng thực hiện các nghĩa vụ, thỏa thuận đã ký với Ngân Hàng.</span>
                                 </td>
                             </tr>
+                        </table>
+                        <table class="table-no-border" id="dieu6ToChuc" style="display: none;">
                             <tr>
                                 <td>
-                                </td>
-                                <td>
-                                    <span class="italic">Hoặc:</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class=""></span>
+                                    <span class="">d)</span>
                                 </td>
                                 <td>
                                     <span class="underline tx12bolditalic">Trường hợp Bên Thế Chấp là tổ chức:</span>
@@ -1636,6 +1637,8 @@
                                         hiện các nghĩa vụ, thỏa thuận đã ký với Ngân Hàng.</span>
                                 </td>
                             </tr>
+                        </table>
+                        <table class="table-no-border" id="dieu62CaNhan" style="display: none;">
                             <tr>
                                 <td>
                                     e)
@@ -1655,14 +1658,10 @@
                                         năng trả nợ của Bên Được Bảo Đảm đối với Ngân Hàng.</span>
                                 </td>
                             </tr>
+                        </table>
+                        <table class="table-no-border" id="dieu62ToChuc" style="display: none;">
                             <tr>
-                                <td></td>
-                                <td class="tx12 italic">
-                                    <span class="">Hoặc:</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
+                                <td>e)</td>
                                 <td>
                                     <span class="tx12bolditalic underline">Trường hợp Bên Được Bảo Đảm là tổ chức:</span>
                                 </td>
@@ -1677,6 +1676,8 @@
                                         Ngân Hàng.</span>
                                 </td>
                             </tr>
+                        </table>
+                        <table class="table-no-border">
                             <tr>
                                 <td>
                                     f)
