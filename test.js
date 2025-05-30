@@ -323,12 +323,12 @@ try {
   // BM03 - Bảng phương án cấp tín dụng
 
   var tableData = [];
-  //	if (!tw.local.loanApplicationInformation.loanPurpose.ClauseLoan) {
-  //	  tw.local.loanApplicationInformation.loanPurpose.ClauseLoan = {};
-  //	}
-  //	if (!tw.local.loanApplicationInformation.loanPurpose.ClauseLoan.planLoan) {
-  //	  tw.local.loanApplicationInformation.loanPurpose.ClauseLoan.planLoan = [];
-  //	}
+  	if (!tw.local.loanApplicationInformation.loanPurpose.ClauseLoan) {
+  	  tw.local.loanApplicationInformation.loanPurpose.ClauseLoan = {};
+  	}
+  	if (!tw.local.loanApplicationInformation.loanPurpose.ClauseLoan.planLoan) {
+  	  tw.local.loanApplicationInformation.loanPurpose.ClauseLoan.planLoan = [];
+  	}
 
   var loanPlanListT = tw.local.loanApplicationInformation.loanPurpose.ClauseLoan.planLoan;
 
@@ -343,8 +343,6 @@ try {
     }
     rowData["thoiHanRutVon"] = getString("");
     rowData["laiSuatPhiDieuChinh"] = getString("");
-    rowData["MH01_4_51"] = getString(tw.local.loanApplicationInformation.loanPurpose.ClauseLoan.conditionsBeforeDisbur);
-    rowData["MH01_4_52"] = getString(tw.local.loanApplicationInformation.loanPurpose.ClauseLoan.conditionsAfterDisbur);
 
     if (elem.loanPlan == "01") {
       rowData["MH01_4_15"] = getStringConcat(getStringAsCurrency(elem.loanAmountPropose), ' VND');
@@ -368,6 +366,7 @@ try {
       rowData["MH01_4_44"] = getString("");
     }
 
+    rowData["listTSBD"] = getTSBDThanhlc(elem.loanPlanCode);
     tableData.push(rowData);
   }
   setDatasource("BM03_DS_PACTD", JSON.stringify(tableData));
@@ -477,7 +476,7 @@ try {
         for (var j = 0; j < elem.listPricingInfo.length; j++) {
           var elemTier2 = elem.listPricingInfo[j];
           rowData = {};
-          var mucDich = elemTier2.purposeuUseConvertedLand;
+          var mucDich = getString(elemTier2.purposeuUseConvertedLand);
           rowData["maTaiSan"] = mucDich;
           rowData["chuSoHuu"] = "";
           rowData["quanHeCSHvoiKH"] = "";
@@ -779,6 +778,8 @@ try {
           }
           vayToiDa += elemTier3.loanAmountTSBDByQD;
           vayDVKD += elemTier3.loanAmountTSBDByDVKDProposal;
+          TSBDConLai += elemTier3.remainingAssetValue;
+
         }
       }
       rowData["giaTriDinhGia"] = getStringConcat(getStringAsCurrency(decimalToString(elem.faceValue)), ' VND');
@@ -1014,6 +1015,8 @@ try {
           }
           vayToiDa += elemTier3.loanAmountTSBDByQD;
           vayDVKD += elemTier3.loanAmountTSBDByDVKDProposal;
+          TSBDConLai += elemTier3.remainingAssetValue;
+
         }
       }
       rowData["giaTriDinhGia"] = getStringConcat(getStringAsCurrency(decimalToString(elem.faceValue)), ' VND');
@@ -1250,6 +1253,7 @@ try {
           }
           vayToiDa += elemTier3.loanAmountTSBDByQD;
           vayDVKD += elemTier3.loanAmountTSBDByDVKDProposal;
+          TSBDConLai += elemTier3.remainingAssetValue;
         }
       }
       rowData["giaTriDinhGia"] = getStringConcat(getStringAsCurrency(decimalToString(elem.valuationValue)), ' VND');
@@ -1501,6 +1505,9 @@ try {
     tableData.push(rowData);
   }
   setDatasource("BM03_DS_DX_CAP_TD", JSON.stringify(tableData));
+
+
+  
 } catch (e) {
   //	tw.local.test = "error---set datasources VuNTN=========>>>" + e.toString() + " line: " + e.lineNumber;
   log.info("error---set datasources VuNTN=========>>>" + e.toString() + " line: " + e.lineNumber);
@@ -1523,6 +1530,91 @@ try {
 // 		tw.local.capitalUseDetails[i].MH01_2_137 = formatDecimal(decimalToString(tw.local.disbursementApprove.CustomerInfor.CapitalUseInformationDetail.ListCapitalUseDetail[i].RemainContractCredit));
 // 	}
 // }
+function getTSBDThanhlc(loanPlanCode) {
+  var securedAssets = tw.local.loanApplicationInformation.VerificationInfo.expertiseInfo.evaluate.securedAssets;
+
+  var tableData = [];
+  for (var i = 0; i < tw.local.loanApplicationInformation.TSBD.TSBDMain.length; i++) {
+    //Tài sản bảo đảm đồng thời là phương án vay
+    var rowData = {};
+    var elem = tw.local.loanApplicationInformation.TSBD.TSBDMain[i];
+    if (elem.isParent) {
+      var matchedAsset = null;
+      for (var j = 0; j < securedAssets.length; j++) {
+        if (securedAssets[j].assetCodeDocumentNumber === elem.AssetCode) {
+          matchedAsset = securedAssets[j];
+          break;
+        }
+      }
+
+      for (var k = 0; k < elem.listTSBDDetailByLoanIncurred.length; k++) {
+        var rowData = {};
+        var purposeLoanPrefix = elem.listTSBDDetailByLoanIncurred[k].purposeLoan.substring(0, 4);
+        rowData["loanPlanCode"] = purposeLoanPrefix;
+        if(!(purposeLoanPrefix == loanPlanCode)) {
+          continue;
+        }
+        rowData["taiSanBaoDam"] = getString(elem.AssetCode);
+
+        if (elem.TSBDLevel1 == "BatDongSan") {
+          if (elem.listPricingInfo) {
+            rowData["mucDich"] = getString(elem.listPricingInfo[k].purposeuUseConvertedLand);
+          }
+        } else {
+          rowData["mucDich"] = "";
+        }
+        rowData["taiSanConLai"] = getStringConcat(getStringAsCurrency(decimalToString(elem.listTSBDDetailByLoanIncurred[k].remainingAssetValue)), ' VND');
+        strMoneyRounded = (elem.listTSBDDetailByLoanIncurred[k].loanAmountTSBDByDVKDProposal ?
+          Math.round(parseFloat(elem.listTSBDDetailByLoanIncurred[k].loanAmountTSBDByDVKDProposal)) : 0).toString();
+        rowData["LTV"] = getStringConcat(getStringAsCurrency(strMoneyRounded), ' VND');
+        tableData.push(rowData);
+      }
+    }
+  }
+
+  for (var i = 0; i < tw.local.loanApplicationInformation.TSBD.TSBDOther.length; i++) {
+    // Thông tin Tài sản bảo đảm khác
+    var rowData = {};
+    var elem = tw.local.loanApplicationInformation.TSBD.TSBDOther[i];
+    if (elem.isParent) {
+      var matchedAsset = null;
+      for (var j = 0; j < securedAssets.length; j++) {
+        if (securedAssets[j].assetCodeDocumentNumber === elem.AssetCode) {
+          matchedAsset = securedAssets[j];
+          break;
+        }
+      }
+      for (var k = 0; k < elem.listTSBDDetailByLoanIncurred.length; k++) {
+        var rowData = {};
+        var purposeLoanPrefix = elem.listTSBDDetailByLoanIncurred[k].purposeLoan.substring(0, 4);
+        rowData["loanPlanCode"] = purposeLoanPrefix;
+        rowData["taiSanBaoDam"] = getString(elem.AssetCode);
+
+        if (elem.TSBDLevel1 == "BatDongSan") {
+          if (elem.listPricingInfo && elem.listPricingInfo.length) {
+            rowData["mucDich"] = getString(elem.listPricingInfo[k].purposeuUseConvertedLand);
+          } else {
+            rowData["mucDich"] = getString(elem.listTSBDDetailByLoanIncurred[k].purposeOfUse);
+          }
+        } else {
+          rowData["mucDich"] = "";
+        }
+        rowData["taiSanConLai"] = getStringConcat(getStringAsCurrency(decimalToString(elem.listTSBDDetailByLoanIncurred[k].remainingAssetValue)), ' VND');
+        strMoneyRounded = (elem.listTSBDDetailByLoanIncurred[k].loanAmountTSBDByDVKDProposal ?
+          Math.round(parseFloat(elem.listTSBDDetailByLoanIncurred[k].loanAmountTSBDByDVKDProposal)) : 0).toString();
+        rowData["LTV"] = getStringConcat(getStringAsCurrency(strMoneyRounded), ' VND');
+        tableData.push(rowData);
+      }
+
+    }
+  }
+  if (tableData.length == 0) {
+    tableData.push({});
+  }
+
+  return tableData;
+}
+
 
 function setTimeZone(str) {
   var releaseDate = new tw.object.Date();
@@ -1770,12 +1862,6 @@ function getSanPhamTSBD(purposeLoan) {
   for (var i = 0; i < tw.local.loanApplicationInformation.loanPurpose.ClauseLoan.planLoan.length; i++) {
     var elem = tw.local.loanApplicationInformation.loanPurpose.ClauseLoan.planLoan[i];
     if (purposeLoanPrefix == elem.loanPlanCode) {
-      // if (elem.loanPlan == "01") {
-      //   return (elem.loanPurposeName);
-      // } else if (elem.loanPlan == "02") {
-      //   if (!elem.creditCardInformationMain) elem.creditCardInformationMain = {};
-      //   return (elem.creditCardInformationMain.loanPurposeName);
-      // }
       return (getString(tw.local.mapCategory.get(elem.product + "_" + "TS024")))
     }
   }
